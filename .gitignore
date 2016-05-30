@@ -1,0 +1,6 @@
+#TeX-associated files
+*.aux
+*latexmk
+*.fls
+*.log
+*synctex
