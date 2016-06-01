@@ -15,3 +15,9 @@ Use the Wechat group for questions.
 ## Problem Sets
 
 [Problem Set 1: June 6, 2016](hw_01.pdf)
+
+## Interesting and Germane Articles
+
+* [The Economist: Brazilian Waxing and Waning](http://www.economist.com/blogs/graphicdetail/2016/04/economic-backgrounder) _macro policy lingo-heavy foray into the ongoing economic crisis in Brazil_
+
+* [Forbes & WSJ: Indian Statistical Bureau institutes new rules for calculating GDP](articles_india_gdp_calculation.pdf) _In January 2015 India changed its official method for calculating GDP, which, though arcane, has had effects on it in the market_
