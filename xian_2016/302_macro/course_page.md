@@ -1,4 +1,4 @@
-# Intermediate Macroeconomics, Summer 2016
+% Intermediate Macro @ NAIS, Summer 2016
 
 Welcome to the course page! I'll post the syllabus and problem sets here.
 
