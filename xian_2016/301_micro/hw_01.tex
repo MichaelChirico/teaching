@@ -1,0 +1,54 @@
+\documentclass{article}
+
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro HW 1}
+
+\maketitle
+
+\section*{DUE DATE: June 6, 2016 at start of class}
+
+\section{Nonconvex Indifference Curves}
+
+\begin{enumerate}
+\item What does it mean for a set to be convex?
+\item What does it mean for indifference curves to be convex?
+\item Think of a real-life decision problem where indifference curves can reasonably be nonconvex. Explain why you think the ICs are nonconvex in this situation.
+\end{enumerate}
+
+\section{Didi Chuxing and Uber}
+Consider the problem of getting around Xi'An over the course of your month-long stay here.
+
+For the purposes of the exercise, you only have two choices for any given trip -- Didi Chuxing (herein Didi) and Uber. 
+
+\begin{enumerate}
+\item Argue that Didi and Uber are perfect substitutes. To do so, you'll need to explain what perfect subtitutes are, and why this setting applies to Didi and Uber.
+\item Now argue that Didi and Uber are \textit{not} perfect substitutes. Which description do you think is more accurate? 
+\item Fix your income at \textyen30000 per month. Let the price of an Uber be $p_u$ per mile and that of Didi $p_d$. Assuming perfect substitutes, describe the demand function as a function of the price pair $(p_u, p_d)$.
+\end{enumerate}
+
+\section{Textbook Exercises}
+
+Varian Exercises 4.3, 4.4, and 5.5
+
+\end{document}
