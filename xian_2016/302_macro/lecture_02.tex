@@ -1,0 +1,169 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+
+\begin{document}
+
+\title{Lecture 2}
+\author{Michael Chirico}
+\date{\today}
+
+\maketitle
+
+\subsection*{Definition of GDP}
+GDP is defined in our text as ``market value of the final goods and services produced in an economy [in a given year]''.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|r|r|l|}
+\hline
+Entity & GDP (\$ USD, Billion) & Equivalent Countries \\
+\hline
+USA & \$17,000 & - \\
+China & \$10,000 & - \\
+Japan & \$4,600 & - \\
+Germany & \$3,900 & - \\
+Tokyo & \$1,900 & Russia, India \\
+NYC & \$1,500 & Australia \\
+LA & \$800 & Turkey, Saudi Arabia \\
+Seoul & \$700 & Switzerland \\
+Paris & \$700 &  \\
+Chicago & \$600 & Sweden, Argentina \\
+Philadelphia & \$400 & Colombia, UAE, Thailand \\
+Shanghai & \$400 & \\
+Beijing & \$300 & Singapore, Malaysia \\
+Xi'an & \$100 & Morocco, Angola \\
+\hline
+\multicolumn{3}{l}{\scriptsize{All numbers taken from Wikipedia; none are at PPP}}
+\end{tabular}
+\end{table}
+
+\subsection*{Production = Expenditure = Income}
+Modified example from book: production on a durian farm
+
+\subsubsection*{Production}
+Count total durian production
+
+\subsubsection*{Expenditure}
+Count sales at the roadside durian stand
+
+\subsubsection*{Income}
+Count income earned
+
+\section*{Expenditure Approach}
+
+\[
+Y = C + I + G + X
+\]
+
+Where
+
+\begin{eqnarray*}
+Y & = & \mbox{GDP} \\
+C & = & \mbox{consumption} \\
+I & = & \mbox{investment} \\
+G & = & \mbox{government purchases} \\
+X & = & \mbox{net exports: exports - imports} \\	
+\end{eqnarray*}
+
+Breakdown in the US (textbook):
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{table_jones_2_1.png}
+\end{figure}
+
+Evolution over time (textbook):
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{figure_jones_2_1.png}
+\end{figure}
+
+\subsection*{Breakdown of Exports, China \& USA}
+
+There's an excellent website, The Observatory of Economic Complexity, run by Alex Simoes at MIT, which gives a wealth of data on countries' economies, especially imports/exports: http://atlas.media.mit.edu/en/
+
+In addition to breaking down economies by country, it gives a lot of information about import-export networks (trade flows, which countries are receiving from/giving to which countries, and how much) and even about specific products (so you can understand better where certain raw materials are typically produced and follow their supply chain).
+
+Here is a comparison of imports/exports for China and the US
+
+\newpage
+
+\subsubsection*{Imports}
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{china_import_chart.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{usa_import_chart.png}
+\end{figure}
+
+Can you guess which is China and which is the US?
+
+\newpage
+
+\subsubsection*{Exports}
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{china_export_chart.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[width=\textwidth]{usa_export_chart.png}
+\end{figure}
+
+\section*{Income Approach}
+
+Every dollar paid is a dollar earned.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{table_jones_2_2.png}
+\end{figure}
+
+About depreciation: if we exclude depreciation, we get the \textit{net domestic product}. We don't really measure it -- it's there to ensure the balance of the different approaches to measuring GDP.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{figure_jones_2_3.png}
+\end{figure}
+
+\section*{Production Approach}
+
+A hotpot restaurant buys \textyen1000 of chili peppers and oil from one farmer, \textyen1000 of beef from another, \textyen1000 of mushrooms from another, and \textyen1000 of Tsingtao from a beer distributor. They sell all of this for \textyen50000. What is the contribution of GDP of all of this?
+
+If we chose \textyen54000, we'd be double counting. GDP only includes the \textyen50000 sale of \textit{final goods and services} by the restaurant.
+
+An alternative way to think of this is through a \textbf{value-added} approach. Each farmer and the beer distributor contributed \textyen1000 to GDP; the restaurant only added \textyen46000, so that is their contribution.
+
+\section*{Subtleties of GDP Measurement}
+
+GDP does \textit{not} include private services/value-added. There's no way to count your family's herb garden towards GDP unless it is involved in an officially recorded market transaction.
+
+How much does US GDP rise in each of the following scenarios?
+
+\begin{itemize}
+\item You spend \$5,000 on tuition
+\item You buy a used car from a friend for \$2,500
+\item The government spends \$100 million building a dam
+\item Two foreign graduate students working as teaching assistants in the US earn \$5,000 each
+\end{itemize}
+
+
+
+\end{document}

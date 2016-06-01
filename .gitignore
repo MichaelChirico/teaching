@@ -7,3 +7,7 @@
 
 #images
 *.png
+*.jpg
+
+#temporary files
+*~lock
