@@ -8,4 +8,6 @@ Use the Wechat group for questions.
 
 ## Problem Sets
 
-[Problem Set 1](hw_01.pdf)
+[Problem Set 1](hw_01.pdf) [solutions]
+
+Problem Set 2 [solutions]
