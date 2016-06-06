@@ -1,0 +1,109 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro HW 1}
+
+\maketitle
+
+\section{Nonconvex Indifference Curves}
+
+\begin{enumerate}
+\item What does it mean for a set to be convex?
+
+\textcolor{red}{%
+Layman's terms: A set is convex if no line drawn between two contained points exits the set.%
+}
+
+\textcolor{red}{%
+Mathematically: $X$ is convex iff $x,y\in X \Rightarrow \lambda x + (1-\lambda) y \in X \forall \lambda \in [0,1]$%
+}
+
+\item What does it mean for indifference curves to be convex?
+
+\textcolor{red}{%
+Layman's terms: Convex indifference curves mean a person exhibits diminishing marginal utility, and trades off smoothly among their potential choices.%
+}
+
+\textcolor{red}{%
+Mathematically: An indifference curve is convex if the upper level set (the set of all higher indifference curves) is convex.%
+}
+
+\item Think of a real-life decision problem where indifference curves can reasonably be nonconvex. Explain why you think the ICs are nonconvex in this situation.
+
+\textcolor{red}{Open-ended}
+
+\end{enumerate}
+
+\section{Didi Chuxing and Uber}
+Consider the problem of getting around Xi'An over the course of your month-long stay here.
+
+For the purposes of the exercise, you only have two choices for any given trip -- Didi Chuxing (herein Didi) and Uber. 
+
+\begin{enumerate}
+\item Argue that Didi and Uber are perfect substitutes. To do so, you'll need to explain what perfect subtitutes are, and why this setting applies to Didi and Uber.
+
+\textcolor{red}{Open-ended}
+
+\item Now argue that Didi and Uber are \textit{not} perfect substitutes. Which description do you think is more accurate? 
+
+\textcolor{red}{Open-ended}
+
+\item Fix your income at \textyen30000 per month. Let the price of an Uber be $p_u$ per mile and that of Didi $p_d$. Assuming perfect substitutes, describe the demand function as a function of the price pair $(p_u, p_d)$.
+
+\textcolor{red}{%
+If $p_u > p_d$, $u = 0$ and $d = \frac{30000}{p_d}$. Similarly if $p_d > p_u$. If $p_u = p_d$, we are content with any combination of $u$ and $d$, as long as we exhaust our income.%
+}
+\end{enumerate}
+
+\section{Textbook Exercises}
+
+\begin{itemize}
+
+\item Varian Exercise 4.3
+
+\textcolor{red}{%
+Take the line $y = kx$ through the origin. Take $x < x'$. Then $y = kx < y' = kx'$. Therefore $u(x,y) < u(x', y')$. Thus $(x,y)$ and $(x', y')$ cannot be on the same indifference curve.%
+}
+
+\item Varian Exercise 4.4
+
+
+\textcolor{red}{%
+$\sqrt{x_1 + x_2}$ is a monotonic transformation of utility for perfect substitutes.%
+}
+
+\textcolor{red}{%
+Ditto $13x_1 + 13x_2$.%
+}
+
+\item Varian Exercise 5.5
+
+\textcolor{red}{%
+This utility function is a monotonic transformation of $u(x_1, x_2) = x_1^{\frac15}x_2^{\frac45}$. That is, it's simply Cobb-Douglas. We know that income shares are determined by the exponents. $\frac45$ will go towards good 2.%
+}
+
+\end{itemize}
+
+\end{document}
