@@ -8,6 +8,10 @@ Use the Wechat group for questions.
 
 ## Problem Sets
 
-[Problem Set 1](hw_01.pdf) [solutions]
+* [Problem Set 1: June 6, 2016](hw_01.pdf) [[solutions](hw_01_sol.pdf)]
 
-Problem Set 2 [solutions]
+* [Problem Set 2: June 13, 2016] [solutions]
+
+## Quizzes/Exams
+
+* [Quiz 1 (June 6)](quiz_01.pdf) [solutions]
