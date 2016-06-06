@@ -14,4 +14,4 @@ Use the Wechat group for questions.
 
 ## Quizzes/Exams
 
-* [Quiz 1 (June 6)](quiz_01.pdf) [solutions]
+* [Quiz 1 (June 6)](quiz_01.pdf) [solutions](quiz_01_sol.pdf)
