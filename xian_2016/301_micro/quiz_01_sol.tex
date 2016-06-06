@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Intermediate Micro Quiz 1}
+
+\maketitle
+
+\section{Shape of Indifference Curves}
+
+Consider the utility function
+
+\[
+u(x_1, x_2) = \min\{x_1, x_2^2\}
+\]
+
+What do the indifference curves look like for this function?
+
+\color{red}
+Indifference curves are the family of functions indexed by all $\bar{u}$ such that
+
+\[
+\bar{u} = \min\{x_1, x_2^2\}
+\]
+
+If $\min\{x_1, x_2^2\} = \bar{u}$, then either $x_1 = \bar{u}$ and $x_2^2 > x_1$, or $x_2^2 = \bar{u}$ and $x_1 > x_2^2$. An illustration for $\bar{u} = 4$ can be found in Figure \ref{leon}:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.5\textwidth]{quiz_01_1_graph}
+\caption{Quasi-Leontief Preferences}
+\label{leon}
+\end{figure}
+
+The story for other values of $\bar{u}$ is similar; thus, like Leontief preferences, all ICs are L-shaped. The difference is that the corner of Leontief preferences follows the 45-degree line; here, they follow the curve $y = \sqrt{x}$.
+
+\color{black}
+
+\section{Demand}
+
+Consider the utility function
+
+\[
+u(x_1, x_2) = -\left((x_1 - 2)^2 - (x_2 - 3)^2\right)
+\]
+
+With $p_1 = 5$, $p_2 = 2$, and $y = 20$, what bundle of goods will be chosen?
+
+\textit{Hint: What does this function look like? Try to draw its indifference curves}
+
+\color{red}
+The key is to recognize that this utility function represents satiated preferences.
+
+The function's global behavior can be inferred from Figure \ref{func}.
+
+We can also see from Figure \ref{ics} that its indifference curves are circles centered at the point $(2, 3)$.
+
+So this individual behaves as follows: If I can afford $(2, 3)$, I buy it, no matter what. Otherwise, I choose the cheapest bundle I can afford that minimizes the distance from $(2, 3)$.
+
+In this case, the cost of the $(2, 3)$ bundle is $16 < 20$, so the demand is $(2, 3)$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.5\textwidth]{quiz_01_2_graph_1.png}
+\caption{Globally Satiated Preferences}
+\label{func}
+
+\includegraphics[width=.5\textwidth]{quiz_01_2_graph_2.png}
+\caption{Circular Indifference Curves}
+\label{ics}
+\end{figure}
+
+\end{document}
