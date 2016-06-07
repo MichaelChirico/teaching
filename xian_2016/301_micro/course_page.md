@@ -10,7 +10,7 @@ Use the Wechat group for questions.
 
 * [Problem Set 1: June 6, 2016](hw_01.pdf) [[solutions](hw_01_sol.pdf)]
 
-* [Problem Set 2: June 13, 2016] [solutions]
+* [Problem Set 2: June 13, 2016](hw_02.pdf) [solutions]
 
 ## Quizzes/Exams
 
