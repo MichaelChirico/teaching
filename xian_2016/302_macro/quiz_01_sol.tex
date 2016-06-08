@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\begin{document}
+
+\title{Intermediate Macro Quiz 1}
+
+\maketitle
+
+\section{Returns to Scale}
+
+Do the following production functions exhibit increasing, decreasing, or constant returns to scale?
+
+\begin{enumerate}
+\item $Y = K^{\frac23} L^{\frac23}$
+
+\color{red}
+
+\begin{eqnarray*}
+F(K, L) & = & K^{\frac23} L^{\frac23} \\
+F(2K, 2L) & = & (2K)^{\frac23} (2L)^{\frac23} \\
+ & = & 2^{\frac43} K^{\frac23} L^{\frac23} \\
+ & > & 2 K^{\frac23} L^{\frac23} \\
+ & = & 2 F(K, L) \\
+\end{eqnarray*}
+
+Thus, returns to scale are \textit{increasing}.
+
+\color{black}
+
+\item $Y = K + L$
+
+\color{red}
+
+\begin{eqnarray*}
+F(K, L) & = & K + L \\
+F(2K, 2L) & = & 2K + 2L \\
+ & = & 2(K+L) \\
+ & = & 2 F(K, L) \\
+\end{eqnarray*}
+
+Thus, returns to scale are \textit{constant}.
+
+\color{black}
+
+\item $Y = K^{\frac13} L^{\frac23} + \bar{A}$
+
+\color{red}
+
+\begin{eqnarray*}
+F(K, L) & = & K^{\frac13} L^{\frac23} + \bar{A} \\
+F(2K, 2L) & = & (2K)^{\frac13} (2L)^{\frac23} + \bar{A} \\
+ & = & 2K^{\frac13} L^{\frac23} + \bar{A} \\
+ & < & 2K^{\frac13} L^{\frac23} + 2\bar{A} \\
+ & = & 2F(K, L)
+\end{eqnarray*}
+
+Thus, returns to scale are \textit{decreasing}.
+
+\color{black}
+
+\end{enumerate}
+
+\section{South Sudanese Explosion}
+
+South Sudan is the youngest country in the world. After many years of civil war with its former countrymen in Sudan to the north, the breakaway nation finally gained international recognition in 2011 after the cessation of hostilities with Sudan. The new country managed to secure control of about 75\% of the former country's total oil revenues, which were substantial given the large supply of oil within the country's former borders.
+
+Between 2013 and 2014, the growth rate of the South Sudanese economy was over 30\% (the global growth rate is between 2\% and 3\%).
+
+Draw a graph from the context of the Solow model which could explain this explosive growth rate.
+
+\color{red}
+
+Essentially (from the standpoint of the Solow model), South Sudan is very far from their steady-state level of capital (their capital stock likely having been ravaged by years of war); as a result, the rate of growth could be very high because returns to investment are substantial. 
+
+Figure \ref{sudan} illustrates the essence of what Solow has to say about what's going on:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.8\textwidth]{quiz_01_2_graph.png}
+\caption{Solow's Take on Explosive Growth in Sudan}
+\label{sudan}
+\end{figure}
+
+Note that, as opposed to the graph we typically use, here we only depict one curve -- the \textit{difference} between the investment curve and the depreciation curve. That is, we're only showing \textit{net investment}. I do this to emphasize what's important here, namely, net investment, since this drives growth.
+
+In case you're interested, this graph was produced using the R programming language (available for free) and the following code:
+
+\begin{lstlisting}[language=R, backgroundcolor=\color{Aquamarine}, showstringspaces=false]
+plot(xx <- seq(0, .2, length.out = 100),
+     .2 * xx ^ (1/3) - .7 * xx, type = "l",
+     lwd = 3, col = "red", xlab = "K",
+     ylab = "Net Investment",
+     main = "Explosive Growth in South Sudan")
+abline(h = 0, lwd = 2, col = "black")
+abline(v = .05, lty = 2, lwd = 2, col = "darkgreen")
+text(.05, .01, "Post-War Capital Stock", pos = 4)
+abline(v = (2/7)^(3/2), lty = 2, lwd = 2, col = "blue")
+text((2/7)^(3/2), .01, "Steady State\nCapital", pos = 4)
+text(.05, .04, 
+	 "High Net Investment -> High Growth Rate", pos = 4)
+text(.1, -.01, expression(paste(bar(s), " = .2, ", bar(A),
+                                " = ", bar(L), " = 1, ", 
+                                delta, " = .7", sep = "")))
+\end{lstlisting}
+
+\color{black}
+
+\section{Convex Depreciation}
+
+Suppose that instead of being linear, depreciation was quadratic, so that net investment was given by $\Delta K_{t+1} = I_t - \delta K_t^2$. How would this affect the Solow economy?
+
+Calculate a new steady-state capital stock and a new steady-state output level in terms of the model parameters.
+
+\color{red}
+
+Instead of having a linear depreciation, we now have convex depreciation. The basic takeaways of the model are the same.
+
+The new steady-state capital is still given by
+
+\[
+\Delta K_{t+1} = \bar{s}\bar{A} \bar{L}^{\frac23} (K^{*})^{\frac13} - \delta (K^{*}) ^2 = 0 
+\]
+
+Solving, we find
+
+\[
+K^{*} = \bar{L}^{\frac25} \left( \frac{\bar{s} \bar{A}}{\delta} \right) ^ {\frac35}
+\]
+
+Note that all comparative statics remain the same (i.e., they have the same sign, even though the rate of change may be different).
+
+\end{document}

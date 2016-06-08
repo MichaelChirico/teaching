@@ -18,6 +18,10 @@ Use the Wechat group for questions.
 
 * [Problem Set 2: June 13, 2016](hw_02.pdf)
 
+## Quizzes & Exams
+
+* [Quiz 1 (June 8)](quiz_01.pdf) [[solutions](quiz_01_sol.pdf)]
+
 ## Interesting and Germane Articles
 
 * [The Economist: Brazilian Waxing and Waning](http://www.economist.com/blogs/graphicdetail/2016/04/economic-backgrounder) _macro policy lingo-heavy foray into the ongoing economic crisis in Brazil_
