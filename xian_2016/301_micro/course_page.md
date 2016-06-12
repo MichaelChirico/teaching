@@ -15,3 +15,5 @@ Use the Wechat group for questions.
 ## Quizzes/Exams
 
 * [Quiz 1 (June 6)](quiz_01.pdf) [solutions](quiz_01_sol.pdf)
+
+* [Sample Exam 1](exam_1_sample.pdf)

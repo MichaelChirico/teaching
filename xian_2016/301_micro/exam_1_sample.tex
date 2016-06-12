@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+\begin{document}
+
+\title{Intermediate Micro Midterm Practice}
+
+\maketitle
+
+\section*{Question 1}
+Assume $\alpha \in (0,1)$ and $p, I >0$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{ \alpha \ln x + \left(1-\alpha \right) \ln y \right\}  \]
+
+\[ \st x_1 + p x_2 = I \]
+
+\section*{Question 2}
+Assume $\alpha \in (0,1)$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{\alpha x_1 + (1-\alpha) x_2 \right\} \]
+\[ \st  2x_1 + x_2 = -10 \]
+
+\section*{Question 3}
+Assume $\alpha \in (0,1)$ and $p, I >0$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{ x_1 x_2^\alpha \right\} \]
+\[ \st p x_1 + x_2 =I. \]
+
+\section*{Question 4}
+Assume $\alpha \in (0,1)$ and $p, I >0$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{ \min \left\{x_1, \alpha x_2 \right\} \right\} \]
+\[ \st  x_1x_2 = I \]
+
+\section*{Question 5}
+A consumer's utility for a quantity $x_1$ of product 1 and $x_2$ for product 2 is given by $u(x_1, x_2) = x_1 + x_2 - x_1x_2$. Product 1 is sold for price $p_1$ per unit and and product 2 is sold at a price of $p_2$ per unit. The consumer has an income of $I$.
+
+\begin{enumerate}
+\item Is the consumer's utility function concave?
+\item What is the consumer's demand for product 1 as a function of $I$, $p_1$ and $p_2$?
+\item What is the consumer's demand for product 2 as a function of $I$, $p_1$ and $p_2$?
+\item Are the two products substitutes for each other?
+\end{enumerate}
+
+\section*{Question 6}
+Consider a consumer who consumes food, $x_1$, and money, $x_2$. Their utility function is $u(x_1, x_2) = x_1^{\alpha} + x_2$ where $\alpha\in(0,1)$ . Let $p>0$ denote the unit price of food. The consumer has income of $I>0$.
+\begin{enumerate}
+\item  Formulate the consumer maximization problem.
+\item  Find the consumer demand for both food and money. For this sub-question ONLY, allow demand for money to be negative.
+\item Derive a condition on $I$ under which the consumer spends
+all her income on food.
+\item Show that the consumer
+always demands a positive amount of food.
+\end{enumerate}
+
+\section*{Question 7}
+Consider the utility function $U(x_1,x_2)=x_1^2+x_2^2$.  Draw a picture of an indifference curve for this utility function.  Use your picture to argue that this utility function is not concave.  Now prove that this utility function is not concave by identifying consumption bundles $(x_1,x_2)$ and $(x_1',x_2')$ and a value $\lambda\in(0,1)$ for which the equation in the definition of concavity fails.  (For example, you might start by taking $(x_1,x_2)=(0,1)$.)  Form the Lagrangian for the associated constrained utility maximization problem and find the associated first-order conditions.  Use your picture to argue that you have found a minimum, not a maximum.
+
+\section*{Question 8}
+Recall the CES preferences used in HW2:
+
+\[
+u(x_1, x_2) = \left(\theta x_1^{\rho} + (1-\theta) x_2^{\rho}\right)^{\frac1{\rho}}
+\]
+
+Suppose $\rho = .4$, $y = 5$, and $p_2 = 2$.
+
+Decompose the change in demand for good 1 from an initial price of $p_1 = 1$ to $p_1 = 3$. Is good 1 normal or inferior?
+
+\section*{Question 9}
+A pedestrian in the streets of Xi'an faces two dangers. The first is that they're hit by a car, the resulting medical costs from which are \textyen 40000. The second is that they're electricuted by unsecured power lines; such an accident would cost \textyen 20000 to heal at the hospital.
+
+An enterprising local insurance company offers a plan to insure against these risks. Specifically, for a cost of \textyen 500, the insurance company will cover \textyen 20000 of your healthcare costs.
+
+Assume that the probability of a car accident is $.01$ and that of being electricuted is $.03$ (also assume there is no chance that \textit{both} types of accident occur in a given year, or that an accident occcurs more than once). Would a consumer with preferences for income represented by $u(I) = \ln I$ buy this policy if their wages from work are \textyen 60000?
+
+\end{document}
