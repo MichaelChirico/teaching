@@ -11,3 +11,4 @@
 
 #temporary files
 *~lock
+.Rhistory
