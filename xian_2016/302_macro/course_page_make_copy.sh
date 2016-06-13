@@ -5,4 +5,7 @@ pandoc -s -o course_page.html course_page.md
 
 cp course_page.html /home/michael/githubio/xian/macro/
 
-cp "$@" /home/michael/githubio/xian/macro
+if [ $# -gt 0 ]
+then 
+	cp "$@" /home/michael/githubio/xian/macro
+fi
