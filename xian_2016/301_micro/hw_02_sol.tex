@@ -1,0 +1,180 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+\begin{document}
+
+\title{Intermediate Micro HW 2}
+
+\maketitle
+
+\section{Leontief \& Substitution}
+
+An individual has Leontief preferences over goods $x_1$ and $x_2$. He starts with income $y$ and the two goods have respective prices $p_1$ and $p_2$.
+
+The price of good $x_2$ increases to $p_2^{'}$. Decompose this individual's change in demand into income and substitution effects.
+
+\color{red}
+Leontief means utility can be represented by $u(x_1, x_2) = \min \left\{\alpha x_1, x_2 \right\}$.
+
+We know that demand for perfect complements comes in lockstep -- individuals are only willing to purchase bundles along the corner of the indifference curves, which is given by the line $\alpha x_1 = x_2$. They then buy as many ``pairs'' of the goods as possible:
+
+\[p_1 x_1 + p_2 x_2 = p_1 x_1 + \alpha p_2 x_1 = \left(p_1 + \alpha p_2 \right) x_1 = y\]
+
+So $x_1 = \frac{y}{p_1 + \alpha p_2}$, $x_2 = \alpha x_1 = \frac{\alpha y}{p_1 + \alpha p_2}$.
+
+When $p_2$ increases to $p_2^{'}$, demand for good 2 changes from $\frac{\alpha y}{p_1 + \alpha p_2}$ to $\frac{\alpha y}{p_1 + \alpha p_2^{'}}$. To decompose this into substitution and income effects, we first leave purchasing power constant and look at the change in demand in the absence of income effects, then we change income to reflect the change in demand in the absence of relative price changes.
+
+\subsection*{Substitution Effect}
+
+If we simply rotate the new budget line through the same corner of the ICs (which is in effect what we do when we rotate the demand curve through the originally demanded bundle), demand will not change. This is the hallmark of perfect complements. As long as we can still purchase the same number of ``pairs'', we will.
+
+Thus the substitution effect is 0. See Figure \ref{leontief}.
+
+\subsection*{Income Effect}
+
+Since the substitution effect is 0, the entire change in demand is due to the income effect.
+
+We want to buy as many ``pairs'' as we can; the increase in the price of good 2 has reduced our effective purchasing power, thereby reducing the number of ``pairs'' we can afford. It is for this reason and this reason alone that demand shifts. Again, see Figure \ref{leontief}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = \textwidth]{hw_02_1_graph.png}
+\caption{Progression of Demand Shift under Leontief}
+\label{leontief}
+\end{figure}
+
+\color{black}
+
+\section{CES Demand}
+
+Another commonly used class of utility functions is CES utility, which stands for \textbf{constant elasticity of substitution}. In general they take the form:
+
+\[ u(x_1, x_2) = \left(\theta x_1^{\rho} + (1-\theta) x_2^{\rho}\right)^{\frac1{\rho}} \]
+
+If we take $\theta = \frac12$, these are equivalent to
+
+\[ u(x_1, x_2) = \left(x_1^{\rho} + x_2^{\rho}\right)^{\frac1{\rho}} \]
+
+\begin{enumerate}
+\item Derive the demand for CES utility with $\theta = \frac12$, i.e., find $x_1(p_1, p_2, y)$ and $x_2(p_1, p_2, y)$.
+
+\color{red}
+For simplicity, I'll normalize $p_2 = 1$. Remember that demand is only defined relatively -- if we double all prices and income, the set of things we can afford is the same, and so demand will be the same. If we allow $p_2$ to vary freely, we'd replace all instances of $p_1$ in what follows with $\frac{p_1}{p_2}$, and all instances of $y$ with $\frac{y}{p_2}$. Essentially, we're defining all ``monetary'' units in terms of good two.
+
+With that in mind, we proceed by setting the MRS equal to the price ratio (which is now just $p_1$):
+
+\[ \frac{\partial u / \partial x_1}{\partial u / \partial x_2} = \left( \frac{x_1}{x_2} \right)^{\rho - 1} = p_1 \]
+
+This gives us an expression for the ratio of goods that a CES individual will choose as a function of prices. We need to include information about income to pin down exact quantities. To do this, we solve this expression for $x_1$ and plug it into the budget constraint, which will yield the demand for $x_2$ as a function of $p_1$ and $y$:
+
+\[ p_1 x_1 + x_2 = \left(1 + p_1^{\frac{\rho}{\rho - 1}} \right) x_2 = y \]
+
+From which we determine $x_2 = \frac{y}{1 + p_1^{\frac{\rho}{\rho - 1}}}, x_1 = \frac{y p_1^{\frac1{\rho - 1}}}{1 + p_1^{\frac{\rho}{\rho - 1}}}$.
+ 
+\color{black}
+
+\item Decompose a change in the price of good 1 from $p_1$ to $p_1^{'}$ into substitution and income effects.
+\end{enumerate}
+
+\color{red} 
+
+Now is when things get messy.
+
+The final demand for good 1 is given by $x_1^{'} = \frac{y \left( p_1^{'} \right)^{\frac1{\rho - 1}}}{1 + \left( p_1^{'} \right)^{\frac{\rho}{\rho - 1}}}$.
+
+The intermediate demand for good 1 we'll call $x_1^s$. This is the amount of good one we choose when $p_1^{'}$ is implemented, but we can still afford $x_1$ and $x_2$. That is,
+
+\[ p_1 x_1 + x_2 = p_1^{'} x_1 + x_2 = y\frac{\frac{p_1^{'}}{p_1}p_1^{\frac{\rho}{\rho - 1}} + 1}{p_1^{\frac{\rho}{\rho - 1}} + 1}\]
+
+This essentially gives us a new income, $y'$, which we can plug into the demand for $x_1$. For simplicity, we'll call the constant multiplying $y$ in $y'$ $\lambda$, so $y' = \lambda y$:
+
+\[ x_1^s =  \frac{\lambda y \left( p_1^{'} \right)^{\frac1{\rho - 1}}}{\left( p_1^{'} \right)^{\frac{\rho}{\rho - 1}} + 1}\]
+
+Then the substitution effect is given by $x_1^s - x_1$ and the income effect is given by $x_1^{'} - x_1^s$.
+
+\color{black} 
+
+\section{Home Production}
+
+Bunter consumes two goods in quantities $x_1$ and $x_2$. Good 2 is a composite consumption good, and  has price 1 per unit. Consumption of$x_2$ units of good 2 requires $tx_2$ units of time, so that $t $ is the time cost per unit of good $x_2$. For example, time must be spent preparing food in order to consume it. Think of $x_1$ as {\em leisure} time that is not spent working and not spent fulflling the time-cost of consuming $x_2$. Bunter has a total of time $T$ available, and earns $w$ per unit of time spent working. All of time $T$ is consumed either in $x_1$, working, or fulfilling the time cost of consuming $x_2$. Bunter's utility function is $u(x_1, x_2) = x_1x_2^3$.
+
+\begin{enumerate}
+\item Solve Bunter's utility maximization problem to find his demand functions for goods 1 and 2.
+
+\color{red}
+
+The problem of Bunter is the following:\\
+\[ \Max_{x_1,x_2,d,h} \left\{x_1 x_2^3 \right\} \] 
+
+\[ \st x_2 \leq w h, t x_2 = d, d + h + x_1 = T \]
+
+where $h$ is the time spent working and $d$ is the time spent preparing food.
+
+The constraint $x_2 \leq wh$ says that the total amount spent on good 2 cannot exceed income, and income is obtained by working.
+
+The constraint $tx_2 = d$ says that the time spent cooking depends on the quantity of good 2 Bunter intends to consume.
+
+The last constraint says that the total amout of time spent cooking, loafing and working must be equal to the total time Bunter has.
+
+The problem can be simplified in order to have only two choice variables and only one constraint.
+In fact from the first constraint we get $h=\frac{x_2}{w}$ (to maximize utility Bunter spends all his income) and from the second constraint we get $d = t x_2$. Plugging in the third constraint we obtain
+\[ \Max_{x_1,x_2} \left\{ x_1 x_2^3\right\} \]
+
+\[ \st t x_2 + \frac{x_2}{w} + x_1 \leq T \]
+
+and finally
+
+\[ \Max_{x_1,x_2} \left\{ x_1 x_2^3\right\} \]
+
+\[ \st \frac{1+t w}{w} x_2+ x_1 \leq T \]
+
+Since we can eliminate all constraints, we must set up the Lagrangean:
+
+\[ L = x_1 x_2^3 + \lambda \left(T - \frac{1+t w}{w}x_2 -x_1 \right) \]
+
+Taking derivatives to get first order conditions
+
+\begin{align*}
+\frac{\partial L}{\partial x_1} =& x_2^3 - \lambda = 0 \\
+\frac{\partial L}{\partial x_2} =& 3 x_1 x_2^2 - \lambda \frac{1+ t w}{w} = 0 \\
+\frac{\partial L}{\partial \lambda} =&  T - \frac{1+t w}{w}x_2 -x_1 = 0
+\end{align*}
+
+From the first 2 equations we get that $x_2 = 3 \frac{w}{1+t w} x_1$.
+
+Substituting into the third equation:
+\[ T = \frac{1+ t w}{w} 3 \frac{w}{1+t w} x_1 + x_1 = 4 x_1 \]
+
+\[ \Rightarrow x_1 = \frac{T}{4}, x_2 =\frac{3}{4}  \frac{w}{1+t w} T \]
+
+\color{black}
+
+\item  Suppose $t$ decreases. For example, new technologies maydecrease food preparation time. What is the effect on the consumptionof good 2? What is the effect on the amount of time this person spends working? Be precise.
+
+\color{red} 
+
+Clearly reducing $t$, $x_2$ increases.
+Working time is calculated via $h = \frac{x_2}w = \frac34 \frac{T}{1+t w}$.
+Increasing $t$ reduces the time spent working (it's in the denominator).
+
+\color{black} 
+
+\item  Suppose the wage $w$ increases. What is the effect onthe amount of time this person spends working, and on the amount ofleisure time, $x_1$ she consumes?
+
+\color{red} 
+
+From the expression for $h$ we observe that an increase in the wage reduces time spent working.
+
+A change in wage has no effect on leisure time, which is a simple fraction of the total time available.
+The levels of $t$ and $w$  only affect the share of time allocated between working and preparing food.
+
+\color{black} 
+\end{enumerate}
+
+\end{document}
