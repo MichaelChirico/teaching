@@ -18,7 +18,7 @@ Use the Wechat group for questions.
 
 * [Problem Set 2: June 13, 2016](hw_02.pdf) [[solutions](hw_02_sol.pdf)]
 
-* [Worksheet: June 14, 2016](worksheet_0614.pdf)
+* [Worksheet: June 14, 2016](worksheet_0614.pdf) [[solutions](worksheet_0614_sol.pdf)]
 
 ## Quizzes & Exams
 

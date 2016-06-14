@@ -1,0 +1,221 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage{xcolor}
+
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\begin{document}
+
+\title{Intermediate Macro In-Class Problems \\ \large Exploring Romer Model}
+
+\date{June 14, 2016}
+
+\maketitle
+
+Today we will explore the mechanisms of the simply Romer model by exploring how economies described by this model would react to exogenous changes.
+
+First, recall this summary of the Romer model:
+
+\begin{align*}
+\text{Production} &: Y_t = A_t L^y_t \\
+\text{Technological Dynamics} &: \Delta A_{t+1} = \bar{z} A_t L^a_t \\
+\text{Resource Constraint} &: L^y_t + L^a_t = \bar{L} \\
+\text{Labor Allocation Rule} &: L^a_t = \bar{l} \bar{L}
+\end{align*}
+
+And the model solution:
+
+\begin{align*}
+L^a_t &= \bar{l} \bar{L} \\
+L^y_t &= \left(1 - \bar{l} \right) \bar{L} \\
+A_t &= \left(1 + \bar{z} \bar{l} \bar{L} \right)^t A_0 \\
+Y_t &= \left(1 - \bar{l} \right) \left(1 + \bar{z} \bar{l} \bar{L} \right)^t A_0 \bar{L}
+\end{align*}
+
+\section{Labor Force}
+
+Analyze the effects of a government policy encouraging immigration in the context of the Romer model.
+
+Remember, any proper analysis of policy in a macro model will evaluate the impact of the policy on every aspect of the model -- typically, the model parameters, but occasionally also the functional forms (themselves a higher-dimensional parameter).
+
+\subsection*{Identifying Model Parameters}
+
+What are the parameters of the Romer model? What are the quantities that are taken as given, and which are allowed to change as a result of agents' behavior?
+
+
+\begin{solution}
+The parameters are $\bar{z}$, $\bar{l}$, $\bar{L}$, and $A_0$.
+\end{solution}
+
+\subsection*{Evaluating the Policy}
+
+What is the potential effect of the immigration policy on each of the parameters you identified above?
+
+\begin{solution}
+
+\begin{itemize}
+\item $\bar{z}$ : No reason to believe this will change without further information (though arguments can be made in either direction).
+\item $\bar{l}$ : \textit{idem}.
+\item $A_0$ : \textit{idem}.
+\item $\bar{L}$ : Obviously a pro-immigration policy will increase $\bar{L}$.
+\end{itemize}
+
+Overall, this will lead to an increase in the growth rate of the economy from $\bar{z} \bar{l} \bar{L}$ to $\bar{z} \bar{l} \bar{L}'$, with the same increase in the growth rate of knowledge.
+
+\end{solution}
+
+\section{Reallocation of Labor}
+
+Analyze the effects of a government policy which subsidizes research in the context of the Romer model.
+
+What is the potential effect of the immigration policy on each of the parameters you identified above?
+
+\begin{solution}
+
+\begin{itemize}
+\item $\bar{z}$ : No reason to believe this will change without further information (though arguments can be made in either direction).
+\item $\bar{l}$ : Such a policy is likely to result in reallocation of labor to the research sector from the production sector, which means $\bar{l}$ will increase.
+\item $A_0$ : No reason to believe this will change without further information (though arguments can be made in either direction).
+\item $\bar{L}$ : \textit{idem}.
+\end{itemize}
+
+Overall, this will lead to an increase in the growth rate of the economy from $\bar{z} \bar{l} \bar{L}$ to $\bar{z} \bar{l} \bar{L}'$, with the same increase in the growth rate of knowledge.
+
+\end{solution}
+
+\section{Textbook Exercises}
+
+\subsection*{6.1}
+
+Explain whether the following goods are rivalrous or nonrivalrous:
+
+\begin{enumerate}
+\item Beethoven's Fifth Symphony
+\item An iPod
+\item Monet's painting \textit{Water Lilies}
+\item The method of public key cryptography (RSA)
+\item Fish in the ocean
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item Nonrivalrous -- the notes can be played by an infinite number of people through the end of time.
+\item Rivalrous -- only one person can own a particular iPod at a given time.
+\item Rivalrous -- though replicas can be made, only one will be MONET's painting.
+\item Nonrivalrous -- RSA is just an algorithm; any computer can (and does) reproduce it.
+\item Rivalrous -- though their quantity is vast, it's ultimately finite; each fish in particular can only be enjoyed by one person (or other fish).
+\end{enumerate}
+
+\end{solution}
+
+\subsection*{6.2}
+
+Suppose a new piece of computer software -- say a word processor with perfect speech recognition -- can be created for a onetime cost of \$100 million. Suppose that once it's created, copies of the software can be distributed at a cost of \$1 each.
+
+\begin{enumerate}
+\item If $Y$ denotes the number of copies of the computer program produced and $X$ denotes the amount spent on production, what is the production function; that is, the relation between $Y$ and $X$?
+\item Make a graph of this production function. Does it exhibit increasing returns? Why or why not?
+\item Suppose the firm charges a price equal to marginal cost (\$1) and sells a million copies of hte software. What are its profits?
+\item Suppose the firm charges a price of \$20. How many copies does it have to sell in order to break even? What if the price is \$100 per copy?
+\item Why does the scale of the market -- the number of copies the firm could sell -- matter?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item \[
+Y=\begin{cases}
+0 & X<100\\
+X-100 & X\geq100
+\end{cases}=\left(X-\underline{X}\right)\mathbbm{1}\left[X\geq\underline{X}\right]
+\]
+
+Where $\underline{X} = 100,000,000$, defined for conciseness.
+
+The latter form is more convenient/concise for what will follow below. The function $\mathbbm{1}\left[\cdot\right]$ is the indicator function, taking the value $1$ if its argument is true and 0 other wise. For example, $\mathbbm{1}\left[3 > 4\right]=0$ while $\mathbbm{1}\left[z^2 \geq 0\right]=1$ (for all real values of $z$).
+
+\item Simple continuous piecewise function flat through $X = 100,000,000$, then with slope 1 thereafter. Returns to scale are (weakly) increasing -- if we double $X$ from $100,000,001$ to $200,000,002$, we increase output from $1$ to $100,000,001$, which is \textit{far} more than double.
+
+Mathematically,
+
+\begin{align*}
+Y\left(2X \right) &= \left(2X - \underline{X}\right) \mathbbm{1}\left[ 2X \geq \underline{X} \right] \\
+ &\geq \left(2X - 2\underline{X}\right) \mathbbm{1}\left[ 2X \geq \underline{X} \right] \\
+ &\geq \left(2X - 2\underline{X}\right) \mathbbm{1}\left[ X \geq \underline{X} \right] \\
+ &= 2Y\left(X\right)
+\end{align*}
+
+The first inequality holds because clearly $2 \underline{X} > \underline{X}$, and subtracting something larger makes the object smaller; the inequality is not strict because the indicator may be 0, negating the strict size difference of the first product.
+
+The second inequality holds because the set of $X$ for which $X \geq \underline{X}$ is a strict subset of hte set of $X$ for which $2X \geq \underline{X}$. That is, if $X \geq \underline{X}$, surely $2X \geq \underline{X}$, which means that whenever the former takes the value 1, the latter certainly does as well.
+
+\item $\Pi = \text{revenue} - \text{cost} = 1,000,000*1 - 1,000,000*1 - 100,000,000 = -100,000,000$
+
+Revenue is $1,000,000$ (one million copies at one dollar a pop); variable costs are the same (since the marginal cost of production is also \$1). The fixed cost of research must still be considered, however, leading to massive losses.
+
+This is the outcome that would arise under perfect competition, where price equals marginal cost.
+
+\item If the firm charges \$20 per copy, they make profits of \$19 per copy (having subtracted out the marginal cost from the price). To break even, they need to sell $\frac{100,000,000}{19} \approx 5,263,158$ copies. Similarly, with a price of \$100, per-unit profit is \$99, so they need to sell $\frac{100,000,000}{19} \approx 1,010,101$ copies.
+
+\item The larger the market, the lower the price can be which allows breaking even.
+
+\end{enumerate}
+
+\end{solution}
+
+\subsection*{6.8: A variation on the Romer model}
+
+Consider the following variation:
+
+\begin{align*}
+Y_t &= A_t^{\frac12} L^y_t \\
+\Delta A_{t+1} &= \bar{z} A_t L^a_t \\
+L^y_t + L^a_t &= \bar{L} \\
+L^a_t &= \bar{l} \bar{L}
+\end{align*}
+
+There is only a single difference: we've changed the exponent on $A_t$ in the production of the output good so that there is now a diminishing marginal product to ideas in that sector.
+
+\begin{enumerate}
+\item Provide an economic interpretation for each equation.
+\item What is the growth rate of knowledge in this economy?
+\item What is the growth rate of output per person in this economy?
+\item Solve for the level of output per person at each point in time.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item The first equation is production. This production function still exhibits the increasing returns to scale that are the hallmark of technological innovation, but now exhibits diminishing returns to technological innovation.
+
+The second equation is the trajectory of technological innovation. The economy grows its productivity by assigning part of its workforce to doing research.
+
+The third equation is the labor resource constraint. Total labor used in both sectors of the economy must be equal to the total supply of labor.
+
+The final equation is society's rule for allocating labor. It says that, in each period, a fixed proportion of the workforce will be assigned to each sector.
+
+\item The growth rate of knowledge is given by $\frac{\Delta A_{t+1}}{A_t} = \bar{z} L^a_t = \bar{z} \bar{l} \bar{L}$, just as before.
+
+\item The growth rate of output is given by 
+
+\begin{align*}
+\frac{\Delta Y_{t+1}}{Y_t} &= \frac{A_{t+1}^{\frac12} L^y_{t+1} - A_t^{\frac12} L^y_t}{A_t^{\frac12} L^y_t} \\
+ &= \frac{A_{t+1}^{\frac12} \left(1-\bar{l}\right)\bar{L} - A_t^{\frac12} \left(1-\bar{l}\right)\bar{L}}{A_t^{\frac12} \left(1-\bar{l}\right)\bar{L}} \\
+ &= \frac{A_{t+1}^{\frac12} - A_t^{\frac12}}{A_t^{\frac12}} \\
+ &= \frac{A_{t+1}^{\frac12}}{A_t^{\frac12}} - 1 \\
+ &= \left( \frac{A_{t+1}}{A_t}\right)^{\frac12} - 1 \\
+ &= \left( 1 + \frac{\Delta A_{t+1}}{A_t} \right)^{\frac12} - 1 \\
+ &= \left( 1 + \bar{z} \bar{l} \bar{L} \right)^{\frac12} - 1
+\end{align*}
+
+\item Since we again have $A_t = \left(1 + \bar{z} \bar{l} \bar{L} \right)^t A_0$, output per person is simply:
+
+\[ y_t = \frac{Y_t}{L^a_t + L^y_t} = \frac{A_t^{\frac12} L^y_t}{L^a_t + L^y_t} = \left(1 - \bar{l}\right) \left(1 + \bar{z} \bar{l} \bar{L} \right)^{\frac{t}2} A_0^{\frac12} \]
+\end{enumerate}
+
+\end{solution}
+
+\end{document}
