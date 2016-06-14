@@ -1,0 +1,393 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+\begin{document}
+
+\title{Intermediate Micro Midterm Practice}
+
+\maketitle
+
+\section*{Question 1}
+Assume $\alpha \in (0,1)$ and $p, I >0$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{ \alpha \ln x + \left(1-\alpha \right) \ln y \right\}  \]
+
+\[ \st x_1 + p x_2 = I \]
+
+\begin{solution}
+$x_1^* = \alpha I$, $x_2^* = (1-\alpha)\frac{I}{p}$.\\
+
+Justification:
+
+Solving the constraint, we get $x_1 = I-px_2$. Substituting into the objective, we get $\alpha \ln ( I - p x_2 ) + (1-\alpha) \ln x_2 $.
+
+Take the derivative with respect to $x_2$ and equate to zero:
+
+\[ \frac{-p \alpha}{I -p x_2 } + \frac{1-\alpha}{x_2}=0 \]
+
+Equate and cross multiply to get
+
+\[ p \alpha x_2 = (1-\alpha)(I - p x_2) \]
+
+which simplifies to give $x_2^* = (1-\alpha)\frac{I}{p}$ and, hence, $x_1^* = \alpha I$. 
+\end{solution}
+
+\section*{Question 2}
+Assume $\alpha \in (0,1)$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{\alpha x_1 + (1-\alpha) x_2 \right\} \]
+\[ \st  2x_1 + x_2 = -10 \]
+
+\begin{solution}
+Answer: If $\alpha < \frac23$ or $\alpha > \frac23$, there's no well-defined solution. If $\alpha = \frac23$, any $(x_1, x_2)$ pair such that $2x_1+x_2=-10$ is a solution.
+
+Justification:
+
+Again, we can easily solve the constraint here, giving $x_2 = -10 -2x_1$. Substituting into the objective we obtain $\alpha x_1 + (1-\alpha)(-10 -2x_1) = (3 \alpha-2)x_1 -10(1-\alpha)$.
+
+If $ \alpha < 2/3$ this is decreasing in $x_1$ and increasing if $\alpha > \frac23$. In particular, if there are no other constraints on $x_1$, there are no finite solutions. If $\alpha < \frac23$ we have $x_1^* = -\infty$ and if $\alpha > \frac23$, $x_1^* = \infty$.
+
+For $\alpha = \frac23$ any value of $x_1$ is a solution. 
+\end{solution}
+
+\section*{Question 3}
+Assume $\alpha \in (0,1)$ and $p, I >0$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{ x_1 x_2^\alpha \right\} \]
+\[ \st p x_1 + x_2 =I. \]
+
+\begin{solution}
+Answer: $x_1^* = \frac1{1+\alpha}\frac{I}{p}$, $x_2^* =  \frac{\alpha}{1+\alpha} I$.
+
+Justification: 
+Let's use the method of Lagrange multipliers:
+
+\[ L = x_1 x_2^\alpha + \lambda( p x_1 + x_2 - I) \]
+
+which gives first order conditions
+
+\[ x_2^\alpha + \lambda p = 0, \]
+\[ \alpha x_1 x_2^{\alpha -1} + \lambda = 0, \]
+\[ p x_1 + x_2 - I = 0. \]
+
+If we move the $\lambda$ terms to the right hand side and divide the first two equations we are left with
+
+\[ \frac{x_2^\alpha}{\alpha x_1 x_2^{\alpha -1}} = p. \]
+
+Simplifying the fraction gives $p = \frac{x_2}{\alpha x_1}$ so that $x_2 = \alpha p x_1$. Substituting this into the constraint gives $ p x_1 + \alpha p x_1 = I$ so that 
+
+\[ x_1^* = \frac1{1+\alpha}\frac{I}{p}, \qquad x_2^* =  \frac{\alpha}{1+\alpha} I \]
+
+Alternatively, note that these preferences are equivalent (via monotonic transformation) to the following preferences:
+
+\[ u(x_1, x_2) = x_1^\frac{1}{1+\alpha} x_2^\frac{\alpha}{1+\alpha} \]
+
+Which are Cobb-Douglas, so the result follows immediately from Question 1 above (\textit{mutatis mutandis}).
+
+\end{solution}
+
+\section*{Question 4}
+Assume $\alpha \in (0,1)$ and $p, I >0$. Solve the following:
+
+\[ \Max_{x_1, x_2} \left\{ \min \left\{x_1, \alpha x_2 \right\} \right\} \]
+\[ \st  x_1x_2 = I \]
+
+\begin{solution}
+Answer: $x_1=\sqrt{\alpha I}$, $x_2=\sqrt{\frac{I}\alpha}$.
+
+Justification: 
+
+Notice, as given, we may not use a Lagrangian because the objectiveis not differentiable.
+
+Solving out the constraint for $x_2$ gives $x_2 = \frac{I}{x_1}$ for $x_1 \neq 0$. 
+
+Plugging this into the objective gives $\min\left\{ x_1,\alpha \frac{I}{x_1} \right\}$. This is equal to $x_1$ if $x_1 \leq \alpha \frac{I}{x_1}$ or, equivalently, if $x_1 \leq \sqrt{\alpha I}$ (assuming $x_1 > 0$).
+
+It is equal to $\alpha \frac{I}{x_1}$ if $\alpha \frac{I}{x_1} < x_1$, i.e., if $\sqrt{\alpha I} < x_1$.
+
+Notice that the objective is increasing in $x_1$ if $x_1 < \sqrt{\alpha I}$ and decreasing in $x_1$ if $x_1 > \sqrt{\alpha I}$, so we deduce that $x_1 = \sqrt{\alpha I}$ and hence $x_2 = \sqrt{I/\alpha}$. 
+\end{solution}
+
+\section*{Question 5}
+A consumer's utility for a quantity $x_1$ of product 1 and $x_2$ for product 2 is given by $u(x_1, x_2) = x_1 + x_2 - x_1x_2$. Product 1 is sold for price $p_1$ per unit and and product 2 is sold at a price of $p_2$ per unit. The consumer has an income of $I$.
+
+\begin{enumerate}
+\item Is the consumer's utility function concave?
+\item What is the consumer's demand for product 1 as a function of $I$, $p_1$ and $p_2$?
+\item What is the consumer's demand for product 2 as a function of $I$, $p_1$ and $p_2$?
+\item Are the two products substitutes for each other?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item 
+Answer: It's not concave.
+
+Justification: We calculate the Hessian matrix of the utility function:
+\[ \left[
+\begin{array}{cc}
+\frac{\partial^2 u}{\partial x_1^2}   & \frac{\partial^2 u}{\partial x_1\partial x_2} \\
+\frac{\partial^2 u}{\partial x_2 \partial x_1}  & \frac{\partial^2 u}{\partial x_2^2}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{cc}
+0  & -1\\
+-1 & 0
+\end{array}
+\right] \]
+
+The determinant of this is $0-(-1)^2=-1<0$.
+
+Hessian matrix is indefinite, so $u(x_1, x_2)$ is not concave.
+
+Alternatively, consider the indifference curves from this utility function. This is the family of curves parameterized by $\bar{u}$ such that (noting that $\bar{u}$ has the same range of values as does $\bar{u} - 1$, and using this particular right-hand-side for conciseness):
+
+\[ u(x_1, x_2) = x_1 + x_2 - x_1 x+2 = \bar{u} - 1\]
+
+To plot these, note that we can solve this expression for $x_2$ (with some rearrangement for clarity):
+
+\[x_2 = 1 + \frac{\bar{u}}{1-x_1} \]
+
+This family of functions is all of the hyperbolae centered at $(1, 1)$ with asymptotes $x_1 = 1$ and $x_2 = 1$. These clearly don't share a common direction over the whole first quadrant. Observe:
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{exam_1_sample_05_graph.png}
+\end{figure}
+
+\item 
+Answer: 
+\[
+x_1^* = \left\{
+\begin{array}{ll}
+0 & \text{ if } p_1>p_2 \\
+0 \text{ or } \frac{I}{p_1} & \text{ if } p_1=p_2 \\
+\frac{I}{p_1} & \text{ if } p_1<p_2
+\end{array}
+\right.
+\]
+
+Justification: 
+
+Use the budget constraint to substitute out $x_2$: $x_2=\frac{I}{p_2}-\frac{p_1}{p_2}x_1$.
+
+We need to ensure that $x_2 \geq 0$, i.e., $\frac{I}{p_2}-\frac{p_1}{p_2}x_1 \geq 0$, i.e. $x_1 \leq \frac{I}{p_1}$.
+
+The original problem can be transformed to the following univariate problem:
+\[ \Max_{x_1} \left\{ x_1 + \left( \frac{I}{p_2} - \frac{p_1}{p_2} x_1 \right) - x_1 \left( \frac{I}{p_2}-\frac{p_1}{p_2} x_1\right) \right\} \]
+
+\[ \st 0 \leq x_1 \leq \frac{I}{p_1} \]
+
+Differentiating and setting to zero will not work because the second derivative condition will not hold. In fact, the objective function is a parabola with a unique critical point, which is also its global \textit{minimum}. Therefore, maximum of the constrained problem above must be attained at boundary.
+
+When $x_1=0$, the objective function takes the value $\frac{I}{p_2}$.
+
+When $x_1 = \frac{I}{p_1}$ the objective function takes the value $\frac{I}{p_1}$.
+
+\[
+\Rightarrow x_1^* = \left\{
+\begin{array}{ll}
+0 & \text{ if }\frac{I}{p_2}>\frac{I}{p_1},\text{ i.e. } p_1>p_2 \\
+0 \text{ or } \frac{I}{p_1} & \text{ if }p_1=p_2 \\
+\frac{I}{p_1} & \text{ if } p_1<p_2
+\end{array}
+\right.
+\]
+
+\item 
+Answer: 
+\[
+x_2^* = \left\{
+\begin{array}{ll}
+\frac{I}{p_2} & \text{ if } p_1>p_2 \\
+\frac{I}{p_2} \text{ or } 0 (\text{depending on choice of } x_1^*) & \text{ if } p_1=p_2 \\
+0 & \text{ if } p_1<p_2
+\end{array}
+\right.
+\]
+
+Justification: Use the demand for product 1 and the budget constraint to derive the demand for product 2.
+
+\item 
+Answer: Yes, they are substitutes for each other.
+
+Justification: Demand for product 1 is monotonically increasing in $p_2$, and demand for product 2 is monotonically increasing in $p_1$. 
+\end{enumerate}
+
+\end{solution}
+
+\section*{Question 6}
+Consider a consumer who consumes food, $x_1$, and money, $x_2$. Their utility function is $u(x_1, x_2) = x_1^{\alpha} + x_2$ where $\alpha\in(0,1)$ . Let $p>0$ denote the unit price of food. The consumer has income of $I>0$.
+\begin{enumerate}
+\item  Formulate the consumer maximization problem.
+\item  Find the consumer demand for both food and money. For this sub-question ONLY, allow demand for money to be negative.
+\item Derive a condition on $I$ under which the consumer spends
+all her income on food.
+\item Show that the consumer
+always demands a positive amount of food.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item 
+Answer: $x_1^* = \left( \frac{p}{\alpha} \right)^\frac1{\alpha-1}$, $x_2^* = I-\alpha^\frac1{1-\alpha} p^\frac\alpha{\alpha-1}$.
+
+Justification: To solve this optimization problem, note that from the budget constraint, $x_2=I-p x_1$. Plugging this into the objective function, we get
+
+\[ \Max_{x_1} \left\{ x_1^\alpha+I-px_1 \right\} \]
+
+The first order condition is 
+
+\[ \alpha x_1^{\alpha-1}-p=0, \]
+
+which implies that $x_1^* = \left( \frac{p}{\alpha} \right)^{\frac{1}{\alpha-1}}$. Then $x_2^* = I-\alpha^{\frac{1}{1-\alpha}} p^{\frac{\alpha}{\alpha-1}}$.
+
+\item 
+Answer: $I \le \alpha^{\frac{1}{1-\alpha}} p^{\frac{\alpha}{\alpha-1}}$.
+
+$I = \alpha^{\frac{1}{1-\alpha}}p^{\frac{\alpha}{\alpha-1}}$ is also acceptable.
+
+Justification: Now we need to incorporate constraint $x_2 \geq 0$.
+
+If $I > \alpha^{\frac{1}{1-\alpha}}p^{\frac{\alpha}{\alpha-1}}$, we have $x_2^* > 0$ and our solution in part 2 is still valid.
+
+If $I < \alpha^{\frac{1}{1-\alpha}}p^{\frac{\alpha}{\alpha-1}}$ (which is equivalent to $\frac{I}{p} < \left( \frac{p}{\alpha} \right)^\frac{1}{\alpha-1}$), we have $x_2^* < 0$, and hence our solution in part 2 is not feasible. Note that the derivative of $(x_1^\alpha+I-px_1)$ is $\alpha x_1^{\alpha-1}-p>0$ for all $x_1 \le \left(\frac{p}{\alpha}\right)^{\frac{1}{\alpha-1}}$.
+
+Hence, in this case the objective function is increasing for all $x_1 \in [0, \frac{I}{p}]$ and we have the boundary solution $x_1^*=\frac{I}{p}$ and $x_2^*=0$.
+
+So the condition on $I$ is  
+\[ I \le \alpha^{\frac{1}{1-\alpha}}p^{\frac{\alpha}{\alpha-1}}. \]
+
+\item Answer: Since $p>0$, $I>0$, and $\alpha>0$, it follows that $x_1^*>0$ always holds, that is, the
+consumer always demands a positive amount of food.
+\end{enumerate}
+\end{solution}
+
+\section*{Question 7}
+Consider the utility function $U(x_1,x_2)=x_1^2+x_2^2$.  Draw a picture of an indifference curve for this utility function.  Use your picture to argue that this utility function is not concave.  Now prove that this utility function is not concave by identifying consumption bundles $(x_1,x_2)$ and $(x_1',x_2')$ and a value $\lambda\in(0,1)$ for which the equation in the definition of concavity fails.  (For example, you might start by taking $(x_1,x_2)=(0,1)$.)  Form the Lagrangian for the associated constrained utility maximization problem and find the associated first-order conditions.  Use your picture to argue that you have found a minimum, not a maximum.
+
+\begin{solution}
+The indifference curves are the family of functions indexed by the parameter $\bar{u}$ such that
+
+\[ U(x_1, x_2) = x_1^2 + x_2^2 = \bar{u}^2 \]
+
+Note that this is simply the family of circles centered at the origin with radius $\bar{u}$.
+
+These ICs ``bend outward''; and we can draw a line between two points in the upper contour set of a given IC that exits the upper contour set.
+
+For example, the line connecting $(0,1)$ to $(1,0)$ (both of which are on the boundary of the upper contour set for $\bar{u} = 1$) is outside of the upper contour set except at its endpoints. Specifically, for example, $\left(\frac12, \frac12 \right)$ is on this line, but $\left(\frac12 \right)^2 + \left(\frac12 \right)^2 < 1^2 + 0^2$.
+
+The associated Lagrangian would be:
+
+\[ L = x_1^2 + x_2^2 - \lambda \left(p_1 x_1 + x_2 - y\right) \]
+
+With first-order conditions:
+
+\begin{align*}
+2x_1 - \lambda p_1 &= 0 \\
+2x_2 - \lambda &= 0 \\
+p_1 x_1 + x_2 - y = 0
+\end{align*}
+
+However, the point of tangency between any budget line and these indifference curves will be at the \textit{lowest} indifference curve at the budget line.
+\end{solution}
+
+\section*{Question 8}
+Recall the CES preferences used in HW2:
+
+\[
+u(x_1, x_2) = \left(\theta x_1^{\rho} + (1-\theta) x_2^{\rho}\right)^{\frac1{\rho}}
+\]
+
+Suppose $\rho = .4$, $\theta = .8$, $y = 5$, and $p_2 = 2$.
+
+Decompose the change in demand for good 1 from an initial price of $p_1 = 1$ to $p_1 = 3$. Is good 1 normal or inferior?
+
+\begin{solution}
+Let's first find demand in terms of generic parameters and variables. To do this, we set the MRS equal to the price ratio:
+
+\begin{align*}
+\frac{p_1}{p_2} &= \frac{\partial u / \partial x_1}{\partial u /\partial x_2} \\
+ &= \frac{\frac1\rho \left( \theta x_1^\rho + \left(1-\theta\right) x_2^\rho \right)^{\frac1\rho - 1} \theta \rho x_1^{\rho - 1}}{\frac1\rho \left( \theta x_1^\rho + \left(1-\theta\right) x_2^\rho \right)^{\frac1\rho - 1} \left(1-\theta\right) \rho x_2^{\rho - 1}} \\
+ &= \frac{\theta}{1-\theta} \left( \frac{x_1}{x_2} \right)^{\rho - 1}
+\end{align*}
+
+Which can be rearrange to $x_1 = \left( \frac{1-\theta}{\theta} \frac{p_1}{p_2} \right)^\frac1{\rho - 1} x_2$.
+
+Substituting this into the budget constraint and solving for $x_2$ we find:
+
+\[ x_2 = \frac{y}{p_1 \left( \frac{1-\theta}{\theta} \frac{p_1}{p_2} \right)^\frac1{\rho - 1} + p_2} \]
+
+And finally
+
+\[ x_1 = \frac{y \left( \frac{1-\theta}{\theta} \frac{p_1}{p_2} \right)^\frac1{\rho - 1}}{p_1 \left( \frac{1-\theta}{\theta} \frac{p_1}{p_2} \right)^\frac1{\rho - 1} + p_2} \]
+
+Plugging in the original values of variables and parameters, we find that $(x_1, x_2) = \left( \frac{5\cdot 8^{\frac35}}{8^{\frac35} + 2}, \frac{5}{8^{\frac35} + 2} \right) \approx (3.18, .91)$
+
+When we change the price of good 1 to 3 and keep purchasing power constant, we must change income so that we can exactly afford $(3.18, .91)$ under the new prices -- that is, we must \textit{increase} income to $y' = 3*3.18 + 2*.91 \approx 11.35$.
+
+Demand with $\theta = .8$, $\rho = .4$, $p_1 = 3$, $p_2 = 2$, and $y = 11.35$ is given by substituting these values into our general form above. This yields $\left( x_1^s, x_2^s \right) \approx (2.76, 2.53)$. Note that , as expected, the demand for good 1 has plummeted as a result of its price tripling. That of good two has increased, suggesting they're substitutes to some degree.
+
+When we now reduce income back to 5, we repeat the procedure to determine the final values of demand in the face of the price change. This yields $(x_1', x_2') \approx (1.22, .68)$
+
+Altogether, this means that the substitution effect for good 1 is given by
+
+\[ \Delta x^S_1 = x^s_1 - x_s \approx .42 \]
+
+Leaving the rest as the income effect, given by
+
+\[ \Delta x^I_1 = x_1' - x^s_1 \approx 1.54 \]
+
+\end{solution}
+
+\section*{Question 9}
+A pedestrian in the streets of Xi'an faces two dangers. The first is that they're hit by a car, the resulting medical costs from which are \textyen 40000. The second is that they're electricuted by unsecured power lines; such an accident would cost \textyen 20000 to heal at the hospital.
+
+An enterprising local insurance company offers a plan to insure against these risks. Specifically, for a cost of \textyen 500, the insurance company will cover \textyen 20000 of your healthcare costs.
+
+Assume that the probability of a car accident is $.01$ and that of being electricuted is $.03$ (also assume there is no chance that \textit{both} types of accident occur in a given year, or that an accident occcurs more than once). Would a consumer with preferences for income represented by $u(I) = \ln I$ buy this policy if their wages from work are \textyen 60000?
+
+\begin{solution}
+The individual simply compares utility in a world where they don't buy insurance:
+
+\[ .96 \ln(60000) + .03 \ln(40000) + .01 \ln(20000) \approx 10.979 \]
+
+To that in the world where they do buy insurance:
+
+\[ .99 \ln(59500) + .01 \ln(39500) \approx 10.990 \]
+
+Since utility is higher with insurance, the individual will buy it.
+
+\end{solution}
+
+\end{document}
