@@ -21,7 +21,7 @@
 }
 % \\                                               //
 
-\begin{document}
+\newenvironment{solution}{\color{red}}{\color{black}}\begin{document}
 
 \title{Intermediate Micro In-Class Problems \\ \large Trade \& Market Demand}
 
@@ -55,13 +55,11 @@ What about Enlai?
 
 Draw budget lines for both Zedong and Enlai given these prices and their endowments. 
 
-\color{red}
-
+\begin{solution}
 Zedong's budget line intercepts the rice axis at 3 and the pork axis at 7.5.
 
 Enlai's budget line intercepts the rice axis at 1.6 and the pork axis at 4.
-
-\color{black}  
+\end{solution}
 
 \subsection{Anticipation Pause}
 
@@ -96,7 +94,7 @@ Take a good look at both individual's preferences. Who likes pork more? Who like
 
 Find both Zedong's and Enlai's demand given their preferences, their endowments, and the stated prices above.
 
-\color{red}
+\begin{solution}
 
 For Cobb-Douglas preferences, the amount of income spent on each good is equal to its coefficient in the utility function. So, for example, Enlai spends 80\% of his income on rice and Zedong spends 70\% of his income on pork.
 
@@ -106,7 +104,7 @@ Denoting each person's demand by using their initial in the subscript, we then g
 
 \[ p_Z = .7 \frac{15}2 = 5.25, p_E = .2 \frac82 = .8 \]
 
-\color{black}
+\end{solution}
 
 \subsection{Correct Prices?}
 
@@ -124,11 +122,24 @@ The reason the prices didn't work above is that they led to an over-supply of on
 
 Which price should go up? Which should go down?
 
+\begin{solution}
+Pork is under-priced; rice is under-priced.
+\end{solution}
+
 \subsection{Market Clearing Condition}
 
 We'll use the fact that markets must clear to determine what the prices of rice and pork must be.
 
 Write two equations which encapsulate the fact that markets must clear. What must be the total consumption of rice?
+
+\begin{solution}
+Markets clearing means pork demanded equals pork supplied; likewise for rice:
+
+\begin{align*}
+k_Z + k_E &= 4 \\
+r_Z + r_E &= 3 
+\end{align*}
+\end{solution}
 
 \subsection{Invisible Hand II} 
 
@@ -138,14 +149,47 @@ Let the prices be unkown: $p_r$ and $p_k$ are now variables.
 
 We now have 6 unknowns. What are they?
 
+\begin{solution}
+\begin{enumerate}
+\item Prices: $p_k, p_r$
+\item Zedong's demand: $k_Z, r_Z$
+\item Enlai's demand: $k_E, r_E$
+\end{enumerate}
+\end{solution}
+
 \subsubsection{Equation Accounting}
 
 To solve for 6 unknowns, we generally need 6 equations relating them. Indeed we have this many. What are they?
+
+\begin{solution}
+\begin{enumerate}
+\item Market clearing conditions (2)
+\item Zedong's demand (2)
+\item Enlai's demand (2)
+\end{enumerate}
+\end{solution}
 
 \subsubsection{Solving}
 
 What are the market clearing prices of pork and rice? What are the final allotments of the two goods?
 
 Do they make sense, given what we know about preferences and endowments?
+
+\begin{solution}
+We can quickly reduce our 6-system equation to 2 equations since we have all of the demands as functions of prices. So the only two unknowns are prices; the market-clearing conditions become:
+
+\begin{align*}
+\alpha_Z \frac{y_Z}{p_r} + \alpha_E \frac{y_E}{p_r} &= 3 \\
+(1-\alpha_Z) \frac{y_Z}{p_k} + (1-\alpha_E) \frac{y_E}{p_k} &= 4
+\end{align*}
+
+Luckily, each market clearing condition only involves one price (not true in general), so the answer quickly emerges as:
+
+\begin{enumerate}
+\item Prices: $p_k = \frac{121}{40}$, $p_r = \frac{109}{30}$
+\item Zedong's consumption: $r_Z = \frac{135}{109}$, $k_Z = \frac{420}{121}$
+\item Enlai's consumption: $r_E = \frac{191}{109}$, $k_Z = \frac{64}{121}$
+\end{enumerate}
+\end{solution}
 
 \end{document}
