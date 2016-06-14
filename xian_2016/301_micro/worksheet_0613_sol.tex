@@ -1,0 +1,151 @@
+\documentclass{article}
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Trade \& Market Demand}
+
+\date{June 13, 2016}
+
+\maketitle
+
+Zedong and Enlai are particularly well-endowed. Zedong has been blessed with 3 tons of rice, while Enlai is in possession of 4 heads of pork.
+
+We will explore the natural (and full-information) result of bartering/trading between Zedong and Enlai, given that both of them like both pork and rice.
+
+\section{Endowments}
+
+What does it mean to have an endowment of goods? Does this endowment make us rich?
+
+Without having some shared and inherent value attached to either/both of these goods (rice/pork), each will rely on the market to provide them with prices by which they can value their \textit{ex ante} basket of goods. Then we'll show that, given each person's preferences for both goods, prices for each will emerge naturally and facilitate trade.
+
+\subsection{Invisible Hand I}
+
+Suppose that the price of a ton of rice, $p_r$, were \textyen 5, while that of pork, $p_k$, is \textyen 2.
+
+What is Zedong's effective income under these prices? That is, how much cash would he have if he sold all of his goods to the market and took the money home?
+
+\textcolor{red}{Zedong only has 3 tons of rice, each of which is worth \textyen 5, so his income is \textyen 15.}  
+
+What about Enlai?
+
+\textcolor{red}{Enlai likewise has \textyen 8 of effective income.} 
+
+\subsection{Budgets}
+
+Draw budget lines for both Zedong and Enlai given these prices and their endowments. 
+
+\color{red}
+
+Zedong's budget line intercepts the rice axis at 3 and the pork axis at 7.5.
+
+Enlai's budget line intercepts the rice axis at 1.6 and the pork axis at 4.
+
+\color{black}  
+
+\subsection{Anticipation Pause}
+
+We are now in a situation similar to one we've found ourselves in before. We clearly want to find each person's demand under these prices. What are we missing? What is currently preventing us from answering the question ``How much of each good does Zedong want?''
+
+\textcolor{red}{We have said nothing of either person's \textit{preferences}, which is the last necessary ingredient.} 
+
+\section{Preferences}
+
+\subsection{Simple Preferences}
+
+Suppose Enlai's preferences were given by $u_E(r, k) = r$. What would be his demanded bundle?
+
+\textcolor{red}{Enlai has no preference for pork -- he's effectively a vegan since pork does not enter his utility function. So he simply buys as much rice as possible, i.e., 1.6 tons.} 
+
+\subsection{Cobb-Douglas}
+
+Let's instead impose more commonplace preferences on our enterprising pair. We'll denote Zedong's preferences with $u_Z$:
+
+\begin{align*}
+u_Z(r, k) &= .3 \ln r + .7 \ln k \\
+u_E(r, k) &= .8 \ln r + .2 \ln k
+\end{align*}
+
+\subsubsection{Eyeballing Demand}
+
+Take a good look at both individual's preferences. Who likes pork more? Who likes rice more?
+
+\textcolor{red}{Zedong likes pork more -- his coefficient on pork in his utility function is much higher than in Enlai's. And likewise Enlai likes rice much more.}
+
+\subsubsection{Calculating Demand}
+
+Find both Zedong's and Enlai's demand given their preferences, their endowments, and the stated prices above.
+
+\color{red}
+
+For Cobb-Douglas preferences, the amount of income spent on each good is equal to its coefficient in the utility function. So, for example, Enlai spends 80\% of his income on rice and Zedong spends 70\% of his income on pork.
+
+Denoting each person's demand by using their initial in the subscript, we then get:
+
+\[ r_Z = .3 \frac{15}5 = .9, r_E = .8 \frac85 = 1.28 \]
+
+\[ p_Z = .7 \frac{15}2 = 5.25, p_E = .2 \frac82 = .8 \]
+
+\color{black}
+
+\subsection{Correct Prices?}
+
+Note that Zedong and Enlai are the only sources of pork and rice in the world. Are these prices correct?
+
+To put it another way, is there any way for Zedong and Enlai to trade away portions of their endowment and achieve the desired demand of both parties?
+
+If Zedong and Enlai put all of their pigs in a pen and tried each to take his demanded quantity of pigs, what would happen?
+
+\textcolor{red}{The total demand for pork in the ``world'' is 6.05, which exceeds the total supply; similarly, the total demand for rice, 2.18, is less than the total supply. Thus the stated prices have caused a demand imbalance that could be improved by increasing the price of pork and decreasing the price of rice.}
+
+\section{Market Clearing}
+
+The reason the prices didn't work above is that they led to an over-supply of one good and an under-supply of the other. 
+
+Which price should go up? Which should go down?
+
+\subsection{Market Clearing Condition}
+
+We'll use the fact that markets must clear to determine what the prices of rice and pork must be.
+
+Write two equations which encapsulate the fact that markets must clear. What must be the total consumption of rice?
+
+\subsection{Invisible Hand II} 
+
+Let the prices be unkown: $p_r$ and $p_k$ are now variables.
+
+\subsubsection{Variable Accounting}
+
+We now have 6 unknowns. What are they?
+
+\subsubsection{Equation Accounting}
+
+To solve for 6 unknowns, we generally need 6 equations relating them. Indeed we have this many. What are they?
+
+\subsubsection{Solving}
+
+What are the market clearing prices of pork and rice? What are the final allotments of the two goods?
+
+Do they make sense, given what we know about preferences and endowments?
+
+\end{document}

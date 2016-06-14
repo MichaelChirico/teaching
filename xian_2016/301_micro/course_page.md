@@ -12,7 +12,7 @@ Use the Wechat group for questions.
 
 * [Problem Set 2: June 13, 2016](hw_02.pdf) [[solutions](hw_02_sol.pdf)]
 
-* [In-Class Worksheet: June 13, 2016](worksheet_0613.pdf)
+* [In-Class Worksheet: June 13, 2016](worksheet_0613.pdf) [[solutions](worksheet_0613_sol.pdf)]
 
 ## Quizzes/Exams
 
