@@ -12,11 +12,13 @@ Use the Wechat group for questions.
  
 * [Lecture 2: Calculating GDP](lecture_02.pdf)
 
-## Problem Sets
+## Problem Sets \& Worksheets
 
 * [Problem Set 1: June 6, 2016](hw_01.pdf) [[solutions](hw_01_sol.pdf)]
 
 * [Problem Set 2: June 13, 2016](hw_02.pdf) [[solutions](hw_02_sol.pdf)]
+
+* [Worksheet: June 14, 2016](worksheet_0614.pdf)
 
 ## Quizzes & Exams
 

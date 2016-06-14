@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Intermediate Macro In-Class Problems \\ \large Exploring Romer Model}
+
+\date{June 14, 2016}
+
+\maketitle
+
+Today we will explore the mechanisms of the simply Romer model by exploring how economies described by this model would react to exogenous changes.
+
+First, recall this summary of the Romer model:
+
+\begin{align*}
+\text{Production} &: Y_t = A_t L^y_t \\
+\text{Technological Dynamics} &: \Delta A_{t+1} = \bar{z} A_t L^a_t \\
+\text{Resource Constraint} &: L^y_t + L^a_t = \bar{L} \\
+\text{Labor Allocation Rule} &: L^a_t = \bar{l} \bar{L}
+\end{align*}
+
+And the model solution:
+
+\begin{align*}
+L^a_t &= \bar{l} \bar{L} \\
+L^y_t &= \left(1 - \bar{l} \right) \bar{L} \\
+A_t &= \left(1 + \bar{z} \bar{l} \bar{L} \right)^t A_0 \\
+Y_t &= \left(1 - \bar{l} \right) \left(1 + \bar{z} \bar{l} \bar{L} \right)^t A_0 \bar{L}
+\end{align*}
+
+\section{Labor Force}
+
+Analyze the effects of a government policy encouraging immigration in the context of the Romer model.
+
+Remember, any proper analysis of policy in a macro model will evaluate the impact of the policy on every aspect of the model -- typically, the model parameters, but occasionally also the functional forms (themselves a higher-dimensional parameter).
+
+\subsection*{Identifying Model Parameters}
+
+What are the parameters of the Romer model? What are the quantities that are taken as given, and which are allowed to change as a result of agents' behavior?
+
+\subsection*{Evaluating the Policy}
+
+What is the potential effect of the immigration policy on each of the parameters you identified above?
+
+\section{Reallocation of Labor}
+
+Analyze the effects of a government policy which subsidizes research in the context of the Romer model.
+
+What is the potential effect of the immigration policy on each of the parameters you identified above?
+
+\section{Textbook Exercises}
+
+\subsection*{6.1}
+
+Explain whether the following goods are rivalrous or nonrivalrous:
+
+\begin{enumerate}
+\item Beethoven's Fifth Symphony
+\item An iPod
+\item Monet's painting \textit{Water Lilies}
+\item The method of public key cryptography (RSA)
+\item Fish in the ocean
+\end{enumerate}
+
+\subsection*{6.2}
+
+Suppose a new piece of computer software -- say a word processor with perfect speech recognition -- can be created for a onetime cost of \$100 million. Suppose that once it's created, copies of the software can be distributed at a cost of \$1 each.
+
+\begin{enumerate}
+\item If $Y$ denotes the number of copies of the computer program produced and $X$ denotes the amount spent on production, what is the production function; that is, the relation between $Y$ and $X$?
+\item Make a graph of this production function. Does it exhibit increasing returns? Why or why not?
+\item Suppose the firm charges a price equal to marginal cost (\$1) and sells a million copies of hte software. What are its profits?
+\item Suppose the firm charges a price of \$20. How many copies does it have to sell in order to break even? What if the price is \$100 per copy?
+\item Why does the scale of the market -- the number of copies the firm could sell -- matter?
+\end{enumerate}
+
+\subsection*{6.8: A variation on the Romer model}
+
+Consider the following variation:
+
+\begin{align*}
+Y_t &= A_t^{\frac12} L^y_T \\
+\Delta A_{t+1} &= \bar{z} A_t L^a_t \\
+L^y_t + L^a_t &= \bar{L} \\
+L^a_t &= \bar{l} \bar{L}
+\end{align*}
+
+There is only a single difference: we've changed the exponent on $A_t$ in the production of the output good so that there is now a diminishing marginal product to ideas in that sector.
+
+\begin{enumerate}
+\item Provide an economic interpretation for each equation.
+\item What is the growth rate of knowledge in this economy?
+\item What is the growth rate of output per person in this economy?
+\item Solve for the level of output per person at each point in time.
+\end{enumerate}
+
+\end{document}
