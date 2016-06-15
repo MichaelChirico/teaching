@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Macro Midterm Practice}
+
+\maketitle
+
+\section*{Xian's GDP}
+
+Xian produces Liangpi and Roujiamo. Complete the following table to calculate the size of the Xianese economy.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{5cm}|r|r|r|}
+ \hline
+ & 2016 & 2017 & Percentage change \\
+ \hline
+ Quantity of Liangpi & 70 & 75 & \\
+ \hline
+ Quantity of Roujiamo & 120 & 150 & \\
+ \hline
+ Price of Liangpi (\textyen) & 25 & 30 & \\
+ \hline
+ Price of Roujiamo (\textyen) & 8 & 8.4 & \\
+ \hline
+ Nominal GDP & & & \\
+ \hline
+ Real GDP in 2016 prices & & & \\
+ \hline
+ Real GDP in 2017 prices & & & \\
+ \hline
+ Real GDP in chained prices, benchmarked to 2016 & & & \\
+ \hline
+\end{tabular}
+\end{table}
+
+\section*{Population Growth in the Production Model}
+
+Consider adding simple population growth to the production model. In particular, suppose $\bar{L}_t = (1+g)^t L_0$, where $L_0$ is given as a parameter and represents some initial population. The model is otherwise unchanged and thus consists of five equations:
+
+\begin{itemize}
+\item Production: $Y_t = \bar{A} K_t^\frac13 L_t^\frac23$
+\item Capital Markets: $r_t = \frac13 \bar{A} \left( \frac{L_t}{K_t} \right)^\frac23$
+\item Labor Markets: $w_t = \frac23 \bar{A} \left( \frac{K_t}{L_t} \right)^\frac13$
+\item Capital Stock: $K_t = \bar{K}$
+\item Labor Stock: $L_t = \bar{L}_t$
+\end{itemize}
+
+\begin{enumerate}
+\item What is the growth rate of the population in this economy?
+\item Solve the model. That is, find equations describing all of the endogenous variables ($w_t$, $r_t$, $K_t$, $L_t$, and $Y_t$). Explain why each variable follows the path that it does.
+\item Plot what happens to each of these variables over time. Does this economy reach a steady state?
+\item What happens to output per person in this economy? Why?
+\item Let's also now grow the capital stock with time, so that equation 4 is replaced with $K_t = \bar{K}_t$, and $\bar{K}_t = (1+G)^t K_0$. Repeat the above for this model. Find a condition which makes output per person constant over time.
+\end{enumerate}
+
+\end{document}
