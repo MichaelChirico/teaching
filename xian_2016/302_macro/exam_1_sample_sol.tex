@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Macro Midterm Practice}
+
+\maketitle
+
+\section*{Xian's GDP}
+
+Xian produces Liangpi and Roujiamo. Complete the following table to calculate the size of the Xianese economy.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{5cm}|r|r|r|}
+ \hline
+ & 2016 & 2017 & Percentage change \\
+ \hline
+ Quantity of Liangpi & 70 & 75 & \textcolor{red}{7} \\
+ \hline
+ Quantity of Roujiamo & 120 & 150 & \textcolor{red}{25} \\
+ \hline
+ Price of Liangpi (\textyen) & 25 & 30 & \textcolor{red}{20} \\
+ \hline
+ Price of Roujiamo (\textyen) & 8 & 8.4 & \textcolor{red}{5} \\
+ \hline
+ Nominal GDP & \textcolor{red}{2710} & \textcolor{red}{3510} & \textcolor{red}{29.5} \\
+ \hline
+ Real GDP in 2016 prices & \textcolor{red}{2710} & \textcolor{red}{3075} & \textcolor{red}{13.5} \\
+ \hline
+ Real GDP in 2017 prices & \textcolor{red}{3108} & \textcolor{red}{3510} & \textcolor{red}{12.9} \\
+ \hline
+ Real GDP in chained prices, benchmarked to 2016 & \textcolor{red}{2710} & \textcolor{red}{3068} & \textcolor{red}{13.2} \\
+ \hline
+\end{tabular}
+\end{table}
+
+\section*{Population Growth in the Production Model}
+
+Consider adding simple population growth to the production model. In particular, suppose $\bar{L}_t = (1+g)^t L_0$, where $L_0$ is given as a parameter and represents some initial population. The model is otherwise unchanged and thus consists of five equations:
+
+\begin{itemize}
+\item Production: $Y_t = \bar{A} K_t^\frac13 L_t^\frac23$
+\item Capital Markets: $r_t = \frac13 \bar{A} \left( \frac{L_t}{K_t} \right)^\frac23$
+\item Labor Markets: $w_t = \frac23 \bar{A} \left( \frac{K_t}{L_t} \right)^\frac13$
+\item Capital Stock: $K_t = \bar{K}$
+\item Labor Stock: $L_t = \bar{L}_t$
+\end{itemize}
+
+\begin{enumerate}
+\item What is the growth rate of the population in this economy?
+\item Solve the model. That is, find equations describing all of the endogenous variables ($w_t$, $r_t$, $K_t$, $L_t$, and $Y_t$). Explain why each variable follows the path that it does.
+\item Plot what happens to each of these variables over time. Does this economy reach a steady state?
+\item What happens to output per person in this economy? Why?
+\item Let's also now grow the capital stock with time, so that equation 4 is replaced with $K_t = \bar{K}_t$, and $\bar{K}_t = (1+G)^t K_0$. Repeat the above for this model. Find a condition which makes output per person constant over time.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item The growth rate of the population is the ratio of the percentage growth of population from period to period. It should be clear that this is $g$, but for thoroughness' sake:
+
+\[ \frac{\bar{L}_{t+1}}{\bar{L}} - 1 = \frac{(1+g)^{t+1} L_0}{(1+g)^t L_0} - 1 = g \]
+
+\item The five endogenous variables, expressed in terms of the four exogenous variables ($\bar{A}$, $\bar{K}$, $g$, and $L_0$), are:
+
+\begin{enumerate}
+\item $K_t = \bar{K}$
+\item $L_t = \bar{L}_t = (1+g)^t L_0$
+\item $w_t = MPL_t = \frac23 \bar{A} \left( \frac{\bar{K}}{L_0} \frac1{(1+g)^t} \right)^\frac13$
+\item $r_t = MPK_t = \frac13 \bar{A} \left( \frac{L_0}{\bar{K}} (1+g)^t \right)^\frac23$
+\item $Y_t = \bar{A} \bar{K}^\frac13 L_0^\frac23 (1+g)^{\frac23 t}$
+\end{enumerate}
+
+\item $K_t$ is constant at $\bar{K}$. $L_t$ grows exponentially at rate $g$, with initial value $L_0$. $r_t$ grows exponentially at rate $(1+g)^\frac23 - 1$, with initial value $\frac13 \bar{A} \left( \frac{L_0}{\bar{K}} \right)^\frac23$. $w_t$ \textit{shrinks} exponentially at rate $(1+g)^{-\frac13} - 1 < 0$; in particular, $w_t \rightarrow 0$ as $t \rightarrow \infty$. The initial value of $w_t$ is $\frac23 \bar{A} \left( \frac{\bar{K}}{L_0} \right)^\frac13$. $Y_t$ grows exponentially at the same rate as $r_t$, but has initial value $\bar{A} \bar{K}^\frac13 L_0^\frac23$.
+
+\item $y_t = \frac{Y_t}{\bar{L}_t} = \bar{A} \left( \frac{\bar{K}}{L_0} \right)^\frac13 (1+g)^{-\frac13 t}$, which shrinks to 0 over time. This is because of the diminishing marginal product of capital -- the newborn workers cannot contribute as much to output as did their still-extant forebears, since there is no new capital, so output per person shrinks.
+
+\item Basically, if $g > G$, we have a situation much like that in the previous parts -- the population stock soon outmatches the capital stock by a large margin. The reverse happens if $g < G$; balance is achieved only when $g = G$.
+\end{enumerate}
+
+\end{solution}
+
+\end{document}
