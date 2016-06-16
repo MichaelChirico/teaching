@@ -1,0 +1,323 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+\begin{document}
+
+\title{Intermediate Micro Midterm}
+
+\date{June 15, 2016}
+
+\maketitle
+
+Feel free to use your notes and a calculator. Any cell phones must be in airplane mode, no Wi-Fi; no Bluetooth, etc.	
+
+\textit{Remember to justify all of your responses. Little if any credit will be awarded to unjustified answers, even if they're correct.}
+
+\section*{Xi's Habits (15 points)}
+
+\small{\textit{The purpose of this question is to probe your understanding of the intuitive meaning of risk aversion.}}
+
+You offer Jinping to play a game. The game costs \textyen 1.
+
+The game works as follows. You roll a dice. If the roll is a 6, you'll give Jinping \textyen 6.60; otherwise, he gets nothing.
+
+\begin{enumerate}
+\item What is the expected value of your game?
+
+\item Suppose Jinping rejects your offer to play. Is he risk averse, risk neutral, risk loving, or can't we say?
+	
+\item Suppose Jinping accepts your offer to play. Is he risk averse, risk neutral, risk loving, or can't we say? 
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item \textbf{[3 points]} $\frac56$ of the time Jinping loses \$1. $\frac16$ of the time he earns \$5.60 (the difference between his payout and the cost to play). Thus the expected value of the game is
+
+\[ \frac56 (-1) + \frac16 (5.6) = \frac4{15} \approx .27\]
+
+\emph{(note: also acceptable would be 1.27, which ignores the cost to play, since it wasn't clear whether to include this in the expected winnings)}
+
+\item \textbf{[6 points]} Since the game has a positive expected value, Jinping must be \textbf{risk-averse} to reject your offer to play.
+
+\item \textbf{[6 points]} \textbf{We can't tell.} It seems Jinping is either risk-neutral or risk-loving, but he could also be risk-averse! As long as his risk aversion isn't too strong. We have only learned that he's not \emph{extremely} risk-averse, in a sense.
+\end{enumerate}
+\end{solution}
+
+\section*{Combined CARA utility, Substitution (30 points)}
+
+\small{\textit{The first purpose of this question is to demonstrate your facility with adapting the approaches of consumer utility maximization to new classes of utility functions you may not yet have before seen. The second purpose is to demonstrate familiarity with the concepts and methods for disentangling substitution from income effects.}}
+
+Another class of utility functions that we haven't discussed yet in class are known as CARA preferences and take the general form $u(I) = -\frac{e^{-\alpha I}}{\alpha}$
+\footnote{
+	They are so called because the coefficient of absolute risk aversion, defined as $R(x; u) = -\frac{u''(x)}{u'(x)}$, is constant for this class of functions. There is much more to say about coefficients of risk aversion which we won't have time to get in to in this course.
+}
+.
+
+Consider an individual with preferences represented by the utility function:
+
+\[ u(x_1, x_2) = - \alpha e^{-x_1} - e^{-x_2} \]
+
+This individual has income $y$ and faces respective prices $p_1$ and $p_2$ for these goods. You can assume $\alpha > 0$, as are prices and income.
+
+\begin{enumerate}
+\item Formulate the individual's decision problem. What do they choose, what is their objective, and what is (are) their constraint(s)?
+
+\item Now set $\alpha = 2$, $y = 4$, $p_1 = 1$, and $p_2 = 3$. What is the individual's utility-maximizing consumption bundle?
+
+\item Suppose $p_2$ increases to 4. What is the individual's new utility maximizing consumption bundle?
+
+\item Explain briefly what the substitution and income effects are.
+
+\item Separate the change in demand for good 2 from parts 2 to 3 into that change attributable to substitution effect, and that part which can be isolated as due to income.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item \textbf{[5 points]} The consumer problem is encapsulated by the following:
+
+\[ \Max_{x_1, x_2} \left\{ - \alpha e^{-x_1} - e^{-x_2} \right\} \]
+
+\[ \st p_1 x_1 + p_2 x_2 \leq y \]
+
+\item \textbf{[5 points]} To solve, we start by setting the MRS equal to the price ratio:
+
+\[ MRS = \frac{\partial u / \partial x_1}{\partial u / \partial x_2} = \frac{\alpha e^{- x_1}}{e^{-x_2}} = \frac{p_1}{p_2} \]
+
+Rearranging to solve or $x_1$, we find:
+
+\[ x_1 = x_2 + \ln \left( \frac{\alpha p_2}{p_1} \right) \]
+
+Plugging this into the budget constraint, we can rearrange to solve for $x_2$:
+
+\[ x_2 = \frac{y + p_1 \ln \left( \frac{p_1}{\alpha p_2} \right)}{p_1 + p_2} \]
+
+Finally, re-substituting and simplifying, we get:
+
+\[ x_1 = \frac{y - p_2 \ln \left( \frac{p_1}{\alpha p_2} \right)}{p_1 + p_2} \]
+
+Plugging in $\alpha = 2$, $y = 4$, $p_1 = 1$, and $p_2 = 3$, we get:
+
+\[ x_1 =  \frac{4 + 3 \ln 6}4 \approx 2.34, \qquad x_2 = \frac{4 - \ln 6}4 \approx .55 \]
+
+\item \textbf{[5 points]} Simply plugging in $p_2 = 4$, we get
+
+\[ x_1 =  \frac{4 + 4 \ln 8}5 \approx 2.46, \qquad x_2 = \frac{4 - \ln 8}5 \approx .38 \]
+
+\item \textbf{[10 points]} The \textbf{substitution effect} is the change in demand for a good that results \emph{exclusively} from its change in relative price vs. another good (in particular, the substitution effect is isolated from the income effect that results from the change in purchasing power resulting from the price change).
+
+The \textbf{income effect} is the change in demand for a good that results from a change in the decision maker's income (and in particular, \emph{absent} any change in the goods' relative prices).
+
+\item \textbf{[5 points]} This exercise consists of two steps -- first, isolating the substitution effect; and second, isolating the income effect.
+
+\subsubsection*{Substitution Effect}
+
+To measure the substitution effect, we adjust the relative prices of goods one and two, but \emph{increase} the decision maker's income to the point where they can still afford the bundle they chose in part 2. Under the new price of $p_2 = 4$, in order to afford $(2.34, .55)$, the person's income would have to be:
+
+\[ \frac{4 + 3 \ln 6}4 + 4\cdot \frac{4 - \ln 6}4 = 5 - \frac14 \ln 6 \approx 4.55 \] 
+
+With income $y^s = 4.55$, $p_1 = 1$, and $p_2 = 4$ (and $alpha$ still $2$), the demand for good 2 implied by our formula above is
+
+\[ x_2^s = 1 - \frac{\ln 3 + 13 \ln 2}{20} \approx .49 \]
+
+Thus, the substitution effect here is:
+
+\[ \Delta x^S = x_2^s - x_2 = \frac{\ln 3 - \ln 4}{5} \approx -.06 \]
+
+\subsubsection*{Income Effect}
+
+The income effect is the change in demand for good 2 that results from now pushing income back down to its real value of $4$. We saw from part 3 that the consumer chose to consume $.38$ of good 2, so the income effect is:
+
+\[ \Delta x^I = x_2' - x_2^s = \frac{\ln 6 - 4}{20} \approx -.11 \]
+\end{enumerate}
+\end{solution}
+
+\section*{Waking Up in a New Bugatti (30 points)}
+
+\small{\textit{The purpose of this question is to probe your comfort with intertemporal tradeoffs.}}
+
+You're considering buying a new Bugatti now, but can't afford it. You'll need to borrow against your future income (i.e., your income in the second and final period) in order to do so.
+
+Your first-period income is $I_1$; $I_2$ is your future income. The cost of the Bugatti is $c$, and the utility benefit of using your fresh Bugatti is $v_B$ -- i.e., your total utility increases by exactly $v_B$ when you own the wonderful Veyron 16.4.
+
+The car dealership is willing to offer you phenomenally good financing -- since you'll be paying them back in cash in period 2 (as any true baller must), they've offered to give you an \textit{interest-free loan}. Note that these terms \textit{only} apply to the car purchase. \textbf{It is otherwise impossible to transfer funds between periods through saving and borrowing!}
+
+Your utility is otherwise represented by standard intertemporal Cobb-Douglas preferences:
+
+\[ u(c_1, c_2) = \ln c_1 + \beta \ln c_2 \]
+
+\begin{enumerate}
+\item What is your utility, in terms only of \textit{relevant} model parameters ($I_1$, $I_2$, $c$, $v_B$, $\beta$), of \textbf{not} buying the Bugatti? (\textit{Hint: If we don't buy the car, the only choice we have left is to consumer our income})
+
+In order to finance the Bugatti, you must decide how much money to borrow in period 1 from the dealership. Let $b$ denote the (dollar) size of the loan you choose.
+
+\item What is your utility, in terms only of $b$ and \textit{relevant} model parameters ($I_1$, $I_2$, $c$, $v_B$, $\beta$), of \textbf{buying} the Bugatti? (\textit{Hint: What is your income in each period if you take out a loan for $b$ to buy the car?})
+
+\item Formulate the decision problem associated with the choice of $b$.
+
+\item Now, set $I_1 = 1$, $I_2 = 5$, $c = 5$, and $\beta = .96$. Solve for the optimal choice of $b$.
+
+\item What is the utility of shelling out for the Bugatti? What is the utility of not doing so? How big does $v_B$ have to be in order to justify the purchase?
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item Since we can't borrow without buying the car, if we don't buy, we simply consume our income in both periods:
+
+\[ u(I_1, I_2) = \ln I_1 + \beta \ln I_2 \]
+
+\item Our income if we buy the car having borrowed $b$ is $I_1 + b - c$ in the first period and $I_2 - b$ in the second period, so our utility is:
+
+\[ u(I_1, I_2; b) = \ln \left(I_1 + b - c \right) + \beta \ln \left(I_2 - b \right) + v_B \]
+
+\item We must choose $b$ to maximize utility, i.e.:
+
+\[ \Max_{b} \left\{ \ln \left(I_1 + b - c \right) + \beta \ln \left(I_2 - b \right) + v_B \right\} \]
+
+\item The first order condition of the problem in 3 is:
+
+\[ \frac1{I_1 + b - c} - \frac\beta{I_2 - b} = 0 \]
+
+Which can be solved for $b$:
+
+\[ b^{*} = \frac{I_2 - \beta \left(I_1 - c \right)}{1 + \beta} \]
+
+Note that this means our consumption in period 1 will be:
+
+\[ I_1 + b^{*} -c = \frac1{1+\beta} \left(I_1 + I_2 - c \right) \]
+
+Where $I_1 + I_2 - c$ is our total net income (i.e., income net of the cost of the car).
+
+In period 2, by contrast, consumption will be:
+
+\[ I_2 - b^{*} = \frac\beta{1+\beta} \left(I_1 + I_2 - c \right) \]
+
+Again we see our total net income. Also notice that $\frac1{1+\beta} < \frac\beta{1+\beta}$, so we always consume less in the second period (which makes sense, since we don't care as much about our future self).
+
+Plugging in $I_1 = 1$, $I_2 = 5$, $c = 5$, and $\beta = .96$, we get 
+
+\[ b^{*} = \frac{221}{49} \approx 4.51 \]
+
+Let's examine the objective function. Plugging in our parameters, we see that our utility, depending only on $b$, is:
+
+\[ u(b) = \ln (b - 4) + \beta \ln (5 - b) \]
+
+Right away we know $b$ will be between $4$ and $5$. This is because utility is $-\infty$ at either of these points -- but intuitively, we know that if we don't borrow at least $4$, we won't be able to afford the car. And if we borrow more than $5$, we won't have any money left come tomorrow.
+
+The optimal $b$ balances these tradeoffs. Notice that $4.51$ is more than enough to be able to afford the car -- but we still need to eat in the first period, so we borrow roughly to equalize our consumption in each period (a textbook case of \textbf{consumption smoothing}).
+
+This is demonstrated visually in Figure \ref{bugatti}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = \textwidth]{exam_1_3_graph.png}
+\caption{How Utility evolves with $b$}
+\label{bugatti}
+\end{figure}
+
+\item If we decide to buy the Bugatti, we'll borrow 4.51, as we just saw. This means that (plugging into our expression for Bugatti-buying utility from part 2) utility will be:
+
+\[ u(1, 5; 4.51) \approx -1.36 + v_B \]
+
+As compared to, plugging in from part 1:
+
+\[ u(1, 5) = \ln 1 + .96 * \ln 5 \approx 1.54 \]
+
+Thus, in order for buying the car to be optimal, we must have:
+
+\[ -1.36 + v_B > 1.54 \]
+
+That is, we must have
+
+\[ v_B > 2.9 \]
+\end{enumerate}
+\end{solution}
+
+\section*{Whimsy's Insurance Shack (25 points)}
+
+\small{\textit{The purpose of this question is to delve into mechanics of insurance markets with perfect information.}}
+
+You're considering whether or not to buy a policy from Whimsy's Insurance Shack, Inc.
+
+For a premium of \textyen 350, Whimsy's will be contractually obligated to do the following:
+
+\begin{itemize}
+\item If no harm comes to you, they'll do nothing.
+\item If you're in an accident, one of two things will happen:
+\begin{itemize}
+\item Whimsy will pay you \textyen 30000. This happens with probability $0.8$.
+\item Whimsy will pay you \textyen 50. This happens with probability $0.2$.
+\end{itemize}
+\end{itemize}
+
+As to you, you face only one type of risk -- the risk of contracting a bacterial infection in a disgusting bathroom. The probability of this happening is $.04$, and the economic cost of recovery from this is equivalent to \textyen 25000.
+
+You have income \textyen 65000 from other sources, and your preferences in any state of the world are logarithmic -- if you consume $I$ of income in some state of the world, you receive utility $\ln I$ from doing so.
+
+\begin{enumerate}
+\item What are all of the possible states of the world that could befall you? Note that once you get the bacterial infection once, you are thereafter immune upon recovery.
+
+\item What is your expected utility if you choose not to buy Whimsy's policy?
+
+\item What is your expected utility should you decide to buy the policy?
+
+\item Will you buy the policy?
+
+\item Does Whimsy make money from you, in expectation?
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item There are three possible states:
+\begin{enumerate}
+\item Nothing happens
+\item You're infected and Whimsy pays you \textyen 30000
+\item You're infected and Whimsy pays you \textyen 50
+\end{enumerate}
+
+\item Both of states 2 \& 3 collapse into you simply getting infected when you don't buy insurance. When you're infected, you must eat the full cost of healthcare, reducing your income to \textyen 40000; otherwise, you get to keep all \textyen 65000 to eat. Your expected utility is thus:
+
+\[ \mathbb{E}\left[u \right] = (.96)\ln 65000 + (.04) \ln 40000 \approx 11.063 \]
+
+\item In this case, you have three possible incomes: \textyen 64650 if you don't get sick (total income less Whimsy's premium), \textyen 69650 if you get sick and Whimsy overpays, and \textyen 39700 if he underpays. Your expected utility is thus:
+
+\[ \mathbb{E}[u] = (.96) \ln 64650 + (.04)\left((.8) \ln 69650 + (.2) \ln 39700 \right) \approx 11.075 \]
+
+\item Yes, you'll buy, since $11.075 > 11.063$.
+
+\item Whimsy's income will be \textyen 350 if you are healthy; - \textyen 29650 if you're sick and he overpays; and \textyen 300 if he underpays. Thus his expected profits are:
+
+\[ \mathbb{E}[\Pi] = (.96)(350) + (.04)(.8)(-29650) + (.04)(.2)(300) = -610.4 \]
+
+Thus, Whimsy ends up losing money from you, in the long run.
+\end{enumerate}
+\end{solution}
+
+\end{document}

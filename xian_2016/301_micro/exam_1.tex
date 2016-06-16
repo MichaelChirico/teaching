@@ -1,0 +1,145 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+\begin{document}
+
+\title{Intermediate Micro Midterm}
+
+\date{June 15, 2016}
+
+\maketitle
+
+Feel free to use your notes and a calculator. Any cell phones must be in airplane mode, no Wi-Fi; no Bluetooth, etc.	
+
+\textit{Remember to justify all of your responses. Little if any credit will be awarded to unjustified answers, even if they're correct.}
+
+\section*{Xi's Habits (15 points)}
+
+\small{\textit{The purpose of this question is to probe your understanding of the intuitive meaning of risk aversion.}}
+
+You offer Jinping to play a game. The game costs \textyen 1.
+
+The game works as follows. You roll a dice. If the roll is a 6, you'll give Jinping \textyen 6.60; otherwise, he gets nothing.
+
+\begin{enumerate}
+\item What is the expected value of your game?
+
+\item Suppose Jinping rejects your offer to play. Is he risk averse, risk neutral, risk loving, or can't we say?
+
+\item Suppose Jinping accepts your offer to play. Is he risk averse, risk neutral, risk loving, or can't we say? 
+\end{enumerate}
+
+\section*{Combined CARA utility, Substitution (30 points)}
+
+\small{\textit{The first purpose of this question is to demonstrate your facility with adapting the approaches of consumer utility maximization to new classes of utility functions you may not yet have before seen. The second purpose is to demonstrate familiarity with the concepts and methods for disentangling substitution from income effects.}}
+
+Another class of utility functions that we haven't discussed yet in class are known as CARA preferences and take the general form $u(I) = -\frac{e^{-\alpha I}}{\alpha}$
+\footnote{
+	They are so called because the coefficient of absolute risk aversion, defined as $R(x; u) = -\frac{u''(x)}{u'(x)}$, is constant for this class of functions. There is much more to say about coefficients of risk aversion which we won't have time to get in to in this course.
+}
+.
+
+Consider an individual with preferences represented by the utility function:
+
+\[ u(x_1, x_2) = - \alpha e^{-x_1} - e^{-x_2} \]
+
+This individual has income $y$ and faces respective prices $p_1$ and $p_2$ for these goods. You can assume $\alpha > 0$, as are prices and income.
+
+\begin{enumerate}
+\item Formulate the individual's decision problem. What do they choose, what is their objective, and what is (are) their constraint(s)?
+
+\item Now set $\alpha = 2$, $y = 4$, $p_1 = 1$, and $p_2 = 3$. What is the individual's utility-maximizing consumption bundle?
+
+\item Suppose $p_2$ increases to 4. What is the individual's new utility maximizing consumption bundle?
+
+\item Explain briefly what the substitution and income effects are.
+
+\item Separate the change in demand for good 2 from parts 2 to 3 into that change attributable to substitution effect, and that part which can be isolated as due to income.
+
+\end{enumerate}
+
+\section*{Waking Up in a New Bugatti (30 points)}
+
+\small{\textit{The purpose of this question is to probe your comfort with intertemporal tradeoffs.}}
+
+You're considering buying a new Bugatti now, but can't afford it. You'll need to borrow against your future income (i.e., your income in the second and final period) in order to do so.
+
+Your first-period income is $I_1$; $I_2$ is your future income. The cost of the Bugatti is $c$, and the utility benefit of using your fresh Bugatti is $v_B$ -- i.e., your total utility increases by exactly $v_B$ when you own the wonderful Veyron 16.4.
+
+The car dealership is willing to offer you phenomenally good financing -- since you'll be paying them back in cash in period 2 (as any true baller must), they've offered to give you an \textit{interest-free loan}. Note that these terms \textit{only} apply to the car purchase. \textbf{It is otherwise impossible to transfer funds between periods through saving and borrowing!}
+
+Your utility is otherwise represented by standard intertemporal Cobb-Douglas preferences:
+
+\[ u(c_1, c_2) = \ln c_1 + \beta \ln c_2 \]
+
+\begin{enumerate}
+\item What is your utility, in terms only of \textit{relevant} model parameters ($I_1$, $I_2$, $c$, $v_B$, $\beta$), of \textbf{not} buying the Bugatti? (\textit{Hint: If we don't buy the car, the only choice we have left is to consumer our income})
+
+In order to finance the Bugatti, you must decide how much money to borrow in period 1 from the dealership. Let $b$ denote the (dollar) size of the loan you choose.
+
+\item What is your utility, in terms only of $b$ and \textit{relevant} model parameters ($I_1$, $I_2$, $c$, $v_B$, $\beta$), of \textbf{buying} the Bugatti? (\textit{Hint: What is your income in each period if you take out a loan for $b$ to buy the car?})
+
+\item Formulate the decision problem associated with the choice of $b$.
+
+\item Now, set $I_1 = 1$, $I_2 = 5$, $c = 5$, and $\beta = .96$. Solve for the optimal choice of $b$.
+
+\item What is the utility of shelling out for the Bugatti? What is the utility of not doing so? How big does $v_B$ have to be in order to justify the purchase?
+\end{enumerate}
+
+\section*{Whimsy's Insurance Shack (25 points)}
+
+\small{\textit{The purpose of this question is to delve into mechanics of insurance markets with perfect information.}}
+
+You're considering whether or not to buy a policy from Whimsy's Insurance Shack, Inc.
+
+For a premium of \textyen 350, Whimsy's will be contractually obligated to do the following:
+
+\begin{itemize}
+\item If no harm comes to you, they'll do nothing.
+\item If you're in an accident, one of two things will happen:
+\begin{itemize}
+\item Whimsy will pay you \textyen 30000. This happens with probability $0.8$.
+\item Whimsy will pay you \textyen 50. This happens with probability $0.2$.
+\end{itemize}
+\end{itemize}
+
+As to you, you face only one type of risk -- the risk of contracting a bacterial infection in a disgusting bathroom. The probability of this happening is $p$, and the economic cost of recovery from this is equivalent to \textyen 25000.
+
+You have income \textyen 65000 from other sources, and your preferences in any state of the world are logarithmic -- if you consume $I$ of income in some state of the world, you receive utility $\ln I$ from doing so.
+
+\begin{enumerate}
+\item What are all of the possible states of the world that could befall you? Note that once you get the bacterial infection once, you are thereafter immune upon recovery.
+
+\item What is your expected utility if you choose not to buy Whimsy's policy?
+
+\item What is your expected utility should you decide to buy the policy?
+
+\item Will you buy the policy?
+
+\item Does Whimsy make money from you, in expectation?
+\end{enumerate}
+
+\end{document}
