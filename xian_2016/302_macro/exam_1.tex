@@ -1,0 +1,116 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{multicol}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Macro Midterm}
+
+\date{June 16, 2016}
+
+\maketitle
+
+Feel free to use your notes and a calculator. Any cell phones must be in airplane mode, no Wi-Fi; no Bluetooth, etc.	
+
+\textit{Remember to justify all of your responses. Little if any credit will be awarded to unjustified answers, even if they're correct.}
+
+\section*{Xianese Growth (15 points)}
+
+\small{\textit{The purpose of this question is to demonstrate that you understand various approaches for measuring the size of an economy, and that you understand how to measure inflation. }}
+
+\begin{enumerate}
+\item Fill out the following table
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{5cm}|r|r|r|r|r|}
+ \hline
+ & \multicolumn{3}{|c|}{Year} & \multicolumn{2}{|c|}{Percentage Change} \\
+ \hline
+ & 2016 & 2017 & 2018 & 16-17 & 17-18 \\
+ \hline
+ Quantity of Liangpi & 70 & 75 & 76 & & \\
+ \hline
+ Quantity of Roujiamo & 120 & 150 & 140 & & \\
+ \hline
+ Price of Liangpi (\textyen) & 25 & 30 & 40 & & \\
+ \hline
+ Price of Roujiamo (\textyen) & 8 & 8.4 & 10 & & \\
+ \hline
+ Nominal GDP & & & & & \\
+ \hline
+ Real GDP in 2016 prices & & & & & \\
+ \hline
+ Real GDP in 2017 prices & & & & & \\
+ \hline
+ Real GDP in chained prices, benchmarked to 2017 & & & & & \\
+ \hline
+\end{tabular}
+\end{table}
+
+\item Using chained prices, what is the GDP deflator for each year?
+
+\item What is inflation rate between 2016/17 and 2017/18 implied by the chained prices?
+\end{enumerate}
+
+\section*{Activating the Labor Market (55 points)}
+\small{\textit{The purpose of this exercise is to probe your understanding of the basic production model by making a slight adjustment and asking you to do some analyses of the updated model.}}
+
+Consider augmenting the standard basic production model so that labor is not supplied automatically/inelastically. Instead, labor is supplied according to the linear demand curve $L = \theta w$.
+
+This means that workers in the economy respond in their job-taking decisions to offered wages. The higher the offered wage, the more workers will participate in the labor force (and vice versa).
+
+The model can still be summarized by five equations:
+
+\begin{itemize}
+\item Production: $Y = \bar{A} K^\frac13 L^\frac23$
+\item Capital Demand: $r = MPK$
+\item Capital Supply: $K = \bar{K}$
+\item Labor Demand: $L = \theta w$
+\item Labor Supply: $w = MPL$
+\end{itemize}
+
+\begin{enumerate}
+\item What are the parameters in this model (the exogenously given quantities)? What are the outcomes (the endogenously chosen quantities)?
+\item Draw graphs to represent the labor and capital markets. Note that in such graphs, prices are typically on the vertical axis, and quantities on the horizontal axis -- but whatever feels more natural to you is fine.
+\item Use this to solve the model -- that is, find expressions for each of the endogenous variables you identified above in terms of the exogenous parameters.
+\item Show that firms still make no profits.
+\item What is productivity in this economy? (\textit{Note: This model doesn't have a well-defined population, so we cannot find per-capita output -- the closest thing we have is output per worker, i.e., productivity})
+\item How does productivity change as each of the model parameters change? (i.e., if productivity is $p$, what is $\frac{\partial p}{\partial \omega}$ for each exogenous parameter $\omega$ that you identified above?)
+\end{enumerate}
+
+\section*{Romer vs. Solow (30 points)}
+
+\small{\textit{The purpose of this exercise is to elucidate your higher-level understanding for why we use different models in different situations, as well as to check your ability to understand the fundamental mechanisms of the models we've studied by evaluating policy changes.}}
+
+You are a policymaker trying to steer the economy of Xian.
+
+For each of the following suggested policy changes, state whether (and why) you think the Romer or the Solow model is more appropriate for analyzing its potential effects. Then, give a full analysis of the change you foresee resulting from each policy shift through the lens of your chosen model.
+
+\begin{enumerate}
+\item The government invests heavily in making roads safer.
+\item The city levies a consumption tax on sugary drinks.
+\item Chang'An buys a massive supercomputer.
+\item The city's public unions negotiate stronger employment protection and benefits for its blue-collar workers.
+\end{enumerate}
+
+\end{document}

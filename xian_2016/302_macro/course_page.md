@@ -26,6 +26,8 @@ Use the Wechat group for questions.
 
 * [Sample Exam 1](exam_1_sample.pdf) [[solutions](exam_1_sample_sol.pdf)]
 
+* [Exam 1](exam_1.pdf) [[solutions](exam_1_sol.pdf)]
+
 ## Interesting and Germane Articles
 
 * [The Economist: Brazilian Waxing and Waning](http://www.economist.com/blogs/graphicdetail/2016/04/economic-backgrounder) _macro policy lingo-heavy foray into the ongoing economic crisis in Brazil_

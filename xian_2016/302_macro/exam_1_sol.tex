@@ -1,0 +1,237 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{multicol}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Intermediate Macro Midterm}
+
+\date{June 16, 2016}
+
+\maketitle
+
+Feel free to use your notes and a calculator. Any cell phones must be in airplane mode, no Wi-Fi; no Bluetooth, etc.	
+
+\textit{Remember to justify all of your responses. Little if any credit will be awarded to unjustified answers, even if they're correct.}
+
+\section*{Xianese Growth (15 points)}
+
+\small{\textit{The purpose of this question is to demonstrate that you understand various approaches for measuring the size of an economy, and that you understand how to measure inflation. }}
+
+\begin{enumerate}
+\item Fill out the following table
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{5cm}|r|r|r|r|r|}
+ \hline
+ & \multicolumn{3}{|c|}{Year} & \multicolumn{2}{|c|}{Percentage Change} \\
+ \hline
+ & 2016 & 2017 & 2018 & 16-17 & 17-18 \\
+ \hline
+ Quantity of Liangpi & 70 & 75 & 76 & \red{7} & \red{1} \\
+ \hline
+ Quantity of Roujiamo & 120 & 150 & 140 & \red{25} & \red{-7} \\
+ \hline
+ Price of Liangpi (\textyen) & 25 & 30 & 40 & \red{20} & \red{33} \\
+ \hline
+ Price of Roujiamo (\textyen) & 8 & 8.4 & 10 & \red{5} & \red{19} \\
+ \hline
+ Nominal GDP & \red{2710} & \red{3510} & \red{4440} & \red{30} & \red{26} \\
+ \hline
+ Real GDP in 2016 prices & \red{3108} & \red{3510} & \red{3456} & \red{13} & \red{-2} \\
+ \hline
+ Real GDP in 2017 prices & \red{4000} & \red{4500} & \red{4440} & \red{13} & \red{-1} \\
+ \hline
+ Real GDP in chained prices, benchmarked to 2017 & \red{3101} & \red{3510} & \red{3460} & \red{13} & \red{-1} \\
+ \hline
+\end{tabular}
+\end{table}
+
+\item Using chained prices, what is the GDP deflator for each year?
+
+\begin{solution}
+GDP deflator is $P$ in
+
+\[ nGDP = P \times rGDP \]
+
+Hence
+\begin{itemize}
+\item 2016: $\frac{2710}{3101} \approx .87$
+\item 2017: $1$ (benchmark year)
+\item 2018: $\frac{4440}{3460} \approx 1.28$
+\end{itemize}
+\end{solution}
+
+\item What is inflation rate between 2016/17 and 2017/18 implied by the chained prices?
+
+\begin{solution}
+This is the percentage increase in GDP deflator from year to year, i.e.:
+
+\begin{itemize}
+\item 2016-17: $\frac{1  - .87}{.87} \approx 14\%$
+\item 2017-18: $1.28 - 1 = 1.28$
+\end{itemize}
+\end{solution}
+\end{enumerate}
+
+\section*{Activating the Labor Market (55 points)}
+\small{\textit{The purpose of this exercise is to probe your understanding of the basic production model by making a slight adjustment and asking you to do some analyses of the updated model.}}
+
+Consider augmenting the standard basic production model so that labor is not supplied automatically/inelastically. Instead, labor is supplied according to the linear demand curve $L = \theta w$.
+
+This means that workers in the economy respond in their job-taking decisions to offered wages. The higher the offered wage, the more workers will participate in the labor force (and vice versa).
+
+The model can still be summarized by five equations:
+
+\begin{itemize}
+\item Production: $Y = \bar{A} K^\frac13 L^\frac23$
+\item Capital Demand: $r = MPK$
+\item Capital Supply: $K = \bar{K}$
+\item Labor Demand: $L = \theta w$
+\item Labor Supply: $w = MPL$
+\end{itemize}
+
+\begin{enumerate}
+\item What are the parameters in this model (the exogenously given quantities)? What are the outcomes (the endogenously chosen quantities)?
+
+\begin{solution}
+\begin{itemize}
+\item \textbf{Parameters:} $\bar{A}$, $\bar{K}$, $\theta$
+\item \textbf{Outcomes:} $Y$, $K$, $L$, $r$, $w$
+\end{itemize}
+\end{solution}
+
+\item Draw graphs to represent the labor and capital markets. Note that in such graphs, prices are typically on the vertical axis, and quantities on the horizontal axis -- but whatever feels more natural to you is fine.
+
+\begin{solution}
+The MPK and MPL are given by:
+
+\[ MPK = \frac{\partial Y}{\partial K} = \frac13 \bar{A} \left( \frac{L}{K} \right)^\frac23, \qquad MPL = \frac{\partial Y}{\partial L} \frac23 \bar{A} \left( \frac{K}{L} \right)^\frac13 \]
+
+So the two markets look essentially like those in Figure \ref{labor}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = \textwidth]{exam_1_2_graph.png}
+\caption{Capital and Labor Markets}
+\label{labor}
+\end{figure}
+\end{solution}
+
+\item Use this to solve the model -- that is, find expressions for each of the endogenous variables you identified above in terms of the exogenous parameters.
+
+\begin{solution}
+The only slight difficulty is solving the labor market, boils down to solving (since the capital market is again simple, so that $K^{*} = \bar{K}$:
+
+\[ \frac23 \bar{A} \bar{K}^\frac13 L^\frac13 = \frac1{\theta} L \]
+
+This has solution:
+
+\[ L^{*} = \left(\frac23 \bar{A} \theta \right)^\frac34 \bar{K}^\frac14 \]
+
+The rest cascades from here:
+
+\begin{align*}
+w^{*} &= \frac{L^{*}}{\theta} = \left(\frac23 \bar{A} \right)^\frac34 \left(\frac{\bar{K}}{\theta} \right)^\frac14 \\
+r^{*} &= \frac13 \bar{A} \left(\frac{L^{*}}{\bar{K}} \right)^\frac23 = \frac13 \bar{A}^\frac32 \left(\frac23 \frac{\theta}{\bar{K}} \right)^\frac23 \\
+Y^{*} &= \bar{A} \bar{K}^\frac13 \left(L^{*} \right)^\frac23 = \bar{A}^\frac32 \left(\frac23 \theta \bar{K} \right)^\frac12
+\end{align*}
+\end{solution}
+
+\item Show that firms still make no profits.
+
+\begin{solution}
+Firms' profits in equilibrium are given by:
+
+\begin{align*}
+\Pi^{*} &= Y^{*} - w^{*} L^{*} - r^{*} K^{*} \\
+ &= \bar{A}^\frac32 \left(\frac23 \theta \bar{K} \right)^\frac12 - \left(\frac23 \bar{A} \right)^\frac34 \left(\frac{\bar{K}}{\theta} \right)^\frac14 \left(\frac23 \bar{A} \theta \right)^\frac34 \bar{K}^\frac14  - \frac13 \bar{A}^\frac32 \left(\frac23 \frac{\theta}{\bar{K}} \right)^\frac23 \bar{K} \\
+ &= \bar{A}^\frac32 \left(\frac23 \theta \bar{K} \right)^\frac12 \left(1 - \frac23 - \frac12 \right) \\
+ &= 0
+\end{align*}
+\end{solution}
+
+\item What is productivity in this economy? (\textit{Note: This model doesn't have a well-defined population, so we cannot find per-capita output -- the closest thing we have is output per worker, i.e., productivity})
+
+\begin{solution}
+Productivity is given by $\frac{Y}{L}$, so we've got:
+
+\[ p = \frac{Y^{*}}{L^{*}} = \bar{A}^\frac34 \left(\frac32 \frac{\bar{K}}{\theta} \right)^\frac12 \]
+\end{solution}
+
+\item How does productivity change as each of the model parameters change? (i.e., if productivity is $p$, what is $\frac{\partial p}{\partial \omega}$ for each exogenous parameter $\omega$ that you identified above?)
+
+\begin{solution}
+\begin{itemize}
+\item $\bar{A}$: $\frac{\partial p}{\partial \bar{A}} = \frac34 \bar{A}^{-\frac14} \left(\frac32 \frac{\bar{K}}{\theta} \right)^\frac12 > 0$, so productivity increases with $\bar{A}$.
+\item $\bar{K}$: $\frac{\partial p}{\partial \bar{K}} = \frac12 \bar{A}^\frac34 \left(\frac3{2\theta \bar{K}} \right)^\frac12 < 0$, so productivity increases with $\bar{K}$ as well.
+\item $\theta$: $\frac{\partial p}{\partial \theta} = -\frac12 \bar{A}^\frac34 \left(\frac32 \frac{\bar{K}}{\theta^3} \right)^\frac12 < 0$, so productivity \emph{decreases} with $\theta$.
+\end{itemize}
+\end{solution}
+\end{enumerate}
+
+\section*{Romer vs. Solow (30 points)}
+
+\small{\textit{The purpose of this exercise is to elucidate your higher-level understanding for why we use different models in different situations, as well as to check your ability to understand the fundamental mechanisms of the models we've studied by evaluating policy changes.}}
+
+You are a policymaker trying to steer the economy of Xian.
+
+For each of the following suggested policy changes, state whether (and why) you think the Romer or the Solow model is more appropriate for analyzing its potential effects. Then, give a full analysis of the change you foresee resulting from each policy shift through the lens of your chosen model.
+
+\begin{solution}
+A complete answer for any of the above gives a justification of the model chosen, as well as an analysis of the effect of the policy on each of the exogenous parameters in the chosen model. I skip the bulk of justification below for brevity's sake.
+\end{solution}
+
+\begin{enumerate}
+\item The government invests heavily in making roads safer.
+
+\begin{solution}
+Road safety could have several effects. The main one I had in mind is on \emph{depreciation}, i.e., $\delta$ in the Solow model -- namely, a decrease in $\delta$, which will shift the investment curve up and increase the steady-state level of capital.
+\end{solution}
+
+\item The city levies a consumption tax on sugary drinks.
+
+\begin{solution}
+This could have any number of effects. The main one I had in mind is a change in consumer behavior \emph{away from} consumption (since it's now more expensive) and \emph{towards} saving (since it's now relatively more attractive), i.e., an increase in $\bar{s}$ in the Solow model. This as well will shift the investment curve up and increase steady-state capital.
+\end{solution}
+
+\item Chang'An buys a massive supercomputer.
+
+\begin{solution}
+A supercomputer is essentially capital for research -- the same number of man-hours can produce more research, since computing time for a given task decreases. This amounts to an increase in $\bar{z}$ in the Romer model. This will increase the growth rate.
+\end{solution}
+
+\item The city's public unions negotiate stronger employment protection and benefits for its blue-collar workers.
+
+\begin{solution}
+The main effect I had in mind is to make employment in the production sector more attractive, i.e., a decrease in $\bar{l}$ in the Romer model. This decreases the growth rate.
+\end{solution}
+\end{enumerate}
+
+\end{document}
