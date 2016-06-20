@@ -20,6 +20,8 @@ Use the Wechat group for questions.
 
 * [Worksheet: June 14, 2016](worksheet_0614.pdf) [[solutions](worksheet_0614_sol.pdf)]
 
+* [Worksheet: June 20, 2016](worksheet_0620.pdf)
+
 ## Quizzes & Exams
 
 * [Quiz 1 (June 8)](quiz_01.pdf) [[solutions](quiz_01_sol.pdf)]
