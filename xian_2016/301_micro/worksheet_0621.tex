@@ -1,0 +1,76 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Monopoly I}
+
+\date{June 21, 2016}
+
+\maketitle
+
+\section*{Yangrou Paomonopoly}
+The monopoly supplier of Rangyou Paomo in Xian has production costs of a constant \yuan 2 per unit. For a unit price of $p$, demand for Rangyou Paomo will be $100 - p^2$. 
+\begin{enumerate}
+\item Write down the monopolist's profit as a function of $p$.
+\item Compute the profit-maximizing price she should charge.
+\item What is the elasticity of demand at the profit maximizing price? (\textit{Note: if demand is given by $D(p)$, the elasticity of demand is given by the following:})
+
+\[ \varepsilon (p) = - \frac{\partial D}{\partial p} \frac{p}{D(p)} \]
+
+\end{enumerate}
+
+\section{Preferences}
+
+\section*{More Monopoly}
+Consider a monopolist with production cost function $C(q) = 640 + 20q$, where $q$ is the quantity produced. Let $D(p) = 50 -
+\frac{p}2$ be the demand-price relationship.
+
+\begin{enumerate}
+\item What is the elasticity of demand at the price $p = 20$.
+\item At the price $p = 44$, if the monopolist wishes to raise revenue, should he raise or lower the price?
+\item What is the monopolist's maximum profit?
+\item What is the elasticity of demand at the profit-maximizing price?
+\end{enumerate}
+
+\section*{Choosing Price vs. Choosing Quantity}
+Consider a monopolist facing a demand curve of the form $D = 50 - 3p$ where $p$ is the unit price. Suppose the monopolist has a constant marginal cost of production of \yuan 3 per unit.
+
+\begin{enumerate}
+\item Instead of choosing a unit price $p$ to maximize profit, our monopolist will choose a quantity $q$ to maximize profit. Write down, as function of $q$, the price per unit the monopolist must charge to sell exactly $q$ units. This object is called the \textbf{inverse demand curve}.
+\item Write down, as a function of $q$, the monopolist's profit.
+\item Write down, as a function of $q$, the monopolist's marginal revenue.
+\item Use either the function you identified in part (2) or in part (3) to compute the profit-maximizing quantity. What is it?
+\item For your own edification, check that you reach the same conclusion by choosing a profit-maximizing price insted.
+\end{enumerate}
+
+\section*{Returns to Scale}
+
+Let $C(q)$ denote the total cost incurred to produce $q$ units of Tsingtao. Decide which of the following cost functions exhibit constant, decreasing and increasing returns to scale.
+
+\begin{enumerate}
+\item $C(q) = 5q + 3$ for $q \geq 0$.
+\item $C(q) = 2q^2 + 3q + 1$.
+\item $C(q) = 5q - q^2$ for $q \leq 5$.
+\item $C(q) = 5 q^\frac12$
+\end{enumerate}
+
+\end{document}
