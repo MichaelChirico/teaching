@@ -1,0 +1,53 @@
+\documentclass{article}
+
+% // For using \textyen to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+
+\begin{document}
+
+\title{Intermediate Micro HW 3}
+
+\maketitle
+
+\section*{DUE DATE: June 27, 2016 at start of class}
+
+\section*{Negotiating as an Author}
+You are an author of books about famous pagodas in China about to sign a contract with a book publisher. Under the terms of the contract, the publisher has the sole authority to set the price. The only issue is what percentage of the gross receipts you get. The question we'll target is: Is it always the case that you would want as high a percentage of gross receipts as possible?
+
+To make things concrete, suppose the demand for the book as a function of its price $p$ is $100-p$. The unit cost of production and distribution of the book is \yuan10. Suppose the author gets fraction $\alpha$ of the revenue generated (so if there is \yuan 100 in revenue, the author gets $100\alpha$ as income, while the publisher gets $100(1-\alpha)$). 
+
+\begin{enumerate}
+\item Compute the publisher's profit-maximizing price as a function of $\alpha$.
+\item Vary $\alpha$ between 0 and 1 and plot the author's gain. What is the ideal level of $\alpha$?
+\end{enumerate}
+
+\section*{Two-stage Monopoly}
+Consider a monopolist (call them the manufacturer) who produces cell phone parts. Cell phone parts are bought by another monopolist (call them the retailer) who turns cell phone parts into iPhones for sale to customers. 1 unit of cell phone parts can be turned into 1 iPhone at no cost.
+
+If the retailer charges a price $p$ per unit for iPhones, the demand for iPhones will be $100 - p$. 
+\begin{enumerate}
+\item Let $c$ be the price per unit that the manufacturer charges the retailer for cell phone parts (usually called a \textbf{wholesale price}). Determine what price (as a function of $c$)  the retailer should charge her customers so as to maximize profit.
+\item The manufacturer produces cell phone parts at a constant marginal cost of \yuan1 a unit. What should he set $c$ at so as to maximize his profits? What will his maximum profit be?
+\item Given the choice of $c$ in part (2), what will the retailer's profit-maximizing price be?
+\item At the retailer's price given in part (3), what will consumer surplus be?
+\item Now suppose that the manufacturer were to integrate with the retailer, i.e., the manufacturer sells iPhones directly to the customer. What will the maximized profit of the integrated enterprise be?
+\item Will consumers benefit (measured by consumer surplus) from integration?  Explain why or why not.
+\end{enumerate}
+
+\section*{e-Book Publishing}
+Suppose you are a publisher of e-books and sell through Amazon. You can choose one of two pricing policies. The first is the wholesale model. You charge Amazon a wholesale price, $w$, for each e-book, and Amazon in turn is free to set the price downstream. The second is the agency model. Amazon is free to to set the price downstream, however they must give you a share $s$ of the revenue from any sale (so if the revenue is \yuan500, you get $500s$. Under which policy is the price of e-books to consumers lower? Assume that marginal cost of an e-book is zero to you the publisher and that Amazon incurs no other costs beyond what it has to pay you, and that demand downstream is given by $D = A - p$.
+
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Monopoly II}
+
+\date{June 23, 2016}
+
+\maketitle
+
+\section*{Magazine Pricing}
+You are asked to help in setting the subscription rates of a monthly gym supplies magazine. As expected, the major component of cost is fixed or sunk, so we ignore it in what follows.
+
+Variable costs including printing, shipping, and mailing comes to \yuan150 per year per subscriber. The publisher has an extensive data set suggesting that annual magazine subscription demand is: $ D = 100 - p$. Here $p$ is the price of an annual subscription. Note that $p \geq 0$, i.e., you cannot pay people to take a subscription -- have some pride in your magazine's contents!
+
+\begin{enumerate}
+\item Write down an algebraic expression for total profit to the publisher as a function of $p$. 
+\item Compute the profit-maximizing choice of $p$.
+\item Suppose the magazine has another source of revenue: advertising. Suppose for simplicity that consumers do not care about the amount of advertising contained in each issue, but that advertisers care about the number of subscribers. For every subscription purchased, the magazine gets \yuan120 in advertising revenue. Taking into account the revenue from advertising, should the publisher lower or raise its annual subscription price $p$? What should the new profit-maximizing level of of $p$ be?
+\end{enumerate}
+
+\section*{Cost Functions from Scratch}
+Suppose the production of hotpot requires two inputs, beef and chili peppers. If $x$ kilograms of beef are combined with $y$ chili peppers, the total output of hotpots is denoted $f(x,y)$ and equal to $x^{1/2}y^{1/2}$. 
+
+\begin{enumerate}
+\item Suppose a kilogram of beef costs \yuan1 and a chili pepper costs \yuan2. What is the minimum-cost combination of the two products needed to produce 1 hotpot? That is, what combination of $x$ kilos of beef and $y$ chili peppers that produces exactly one hotpot costs the least?
+\item Suppose a kilogram of beef costs \yuan1 and a chili pepper costs \yuan2. What is the minimum-cost combination of the two products needed to produce $q$ hotpots? Your answer will be a function of $q$, which of course is the \textbf{cost function}.
+\item Does the cost function for the production of hotpots exhibit decreasing returns to scale? Explain.
+\item Suppose a kilogram of beef costs \yuan1 and a chili pepper costs \yuan2. The demand for hotpots as a function of its unit price $p$, is $100-p$. What combination of the two products should be purchased to maximize profit?
+\item Suppose a kilogram of beef costs \yuan $w_1$ and a chili pepper costs \yuan $w_2$. What is the minimum-cost combination of the two products needed to produce 1 hotpot? Your answer will be a function of $w_1$ and $w_2$.
+\item Suppose a kilogram of beef costs \yuan $w_1$ and a chili pepper costs \yuan $w_2$. What is the minimum-cost combination of the two products needed to produce $q$ hotpots? Your answer will be a function of $q$, $w_1$ and $w_2$.
+\item Use the cost function you derived in part (6) to determine what happens to the quantity of chili peppers consumed in production as the cost of beef increases, holding the quantity of hotpots produced fixed.
+\end{enumerate}
+
+\section*{Surplus Maximizing}
+A zeng'gao-producing monopolist faces an inverse demand curve $p = 100 -2q$ where $p$ is the unit price of zeng'gao and $q$ the quantity demanded. The monopolist has constant marginal costs of \yuan3 a unit.
+\begin{enumerate}
+\item What is the monopolist's profit maximizing choice of $q$ and $p$?
+\item What is its maximum profit?
+\item What is the consumer surplus at the monopolist's profit-maximizing level of output?
+\item Let $S(p)$ be total consumer surplus at price $p$. Write down an expression for $S(p)$ in terms of $p$.
+\item What choice of $p$ (no less than \yuan3) will maximize $S(p)$?
+\item Let $\Pi(p)$ denote the profit of the monopolist at price $p$ (also called \textbf{producer surplus}). What choice of $p$ will maximize $\Pi(p) + S(p)$? (\emph{Note: This choice of $p$ is in some sense considered the \textbf{socially optimal} price. If we weigh the well-being of producers and of consumers equally, this will maximize the total ``happiness'' experienced by both parties})
+\end{enumerate}
+
+\end{document}
