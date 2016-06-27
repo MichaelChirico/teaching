@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+% // For using \textyen to produce the yuan symbol \\
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Monopoly II}
+
+\date{June 23, 2016}
+
+\maketitle
+
+\section*{Bundling}
+You are the monopoly seller of computers and monitors. Remarkably, the costs of production for both products are zero. You sell to a market consisting of two segments (A and B). The RP of each segment for computers and monitors are shown in the table below.
+
+\begin{table}
+\centering
+\begin{tabular} {|c|c|c|}
+\hline
+  & Computer & Monitor \\
+  \hline
+A's RP & \yuan12,000 & \yuan1200   \\
+\hline
+B's RP & \yuan9,000 & \yuan1800 \\
+\hline
+\end{tabular}
+\end{table}
+
+\emph{Note: RP means \textbf{Reservation Price}; this is the maximum willingness to pay, that is, if the price of a monitor is at most \yuan 1200, A will buy it; but if it's pricier than that, she won't.}
+
+There are an equal number in each segment. It is possible for a buyer to purchase one of the products and not the other.
+\begin{enumerate}
+\item If you were selling computers and monitors separately, what price should you charge for each to maximize revenue?
+\item If you were to bundle the computer and monitor together and sell only the bundle, what price should you set to maximize revenue?
+\item Could you generate more revenue than in parts (1) and (2) through mixed bundling?
+\end{enumerate}
+
+\section*{Capacity Constraints}
+Devlin-McGregor is the monopoly seller of blood substitutes. In fact it makes two varieties. One for humans and the other for dogs.\footnote{The product for one segment cannot be used by the other segment.} The unit cost of production for each is the same, a constant \yuan2 per unit. Demand (in pints) as a function of unit price for each product is shown below:
+\\
+Human: $D(p) = 100-p$
+\\
+Dogs: $D(p) = 50-2p$
+\\
+Devlin-McGregor uses a common production facility to make both. It has the capacity to produce a total of 30 pints of blood substitute (irrespective of human or dog).
+
+\begin{enumerate}
+\item What is the profit maximizing quantity of each that Devlin-McGregor should produce?
+\item At this profit maximizing quantity is marginal revenue equal to marginal cost for each product?
+\item What is the most Devlin-McGregor should pay for an additional 10 units of capacity?
+\end{enumerate}
+
+\section*{Oligopoly and Game Theory}
+
+Firms Yin (Y) and Yang (R) are the duopoly producers of roast duck in Beijing. The two firms choose a quantity of ducks to produce, and the resulting inverse demand for roast duck in this market is given by:
+
+\[ p = 600 - q_Y - q_R \]
+
+Thus, if Yin chooses to produce 30 ducks and Yang chooses to produce 150, the resulting market price will be 420.
+
+Production costs are (let's say for simplicity) 0.
+
+\begin{enumerate}
+\item Yang, through a devious feat of espionage, has discovered that Yin plans to produce 100 ducks this season. How many ducks will Yang produce as a result? Who makes more money?
+
+\item Yin learns of Yang's deceit and beefs up his security protocols for the following season, and also manages to torture one of Yang's employees into confessing that Yang will be continue making the number of ducks from Part (1) this season. How many ducks will Yin produce as a result? Who makes more money?
+
+\item In the ever-evolving world of industrial espionage, the tables can turn quickly. The third year once again sees Yang with the upper hand of inside knowledge; he keeps his production plans a secret and wrests the crucial information from Yin. Yin plans to produce the same number of ducks that he produced in (2). What will Yang do?
+
+\item Find the pair of quantities which stabilizes this back-and-forth game between the duck producers and neutralizes the need to hire ever-more-sophisticated (and ever-more-expensive) hackers and spies. This pair $(q_Y^{*}, q_R^{*})$ should be such that, if Yin chooses $q_Y^{*}$, Yang will naturally choose $q_R^{*}$, and if Yang chooses $q_Y^{*}$, Yin will naturally choose $q_Y^{*}$ (by choose naturally, we mean that it is in their best interest to do so, i.e., that this choice will maximize their profits).
+
+\item In the days before Yin came to town, Yang was the monopoly producer of roast ducks. The citizens' preferences were the same back then, so inverse demand was the same; what quantity did Yang choose then, and how did the emerging price compare to the equilibrium price that emerged in Part (4) from duopoly? Did Yang's profits go up or down?
+\end{enumerate}
+
+\end{document}
