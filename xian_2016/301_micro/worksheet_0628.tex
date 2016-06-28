@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+
+% // For using \textyen to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Oligopoly \& Game Theory}
+
+\date{June 28, 2016}
+
+\maketitle
+
+\section*{Triopoly \& Firm Agglomeration}
+
+There are three firms producing Valyrian steel swords. Each firm has constant marginal costs of production of $c$. Each firm $i$ simultaneously chooses a quantity $q_i$. The market price, $p$ per sword is determined by $q_1, q_2, q_3$ using the following inverse demand curve:
+
+\[ p = \Max \{1 - q_1-q_2-q_3, 0\} \]
+
+\begin{enumerate}
+\item Fix the quantities chosen by firms 2 and 3 at $q_2$ and $q_3$ respectively. Compute firm 1's profit maximizing quantity choice as a function of $q_2$ and $q_3$. This is firm 1's reaction function.
+\item What are the equilibrium quantities chosen by each of the firms?
+\item Firms sometimes merge for efficiency reasons. Suppose Firms 1 and 2 were to merge into a single firm. The marginal costs of production of this merged firm will be a constant $0.9c$ per unit. What are the equilibrium quantity choices of both the merged firm and firm 3?
+\item Is firm 3 made worse off by the merger of firm 1 and 2?
+\item Are consumers made worse off by the merger of firms 1 and 2?
+\end{enumerate}
+
+\section*{Price Discrimination}
+
+Devlin-McGregor is the monopoly seller of Provasic to a market of 100 buyers. Buyers are of two types, heavy and light, and there are an equal number of each type. The inverse demand curves are $p_H(q) = 8 - 2q$ for heavy users and $p_L(q) = 2-q$ for light users. Devlin-McGregor produces Provasic at a constant marginal cost of \yuan1 per unit.
+
+\begin{enumerate}
+\item If Devlin-McGregor could perfectly discriminate between the two types of buyers and they were restricted to setting a per-unit price, what prices should they charge each type to maximize profit?
+\item Suppose the Government were to ban such price discrimination and require Devlin-McGregor to charge all customers the same per-unit price. What price should the firm set to maximize its profit?
+\item Does consumer surplus go up or down after the ban?
+\item  Suppose the Government allowed Devlin-McGregor to set a single two-part tariff. What would the profit-maximizing two-part tariff be?
+\item Suppose the two-part tariff identified in part (4) is in place. The Government is contemplating subsidizing buyers to the tune of \yuan2 per unit of Provasic purchased. Should Devlin-McGregor adjust its two part tariff to account for this and if so, how?
+\end{enumerate}
+
+\end{document}
