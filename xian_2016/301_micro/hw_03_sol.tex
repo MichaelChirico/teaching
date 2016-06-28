@@ -1,6 +1,9 @@
 \documentclass{article}
 
 \usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+
+\usepackage{graphicx}
 
 % // For using \textyen to produce the yuan symbol \\
 \DeclareTextCommandDefault{\yuan}{%
@@ -74,9 +77,23 @@ The author's gain is given by:
  &=\alpha\frac{55-50\alpha}{1-\alpha}\frac{45-50\alpha}{1-\alpha}
 \end{align*}
 
-We now plot author's gain:\\
-%\includegraphics[width=10cm]{AuthorsGain}\\
-As can be seen from the graph, it is not always true that the author will want to charge the publisher the highest possible percentage. If the author demands a very high percentage, the publisher will increase its price, which would in turn decrease revenue. For this problem, the optimal $\alpha$ for the author is 0.74.
+We now plot author's gain:
+
+\includegraphics[width=.8\textwidth]{hw_03_01_graph.png}
+
+As can be seen from the graph, it is not always true that the author will want to charge the publisher the highest possible percentage. If the author demands a very high percentage, the publisher will increase its price, which would in turn decrease revenue.
+
+At base, the author clearly gets nothing if $\alpha = 0$; the author \emph{further} gets nothing if $\alpha \geq 0.9$. When $\alpha = 0.9$, publisher's profits are given by:
+
+\[ \Pi = -\frac1{10} (100 - p)^2 \]
+
+This is strictly non-positive (and negative unless $p = 100$, in which case $q = 0$), so the publisher doesn't even produce the book since there's no money to be made.
+
+At both $\alpha = 0$ and $\alpha = .9$, then, the author gets nothing. The smoothness of the problem implies that there's an optimum somewhere in between these extremes, which we can get by taking the derivative and setting it to zero; this ultimately comes down to solving:
+
+\[ 100(1-\alpha)^3 = 1 + \alpha \]
+
+Which doesn't have any nice solution; a numerical solver (e.g., Wolfram Alpha) shows that for this problem, the optimal $\alpha$ for the author is roughly 0.74.
 \end{enumerate}
 
 \end{solution}
@@ -94,7 +111,122 @@ If the retailer charges a price $p$ per unit for iPhones, the demand for iPhones
 \item Will consumers benefit (measured by consumer surplus) from integration?  Explain why or why not.
 \end{enumerate}
 
+\begin{solution}
+
+\begin{enumerate}
+\item\underline{The retailer should charge a price of $\frac{100+c}2$ to maximize profits.}
+
+Justification:
+
+The retailer solves
+
+\[ \Max_p \Pi_R = (p-c)(100-p) = 100-p^2-100c+pc \]
+
+This has first order conditions:
+
+\[ 100-2p+c=0 \Rightarrow p^{*}=\frac{100+c}2 \Rightarrow q^{*}=100-\frac{100+c}2=\frac{100-c}2 \]
+
+\item \underline{$c=50.5$, so $\Pi=\frac12 49.5^2$}
+
+Justification:
+
+Note that manufacturer will sell the same number of units of the good as the retailer, so from part 1 we get that $q=\frac{100-c}{2}$.
+
+The manufacturer solves the problem 
+
+\[ \Max_c \Pi_M = (c-1)(\frac{100-c}2)=50c-\frac{c^2}2-50+\frac{c}2 \]
+
+This has first order conditions:
+
+\[ 50-c+\frac12=0 \Rightarrow c=50.5 \]
+
+Therefore $\Pi_M=49.5\frac{49.5}2=\frac{49.5^2}2$.
+
+\item\underline{$p^{*}=75.25$}
+
+Justification:
+
+\[ p^{*}=\frac{100+c}2=\frac{100+50.5}2=\frac{150.5}2=75.25 \]
+
+\item\underline{Consumer surplus will be $306.28$}
+
+Justification:
+
+Consumer surplus is given by:
+
+\[ \frac12(100-p^{*})q^{*}=\frac12(24.75)\frac{49.5}2=306.28 \]
+
+\item\underline{The maximized profit of an integrated enterprise would be $49.5^2$.}
+
+Justification:
+
+The integrated enterprise need only specify a price for the public considering its constant marginal cost.
+
+The profit of integrated enterprise is:
+
+\[ \Pi=(p-1)(100-p)=101p-p^2-100 \]
+
+Maximizing this by choosing $p$ yields first-order conditions:
+
+\[ \frac{d \Pi}{d p}=100-2p+1=0 \Rightarrow p=\frac{101}2=50.5 \]
+
+Thus, $\Pi=(p-1)(100-p)=49.5^2$.
+
+\item\underline{Consumers would be better off if there is integration, since consumer surplus would be larger.}
+
+Justification:
+
+Consumer surplus under integration is $\frac{1}{2}(100-p^{int})q^{int}=\frac{1}{2}49.5^2=1225.1$.
+
+If we compare this surplus with the one calculated in part 4, we can see that consumers are better off when there is integration. 
+\end{enumerate}
+
+\end{solution}
+
 \section*{e-Book Publishing}
 Suppose you are a publisher of e-books and sell through Amazon. You can choose one of two pricing policies. The first is the wholesale model. You charge Amazon a wholesale price, $w$, for each e-book, and Amazon in turn is free to set the price downstream. The second is the agency model. Amazon is free to to set the price downstream, however they must give you a share $s$ of the revenue from any sale (so if the revenue is \yuan500, you get $500s$. Under which policy is the price of e-books to consumers lower? Assume that marginal cost of an e-book is zero to you the publisher and that Amazon incurs no other costs beyond what it has to pay you, and that demand downstream is given by $D = A - p$.
+
+\begin{solution}
+\underline{The price of ebooks to consumers is lower under the agency model.}
+
+Justification:
+
+Under agency, Amazon sets the price to maximize revenue. Under wholesale, if the wholesale price is positive, Amzon sets price to maximize profit which must be strictly larger than the revenue maximizing price.
+
+Concretely, Amazon solves:
+
+\[ \Max_p \left\{ (p-w)(A-p) \right\} =\Max_p \left\{ Ap-p^2-Aw+wp \right\} \]
+
+This has first-order conditions:
+
+\[ A-2p+w=0 \Rightarrow p=\frac{A+w}{2} \]
+
+Now, given this price, the publisher has to choose $w$ to maximize its profit, which is $w*D$. The publisher solves:
+
+\[ \Max_w \left\{ w\frac{A-w}{2} \right\} =\Max_w \left\{ \frac{Aw-w^2}{2} \right\} \]
+
+Which has first-order conditions:
+
+\[ \frac{A-2w}{2}=0 \Rightarrow A=2w \Rightarrow w^{*}=\frac{A}{2}. \]
+
+Substituting the optimal $w$ into Amazon's optimal price function:
+
+\[ p=\frac{A+w}{2}=\frac{A+\frac{A}{2}}{2}=\frac34 A \]
+
+So the price under the wholesale model is $p^{wholesale}=\frac34 A$.
+
+Now, we consider the agency model.
+
+Here, Amazon solves
+
+\[ \Max_p \left\{ (1-s)(pD) \right\} = \Max_p \left\{ (1-s)p(A-p) \right\} = \Max_p \left\{(1-s)(Ap-p^2) \right\} \]
+
+With first-order conditions:
+
+\[ (1-s)(A-2p)=0 \Rightarrow A=2p \Rightarrow p^{agency}=A/2 \]
+
+
+Since $p^{wholesale}=\frac34 A > \frac12 A=p^{agency}$ whenever $A>0$, the price of e-books in the agency model is lower.
+\end{solution}
 
 \end{document}
