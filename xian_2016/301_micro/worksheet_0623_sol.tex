@@ -1,0 +1,292 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+% // For using \textyen to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Monopoly II}
+
+\date{June 23, 2016}
+
+\maketitle
+
+\section*{Magazine Pricing}
+You are asked to help in setting the subscription rates of a monthly gym supplies magazine. As expected, the major component of cost is fixed or sunk, so we ignore it in what follows.
+
+Variable costs including printing, shipping, and mailing comes to \yuan150 per year per subscriber. The publisher has an extensive data set suggesting that annual magazine subscription demand is: $D = 600 - p$ (\textcolor{red}{Note: There was a typo in the sheet where $D$ was given as $100 - p$}). Here $p$ is the price of an annual subscription. Note that $p \geq 0$, i.e., you cannot pay people to take a subscription -- have some pride in your magazine's contents!
+
+\begin{enumerate}
+\item Write down an algebraic expression for total profit to the publisher as a function of $p$. 
+\item Compute the profit-maximizing choice of $p$.
+\item Suppose the magazine has another source of revenue: advertising. Suppose for simplicity that consumers do not care about the amount of advertising contained in each issue, but that advertisers care about the number of subscribers. For every subscription purchased, the magazine gets \yuan120 in advertising revenue. Taking into account the revenue from advertising, should the publisher lower or raise its annual subscription price $p$? What should the new profit-maximizing level of of $p$ be?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item
+Answer: $\Pi = (p-150)(600-p)$
+
+\item
+Answer: $p^{*} = 375$
+
+Justification: Profit is a quadratic function with zeroes at $p = 150$ and $p = 600$, so the maximum is halfway in-between, namely at $p^{*} = 375$
+ 
+\item
+Answer: $\tilde{p}^{*} = 315$ 
+
+Justification: The \yuan120 in revenue per copy makes the profit function become:
+
+\[ \tilde{\Pi} = (p-150+120)(100-p) = (p-30)(100-p) \].
+
+Repeating the quadratic argument yields $\tilde{p}^{*} = 315$.
+\end{enumerate}
+
+\end{solution}
+
+
+\section*{Cost Functions from Scratch}
+Suppose the production of hotpot requires two inputs, beef and chili peppers. If $x$ kilograms of beef are combined with $y$ chili peppers, the total output of hotpots is denoted $f(x,y)$ and equal to $x^\frac12 y^\frac12$. 
+
+\begin{enumerate}
+\item Suppose a kilogram of beef costs \yuan1 and a chili pepper costs \yuan2. What is the minimum-cost combination of the two products needed to produce 1 hotpot? That is, what combination of $x$ kilos of beef and $y$ chili peppers that produces exactly one hotpot costs the least?
+\item Suppose a kilogram of beef costs \yuan1 and a chili pepper costs \yuan2. What is the minimum-cost combination of the two products needed to produce $q$ hotpots? Your answer will be a function of $q$, which of course is the \textbf{cost function}.
+\item Does the cost function for the production of hotpots exhibit decreasing returns to scale? Explain.
+\item Suppose a kilogram of beef costs \yuan1 and a chili pepper costs \yuan2. The demand for hotpots as a function of its unit price $p$, is $100-p$. What combination of the two products should be purchased to maximize profit?
+\item Suppose a kilogram of beef costs \yuan $w_1$ and a chili pepper costs \yuan $w_2$. What is the minimum-cost combination of the two products needed to produce 1 hotpot? Your answer will be a function of $w_1$ and $w_2$.
+\item Suppose a kilogram of beef costs \yuan $w_1$ and a chili pepper costs \yuan $w_2$. What is the minimum-cost combination of the two products needed to produce $q$ hotpots? Your answer will be a function of $q$, $w_1$ and $w_2$.
+\item Use the cost function you derived in part (6) to determine what happens to the quantity of chili peppers consumed in production as the cost of beef increases, holding the quantity of hotpots produced fixed.
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item\underline{$x=\sqrt{2}$, $y=\frac{1}{\sqrt{2}}$, which means that the total cost is $2\sqrt{2}$.}
+
+Justification:
+
+First, total cost will be $x+2y$. We need to choose $x$ and $y$ to generate 1 unit of output, so $x^\frac12 y^\frac12 = 1$. Therefore, the firm must solve:
+
+\[ \min \left\{ x + 2y \right\} \]
+
+\[ \st x^\frac12 y^\frac12 = 1. \]
+
+We use Lagrange's method.
+
+\[ L = x+2y + \lambda\left( 1-x^\frac12 y^\frac12 \right) \]
+
+\[ \frac{\partial L}{\partial x}=1-\lambda\frac12\left( \frac{y}{x} \right)^\frac12=0 \]
+
+\[ \frac{\partial L}{\partial y}=1-\lambda\frac12\left( \frac{x}{y} \right)^\frac12=0 \]
+
+\[ \Rightarrow \frac12=\frac{y}{x} \Rightarrow x=2y. \]
+
+Using $x^\frac12 y^\frac12=1$, we get $(2y)^\frac12 y^\frac12 =1 \Rightarrow  \sqrt{2}y=1 \Rightarrow  y=\frac{1}{\sqrt{2}} \Rightarrow x=\sqrt{2}$.
+
+Evaluating the cost function at these quantities gives:
+
+\[ \sqrt{2}+2\frac{1}{\sqrt{2}}=2\sqrt{2} \]
+
+\item\underline{$x=\sqrt{2}q$, $y=\frac{q}{\sqrt{2}}$, which means that the cost function is $2\sqrt{2}q$.}
+
+Justification:
+
+Following the same reasoning as in part 1,
+
+\[ L=x+2y+\lambda \left( q-x^\frac12 y^\frac12 \right) \]
+
+\[ \frac{\partial L}{\partial x}=1-\lambda\frac12\left( \frac{y}{x} \right)^\frac12=0 \]
+
+\[ \frac{\partial L}{\partial y}=1-\lambda\frac12\left( \frac{x}{y} \right)^\frac12=0 \]
+
+\[ \Rightarrow \frac12=\frac{y}{x} \Rightarrow x=2y. \]
+
+Using $x^\frac12 y^\frac12=q$, we get $(2y)^\frac12 y^\frac12 =q \Rightarrow  \sqrt{2}y=q \Rightarrow  y=\frac{q}{\sqrt{2}} \Rightarrow x=\sqrt{2}q$.
+
+The cost function is therefore $\sqrt{2}q+2\frac{q}{\sqrt{2}}=2\sqrt{2}q$. 
+
+\item\underline{No. The cost function exhibits constant returns to scale.}
+
+Justification:
+
+The cost function is $C(q) =2\sqrt{2}q$. 
+
+Taking the first derivative, we get  $\frac{d C}{d q}=2\sqrt{2}.$
+
+Taking the second derivative, we get  $\frac{d^2 C}{d q^2}=0$.
+
+Therefore, the marginal cost is constant, so the returns to scale will also be constant.
+
+\item\underline{$x^{*}=\sqrt{2}(50-\sqrt{2})$ and $y^{*}=\frac{50-\sqrt{2}}{\sqrt{2}}$}
+
+Justification:
+
+The profit of the monopolist is $\Pi=(p-2\sqrt{2})(100-p)=100p-p^2-200\sqrt{2}+2\sqrt{2}p$
+
+Maximizing this with respect to $p$ yields the first-order conditions:
+
+\[ 100+2\sqrt{2}-2p=0 \Rightarrow 50+\sqrt{2}=p^{*} \]
+
+The second derivative is negative, so this must be a maximum.
+
+The profit-maximizing quantity, $q$, is then $100-50-\sqrt{2}=50-\sqrt{2}$.
+
+Finally, using the answer from part 3, $x^{*}=\sqrt{2}(50-\sqrt{2})$, and $y^{*}=\frac{50-\sqrt{2}}{\sqrt{2}}$.
+
+\item\underline{ $x=\sqrt{\frac{w_2}{w_1}}, y=\sqrt{\frac{w_1}{w_2}}$, so the cost function is $2w_1^\frac12 w_2^\frac12. $}
+
+Justification:
+
+We set up the Lagrangean:
+
+\[ L=w_1 x+w_2 y+\lambda\left( 1-x^\frac12 y^\frac12 \right) \]
+
+\[ \frac{\partial L}{\partial x}=w_1-\lambda\frac12\left( \frac{y}{x} \right)^\frac12=0 \]
+
+\[ \frac{\partial L}{\partial y}=w_2-\lambda\frac12\left( \frac{x}{y} \right)^\frac12=0 \]
+
+\[ \Rightarrow \frac{w_1}{w_2}=\frac{y}{x} \Rightarrow \frac{w_1}{w_2}x=y. \]
+
+Using $x^\frac12 y^\frac12=1$, we get $x^\frac12\left( \frac{w_1}{w_2}x \right)^\frac12=1 \Rightarrow  \sqrt{\frac{w_1}{w_2}}x=1 \Rightarrow  x=\sqrt{\frac{w_2}{w_1}}$.
+
+Since $y=\frac{w_1}{w_2}x$, $y=\sqrt{\frac{w_1}{w_2}}$.
+
+The cost function is therefore:
+
+\begin{align*}
+C(w_1, w_2) &= w_1x^{*}+w_2y^{*} \\
+ &= w_1\left( \frac{w_2}{w_1} \right)^{1/2}+w_2\left( \frac{w_1}{w_2} \right)^{1/2} \\
+ &= 2w_1^{1/2}w_2^{1/2}.\\ 
+\end{align*}
+
+\item\underline{ $x=q\sqrt{\frac{w_2}{w_1}}, y=q\sqrt{\frac{w_1}{w_2}}$, so the cost function is $2qw_1^{1/2}w_2^{1/2}. $}\\
+
+Justification:
+
+We set up the Lagrangean:
+
+\[ L=w_1x+w_2y+\lambda\left( q-x^\frac12 y^\frac12 \right) \]
+
+\[ \frac{\partial L}{\partial x}=w_1-\lambda\frac12\left( \frac{y}{x} \right)^\frac12 =0 \]
+
+\[ \frac{\partial L}{\partial y}=w_2-\lambda\frac12\left( \frac{x}{y} \right)^\frac12=0 \]
+
+\[ \Rightarrow \frac{w_1}{w_2}=\frac{y}{x} \Rightarrow \frac{w_1}{w_2}x=y. \]
+
+Using $x^\frac12 y^\frac12=q$, we get $x^\frac12\left( \frac{w_1}{w_2}x \right)^\frac12=q \Rightarrow  \sqrt{\frac{w_1}{w_2}}x=q \Rightarrow  x=q\sqrt{\frac{w_2}{w_1}}$.
+
+Since $y=\frac{w_1}{w_2}x$, we get $y=q\sqrt{\frac{w_1}{w_2}}$.
+
+The cost function is therefore:
+
+\begin{align*}
+C(q; w_1, w_2) &= w_1x^{*}+w_2y^{*} \\
+ &=w_1\left( q\frac{w_2}{w_1} \right)^\frac12+w_2\left( q\frac{w_1}{w_2} \right)^\frac12 \\
+ &=2qw_1^\frac12 w_2^\frac12.\\ 
+\end{align*}
+
+\item\underline{As the cost of beef increases, the quantity of chili peppers consumed in production increases.}
+
+Justification:
+
+We are effectively asked for $\frac{\partial y}{\partial w_1}$.
+
+\[ \frac{\partial y}{\partial w_1}=\frac12 q\left( \frac{w_1}{w_2} \right)^{-\frac12}\frac{1}{w_2}=\frac{q}{2w_1^\frac12 w_2^\frac12 } \]
+
+Since $q$, $w_1$ and $w_2>0$, this term is positive, so $\frac{\partial y}{\partial w_1}>0$.
+\end{enumerate}
+
+\end{solution}
+
+\section*{Surplus Maximizing}
+A zeng'gao-producing monopolist faces an inverse demand curve $p = 100 -2q$ where $p$ is the unit price of zeng'gao and $q$ the quantity demanded. The monopolist has constant marginal costs of \yuan3 a unit.
+\begin{enumerate}
+\item What is the monopolist's profit maximizing choice of $q$ and $p$?
+\item What is its maximum profit?
+\item What is the consumer surplus at the monopolist's profit-maximizing level of output?
+\item Let $S(p)$ be total consumer surplus at price $p$. Write down an expression for $S(p)$ in terms of $p$.
+\item What choice of $p$ (no less than \yuan3) will maximize $S(p)$?
+\item Let $\Pi(p)$ denote the profit of the monopolist at price $p$ (also called \textbf{producer surplus}). What choice of $p$ will maximize $\Pi(p) + S(p)$? (\emph{Note: This choice of $p$ is in some sense considered the \textbf{socially optimal} price. If we weigh the well-being of producers and of consumers equally, this will maximize the total ``happiness'' experienced by both parties})
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item\underline{$p^{*}=\frac{103}{2}$ and $q^{*}=\frac{97}{4}$.}
+
+Justification:
+
+We first derive the demand curve from the inverse demand $q=\frac{100-p}{2}=50-\frac{p}{2}$.
+
+The monopolist solves the maximization problem:
+
+\[ \Max_{p} \left\{ (p-3)(50-\frac{p}{2}) \right\} \]
+
+Which generates first-order conditions:
+
+\[ \frac{d \Pi}{d p}=50-p+\frac{3}{2}=0 \]
+
+\[ \Rightarrow p^{*}=\frac{103}{2} \Rightarrow q^{*}=\frac{103-\frac{103}{2}}{2}=\frac{97}{4} \]
+
+Note that the second derivative is negative.
+
+\item\underline{Profit is $\frac{97^2}{8}$.}
+
+Justification:
+
+\[ \Pi=(\frac{103}{2}-3)(50-\frac{103}{4})=(\frac{103-6}{2})(\frac{200-103}{4})=\frac{97}{2}\frac{97}{4}=\frac{97^2}{8} \]
+
+\item\underline{Consumer surplus is $\frac{97^2}{16}$.}
+
+Justification:
+
+\[ CS=\frac{(100-p^{*})q^{*}}{2}=(100-\frac{103}{2})\frac{97}{4}=\frac{\frac{97}{2}\frac{97}{4}}{2}=\frac{97^2}{16} \]
+
+\item\underline{$S(p)=\frac{(100-p)(\frac{100-p}{2})}{2}=\frac{(100-p)^2}{4}$.}
+
+\item\underline{$p=3$}
+
+Justification:
+
+If we restrict attention to prices larger than 3, the expression $\frac{(100-p)^2}{4}$ is maximized when $p=3.$ Why? $S(p)$ increases as $p$ decreases.
+
+\item\underline{$p=3$}
+
+Justification:
+
+\begin{align*}
+\Pi(p)+S(p) &= \frac{(100-p)^2}{4}+(p-3)(50-\frac{p}{2}) \\
+ &=\frac{10000-200p+p^2+200p-2p^2-600+6p}{4} \\
+ &=\frac{9400-p^2+6p}{4}\\
+\end{align*}
+
+Which has first-order conditions:
+
+\[ \frac{2}{4}p=\frac{6}{4} \Rightarrow p^{*}=3 \]
+
+Another way to see this is to note that the sum of the producer and the consumer surplus is the area between the horizontal line at $p=3$ (marginal cost) and the demand curve, which is clearly maximized when $p=3$.   
+\end{enumerate}
+
+\end{solution}
+
+\end{document}
