@@ -1,0 +1,197 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+% // For using \yuan to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Monopoly III}
+
+\date{June 27, 2016}
+
+\maketitle
+
+\section*{Bundling}
+You are the monopoly seller of computers and monitors. Remarkably, the costs of production for both products are zero. You sell to a market consisting of two segments (A and B). The RP of each segment for computers and monitors are shown in the table below.
+
+\begin{table}
+\centering
+\begin{tabular} {|c|c|c|}
+\hline
+  & Computer & Monitor \\
+  \hline
+A's RP & \yuan12,000 & \yuan1200   \\
+\hline
+B's RP & \yuan9,000 & \yuan1800 \\
+\hline
+\end{tabular}
+\end{table}
+
+\emph{Note: RP means \textbf{Reservation Price}; this is the maximum willingness to pay, that is, if the price of a monitor is at most \yuan 1200, A will buy it; but if it's pricier than that, she won't.}
+
+There are an equal number in each segment. It is possible for a buyer to purchase one of the products and not the other.
+\begin{enumerate}
+\item If you were selling computers and monitors separately, what price should you charge for each to maximize revenue?
+\item If you were to bundle the computer and monitor together and sell only the bundle, what price should you set to maximize revenue?
+\item Could you generate more revenue than in parts (1) and (2) through mixed bundling?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item \yuan9000 for the computer and \yuan1200 for the monitor.
+\item \yuan1,0800 for the bundle.
+\item Mixed bundling is inferior to pure bundling.
+Why? For mixed bundling to be superior, both segments must buy and the As must pay more than they currently pay. To keep the Bs buying, price the computer at 9000 and the monitor at 1800. But then the bundle has to be priced below 1,0800. 
+\end{enumerate}
+
+\end{solution}
+
+\section*{Capacity Constraints}
+Devlin-McGregor is the monopoly seller of blood substitutes. In fact it makes two varieties. One for humans and the other for dogs.\footnote{The product for one segment cannot be used by the other segment.} The unit cost of production for each is the same, a constant \yuan2 per unit. Demand (in pints) as a function of unit price for each product is shown below:
+\\
+Human: $D(p) = 100-p$
+\\
+Dogs: $D(p) = 50-2p$
+\\
+Devlin-McGregor uses a common production facility to make both. It has the capacity to produce a total of 30 pints of blood substitute (irrespective of human or dog).
+
+\begin{enumerate}
+\item What is the profit maximizing quantity of each that Devlin-McGregor should produce?
+\item At this profit maximizing quantity is marginal revenue equal to marginal cost for each product?
+\item What is the most Devlin-McGregor should pay for an additional 10 units of capacity?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item The profit maximizing quantities are $30$ and $0$ for human and dog markets respectively.
+
+Justification:
+
+D-M's objective is:
+
+\[ \Max_{p_1,p_2} \left\{ (100-p_1)(p_1-2)+(50-2p_2)(p_2-2) \right\} \]
+
+\begin{align*}
+\st 100-p_1+50-2p_2 &\leq 30 \\
+ 0 \leq p_1 &\leq 100 \\
+ 0 \leq p_2 &\leq 25 \\
+\end{align*}
+
+The first constraint comes from capacity and the last two ensure that we do not exceed the choke price in each market.
+
+The unconstrained solution is $(p_1^{unc}, p_2^{unc}) = (51, 13.5)$ (since there are no interactions between the two markets, we simply act as monopolist in each; for example, for humans, the objective is quadratic with zeroes at $p_1 = 100$ and $p_1 = 2$, yielding a maximum at the midpoint, $p_1^{unc} = 51$, and similarly for $p_2^{unc}$), which  violates the capacity constraint. So, the capacity constraint must hold at equality. We can use it to eliminate $p_1$, say:
+
+\[ p_1=120-2p_2 \]
+
+We need to plug this into both the profit \emph{as well as} the two constraints regarding the choke price.
+
+Therefore, the original problem is equivalent (given the capacity constraint binds) to:
+
+\[ \Max_{p_2} \left\{ (100-120+2p_2)(120-2p_2-2)+(50-2p_2)(p_2-2) \right\} \]
+
+\[ \st 10 \leq p_2 \leq 25 \]
+
+Simplifying the objective yields:
+
+\[ 330p_2 -6p_2^2 - 2460 \]
+
+Which is maximized at $p_2^{unc_2} = 27.5 > 25$. So this time we violate the constraint on the positivity of price -- the monopolist wants to set $p_2$ so high that demand would become negative (which isn't allowed). The best he can do is to set the price as close as possible to this optimum, so that $p_2^{*} = 25$.
+
+From this we get $q_2^{*} = 0$ (no operations in the dog blood market), $p_1^{*} = 70$, and $q_1^{*} = 30$.
+
+\item No.
+
+Justification:
+
+Marginal revenue=marginal cost if and only if the prices are the unconstrained maximizers. In the question above, the constrained maximizers do not coincide with the unconstrained maximizers.
+
+Specifically, in the dog blood substitutes market, since revenue as a function of quantity is given by:
+
+\[ R_2(q_2) = (25 - \frac12 q_2)q_2, \]
+
+marginal revenue is given by $MR(q_2) = 25 - q_2$, which gives us $MR(0) = 25 > 2 = MC(0)$ at the constrained optimum quantity of 0.
+
+In the human blood substitutes market:
+
+\[ R_1(q_1) = (100 - q_1)q_1 \Rightarrow R_1'(q_1) = 100 - 2q_1 \]
+
+So we have $MR(30) = 40 > 2 = MC(30)$. In both markets, the unconstrained optimum is higher.
+
+\item The amount is \yuan246.67.
+
+Justification:
+
+When capacity is 40 pints, the monopolist solves the following problem:
+
+\[ \Max_{p_1,p_2} \left\{ (100-p_1)(p_1-2)+(50-2p_2)(p_2-2) \right\} \]
+
+\begin{align*}
+\st 100-p_1+50-2p_2 &\leq 40 \\
+ 0\leq p_1 &\leq 100 \\
+ 0\leq p_2 &\leq 25 \\
+\end{align*}
+
+We know that the capacity constraint still binds (since nothing has changed about the market demand), so this can be reduced by substituting the capacity constraint at equality as above to:
+
+\[ \Max_{p_2} \left\{ (100-110+2p_2)(110-2p_2-2)+(50-2p_2)(p_2-2) \right\} \]
+
+\[ \st 5\leq p_2 \leq 25 \]
+
+The solution we get this time is $p_2^{*} = \frac{145}6$, which is less than $25$, so the quantity non-negativity constraint no longer binds. In turn this leads to $p_1^{*} = 110 - \frac{145}3 = \frac{185}3$.
+
+To better illustrate what's going on, consider the following graph which encapsulates the problem:
+
+\includegraphics[width = .8\textwidth]{worksheet_0627_2_graph.png}
+
+Maximum profit when capacity is 30 pints: $$(100-70)\times(70-2)+(50-2\times 25)\times(25-2)=2040$$
+Maximum profit when capacity is 40 pints: $$(100-185/3)\times(185/3-2)+(50-2\times145/6)\times(145/6-2)=2324.167$$
+Therefore, the monopolist is willing to pay 2324.167-2040=284.167 for the increase in capacity.
+\end{enumerate}
+\end{solution}
+
+
+\section*{Oligopoly and Game Theory}
+
+Firms Yin (Y) and Yang (R) are the duopoly producers of roast duck in Beijing. The two firms choose a quantity of ducks to produce, and the resulting inverse demand for roast duck in this market is given by:
+
+\[ p = 600 - q_Y - q_R \]
+
+Thus, if Yin chooses to produce 30 ducks and Yang chooses to produce 150, the resulting market price will be 420.
+
+Production costs are (let's say for simplicity) 0.
+
+\begin{enumerate}
+\item Yang, through a devious feat of espionage, has discovered that Yin plans to produce 100 ducks this season. How many ducks will Yang produce as a result? Who makes more money?
+
+\item Yin learns of Yang's deceit and beefs up his security protocols for the following season, and also manages to torture one of Yang's employees into confessing that Yang will be continue making the number of ducks from Part (1) this season. How many ducks will Yin produce as a result? Who makes more money?
+
+\item In the ever-evolving world of industrial espionage, the tables can turn quickly. The third year once again sees Yang with the upper hand of inside knowledge; he keeps his production plans a secret and wrests the crucial information from Yin. Yin plans to produce the same number of ducks that he produced in (2). What will Yang do?
+
+\item Find the pair of quantities which stabilizes this back-and-forth game between the duck producers and neutralizes the need to hire ever-more-sophisticated (and ever-more-expensive) hackers and spies. This pair $(q_Y^{*}, q_R^{*})$ should be such that, if Yin chooses $q_Y^{*}$, Yang will naturally choose $q_R^{*}$, and if Yang chooses $q_Y^{*}$, Yin will naturally choose $q_Y^{*}$ (by choose naturally, we mean that it is in their best interest to do so, i.e., that this choice will maximize their profits).
+
+\item In the days before Yin came to town, Yang was the monopoly producer of roast ducks. The citizens' preferences were the same back then, so inverse demand was the same; what quantity did Yang choose then, and how did the emerging price compare to the equilibrium price that emerged in Part (4) from duopoly? Did Yang's profits go up or down?
+\end{enumerate}
+
+\end{document}
