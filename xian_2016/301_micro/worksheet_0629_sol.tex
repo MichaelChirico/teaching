@@ -1,0 +1,189 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+
+% // For using \textyen to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Oligopoly \& Game Theory II}
+
+\date{June 29, 2016}
+
+\maketitle
+
+\section*{Profit Sharing Oligopoly}
+Two firms are competing in a market. Firm 1 and Firm 2 simultaneously announce quantities, $q_{1}$ and $q_{2}$. The price charged in the market is given by $p = 1- \frac{q_{1}}{2} - \frac{q_{2}}{4}$. Both Firm 1 and Firm 2 have 0 marginal cost of production.
+
+\begin{enumerate}
+\item What is Firm 1's reaction function?
+\item What is Firm 2's reaction function (note, that it is not the same as Firm 1's)?
+\item What is the equilibrium price and equilibrium quantities?
+\item Firm 1 and Firm 2 enter into a profit sharing agreement where each receives 25\% of the other firm's profits. Firm 1 and Firm 2 independently decide on $q_1$ and $q_2$.\footnote{One way this can happen is when competitors buy shares in each others' companies.} Given this arrangement, write down each of the two firms' profit functions.
+\item What are the equilibrium quantities and price? Are consumers better or worse off as compared with part (3)?
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item[1. \& 2.] $q_{1} = 1 - \frac{q_{2}}{4}$ and $q_{2} = 2 - q_{1}$
+
+To derive the two reaction functions, we begin with the two firms profit functions and then differentiate:
+\begin{equation*}
+\begin{aligned}
+\pi_{1} &= q_{1}(1-\frac{q_{1}}{2}-\frac{q_{2}}{4}) \\
+\frac{d \pi_{1}}{d q_{1}} &= 1-q_{1}-\frac{q_{2}}{4} = 0 \\
+q^{*}_{1}(q_{2}) &= 1 - \frac{q_{2}}{4} \\
+\end{aligned}
+\hspace{.5in}
+\begin{aligned}
+\pi_{2} &= q_{2}(1-\frac{q_{1}}{2} - \frac{q_{2}}{4}) \\
+\frac{d \pi_{2}}{d q_{2}} &= 1-\frac{q_{1}}{2}-\frac{q_{2}}{2} = 0 \\
+q^{*}_{2}(q_{1})&= 2 - q_{1} 
+\end{aligned}
+\end{equation*}
+
+\item[3.] $q_{1} = \frac{2}{3}$, $q_{2} = \frac{4}{3}$, and $p=\frac{1}{3}$ 
+
+To solve for the equilibrium, we substitute $q^{*}_{1}(q^{*}_{2}(q_{1}))$ and $q^{*}_{2}(q^{*}_{1}(q_{2}))$:
+
+\begin{equation*}
+\begin{aligned}
+q_{1} &= 1 - \frac{q_{2}}{4}\\
+q_{1} &= 1 - \frac{2 - q_{1}}{4} - c_{1} \\
+4q_{1} &= 4-2+q_{1} \\
+3q_{1} &= 2 \\
+q_{1}^{*} &= \frac{2}{3}
+\end{aligned}
+\hspace{.5in}
+\begin{aligned}
+q_{2} &= 2 - q_{1}\\
+q_{2} &= 2 - (1 - \frac{q_{2}}{4})  \\
+q_{2} &= 1 + \frac{q_{2}}{4} \\ 
+\frac{3q_{2}}{4} &= 1\\
+q_{2}^{*} &= \frac{4}{3}
+\end{aligned}
+\end{equation*}
+
+\item[4.] $\pi_{1} = \frac{3q_{1}}{4}(1-\frac{q_{1}}{2}-\frac{q_{2}}{4}) + \frac{q_{2}}{4}(1-\frac{q_{1}}{2} - \frac{q_{2}}{4})$  and 
+\\
+$\pi_{2} = \frac{q_{1}}{4}(1-\frac{q_{1}}{2}-\frac{q_{2}}{4}) + \frac{3q_{2}}{4}(1-\frac{q_{1}}{2} - \frac{q_{2}}{4} )$
+\\
+
+\item[5.] The equilibrium price and quantities are: $p=\frac{16}{37}$, $q_{1} = \frac{12}{37}$, and $q_{2} = \frac{60}{37}$. Consumers are worse off as compared to (3).
+
+To derive the two response functions, we begin with the two firms profit functions and then differentiate:
+\begin{equation*}
+\begin{aligned}
+\pi_{1} =& \frac{3q_{1}}{4}(1-\frac{q_{1}}{2}-\frac{q_{2}}{4}) \\ &+ \frac{q_{2}}{4}(1-\frac{q_{1}}{2} - \frac{q_{2}}{4} ) \\
+\frac{d \pi_{1}}{d q_{1}} =& \frac{3}{4}(1-q_{1}-\frac{q_{2}}{4}) - \frac{q_{2}}{8} = 0 \\
+=& 1 - q_{1} - \frac{5q_{2}}{12} = 0 \\
+q^{*}_{1}(q_{2}) =& 1 - \frac{5q_{2}}{12} \\
+\end{aligned}
+\hspace{.5in}
+\begin{aligned}
+\pi_{2} =& \frac{q_{1}}{4}(1-\frac{q_{1}}{2}-\frac{q_{2}}{4}) \\
+&+ \frac{3q_{2}}{4}(1-\frac{q_{1}}{2} - \frac{3q_{2}}{4} ) \\
+\frac{d \pi_{2}}{d q_{2}} =& \frac{3}{4}(1-\frac{q_{1}}{2}- \frac{q_{2}}{2}) - \frac{q_{1}}{16} = 0\\
+=& 2 - q_{1} - q_{2} -  \frac{q_{1}}{6} = 0\\
+q^{*}_{2}(q_{1}) =&  \frac{7}{3} - \frac{7q_{1}}{6} \\
+\end{aligned}
+\end{equation*}
+
+We then substitute into to find the equilibrium:
+\begin{equation*}
+\begin{aligned}
+q_{1} =& 1 - \frac{5q_{2}}{12} \\
+q_{1} =& 1 - \frac{5}{12}(2 - \frac{7q_{1}}{6}) \\
+q_{1} =& 1 - \frac{5}{6} + \frac{35q_{1}}{72} \\
+q_{1} =& \frac{12}{37} \\
+\end{aligned}
+\hspace{.5in}
+\begin{aligned}
+q_{2} =& \frac{7}{3} - \frac{7q_{1}}{6} \\
+q_{2} =& \frac{7}{3} - \frac{7}{6}(1 - \frac{5q_{2}}{12}) \\
+q_{2} =& \frac{7}{6} + \frac{35q_{2}}{72} \\
+q_{2} =& \frac{60}{37} \\
+\end{aligned}
+\end{equation*}
+
+This gives the equilibrium price to be $p = 1 - \frac{12}{2\times 37} - \frac{60}{4 \times 37}=\frac{16}{37}$.
+
+Now, since the price is higher and less is sold, the consumer surplus falls, and we know consumers are worse off as compared to (3).
+\end{enumerate}
+\end{solution}
+
+\section*{Question 4 (8 points)}
+Firm 1 has cost function $C_1 (q) = 3 q + q^2$ where $q$ is the quantity of its output.
+
+Firm 2, a more efficient firm, has a cost function $C_2 (q) = q^2$.
+
+\begin{enumerate}
+\item Suppose that each firm can sell all of its output for $p$ per unit. What is the profit-maximizing quantity that Firm 1 will choose (as a function of $p$)? Note that no firm can be compelled to supply if it would lose money.
+\item Suppose that each firm can sell all of its output for $p$ per unit. What is the profit-maximizing quantity that Firm 2 will choose (as a function of $p$)? Note that no firm can be compelled to supply if it would lose money.
+\item For a given price $p$, what is the total supply for the industry as a whole?
+\item Suppose that the market demand is $D = 2-p$. Find the price which clears the market.  How many firms produce at the market clearing price?
+\item Now suppose that there is an increase in demand and after the increases, $D = 6.5 - p$. Find the new equilibrium price and quantity sold. Do both firms produce now?
+\item What profits do each firm make at the market-clearing price when demand is $D = 6.5 - p$?
+\item Suppose a third firm, Firm 3, with the same cost function as Firm 2  is considering entering the market. Only Firm 1 and Firm 2 have a license to operate in this market. Firm 1 is considering selling its license to Firm 3. Suppose Firm 1 can make a take-it-or-leave-it offer to Firm 3, at what price should it offer the license?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item Both firms maximize profits: $\max_{q \geq 0} p q - C(q)$.\\ \\
+For firm 1, the FOC are $p = 3 + 2 q$ which implies that $q = \frac{p-3}{2}$. Notice this term is negative when $p < 3$, which cannot be. Thus, when the per unit price falls below 3, firm 1 will choose not to supply, i.e., choose $q= 0$.
+\begin{align*}
+q_1^* 
+=& \begin{cases} 
+\frac{p-3}{2} \text{ if } p \geq 3\\
+0 \, \, \, \text{ else}
+\end{cases}
+\end{align*}
+
+\item For firm 2, the FOC are $p = 2q$ so that $q_2^* = \frac{p}{2}$.\\ \\
+At any given price, firm 2 always produces more than firm 1 since it has lower
+marginal cost.
+
+\item 
+\begin{align*}
+S(p) = q_1^* + q_2^* 
+=& \begin{cases} 
+p - \frac{3}{2} \text{ if } p \geq 3\\
+\frac{p}{2} \, \, \, \text{ else}
+\end{cases}
+\end{align*}
+
+\item With this market demand the equilibrium price cannot be greater than 2. \\ 
+Therefore, only firm 2 is going to produce and $S(p) = \frac{p}{2}$.\\ Equalizing demand and supply, we get $2-p = \frac{p}{2}$ $\Rightarrow$ $p^* = \frac{4}{3}$ and the market clearing quantity is  $\frac{2}{3}$.
+
+\item At the new market demand, both firms may be willing to produce. \\
+At $p=3$ (the cutoff price for having both firms producing), $D(3) = 3.5 > \frac{3}{2} = S(3)$ and there is excess demand. Therefore, in equilibrium, both firms produce. \\
+Equalizing demand and supply, we get $6.5-p =p- \frac{3}{2}$ $\Rightarrow$ $p^* = 4$ and $Q^* =2.5$.
+
+\item Firm 1 is producing $q_1 = \frac{4-3}{2}= 0.5$, while firm 2 is producing $q_2 = \frac{4}{2} = 2$.\\ \\
+Profits of firm 1: $\Pi_1 = 4*0.5 - 3*0.5 -0.5^2$ = 0.25 \\
+Profits of firm 2: $\Pi_2 = 4*2  -2^2$ = 4 \\
+
+Firms are not making 0 profits because we are in the short run, where no entry can occur so the industry can have positive profits.
+\end{enumerate}
+
+\end{solution}
+
+\end{document}
