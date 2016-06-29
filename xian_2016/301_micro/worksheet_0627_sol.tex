@@ -139,7 +139,7 @@ In the human blood substitutes market:
 
 So we have $MR(30) = 40 > 2 = MC(30)$. In both markets, the unconstrained optimum is higher.
 
-\item The amount is \yuan246.67.
+\item The amount is \yuan284.17.
 
 Justification:
 
@@ -165,12 +165,46 @@ To better illustrate what's going on, consider the following graph which encapsu
 
 \includegraphics[width = .8\textwidth]{worksheet_0627_2_graph.png}
 
-Maximum profit when capacity is 30 pints: $$(100-70)\times(70-2)+(50-2\times 25)\times(25-2)=2040$$
-Maximum profit when capacity is 40 pints: $$(100-185/3)\times(185/3-2)+(50-2\times145/6)\times(145/6-2)=2324.167$$
-Therefore, the monopolist is willing to pay 2324.167-2040=284.167 for the increase in capacity.
-\end{enumerate}
-\end{solution}
+Point $A$ is the unconstrained optimum -- it's the pair of prices that would be chosen if the monopolist's factory was of infinite size.
 
+The angled red-dashed lines represent the capacity constraint at various factory sizes. The perpendicular red-dashed lines are the maximum prices for each market.
+
+The light blue-shaded triangle is the monopolist's choice set when his factory has maximum production 30 -- it represents all pairs of prices which satisfy his 3 constraints.
+
+The blue-dashed ovals represent isoprofit curves -- any pair of prices along a given oval will generate the same profit for the monopolist. Profit increases the closer the ovals get to the center at point $A$.
+
+Therefore, in order to maximize his profit when the capacity constraint binds, the monopolist chooses a bundle on the isoprofit curve which gets closest to point A. By the typical reasoning of constrained optimization, we know it's the case that this isoprofit curve will be \emph{tangent to the capacity constraint}.
+
+For the original capacity of 30 units, this is represented by point $C$ -- recall from above that this corresponded to $p_2 = \frac{55}2$.
+
+Unfortunately for the monopolist, this point of tangency lies outside of his choice set (the shaded triangle), so his best bet is to choose the pair of prices \emph{within} his choice set that \emph{comes closest} to point $C$.
+
+The point in the shaded triangle that comes closest to point $C$ is point $D$ -- corresponding to $p_2 = 25$ and $p_1 = 70$, as we found above. 
+
+Repeating the above process, going from the graph alone, we can find the monopolist's optimum for any factory size by doing the following:
+
+\begin{enumerate}
+\item Check if the capacity constraint binds (this is true if the factory can produce only less than 72 units); if not, we're done, otherwise move to step 2.
+\item Find an isoprofit curve which is tangent to the angled line representing the capacity constraint. If this point of tangency lies in the constraint set, we're done, otherwise move to step 3.
+\item Find the border point closest to the point of tangency found in step 2; for this problem, this will always be the upper-left vertex of the triangle.
+\end{enumerate}
+
+Point B represents the result of this process when the monopolist's factory can produce 40 units. This time, the point of tangency is within the constraint set, so we stop at step 2. 
+
+See the course page for an animate version of this process where we can see what happens as the factory increases in size.
+
+Moving on to the problem at hand, the monopolist's profit at his preferred pair of prices if he upgrades his factory will be:
+
+\[ \Pi(\frac{185}3, \frac{145}6) = (100-\frac{185}3)\times(\frac{185}3-2)+(50-2\times\frac{145}6)\times(\frac{145}6-2) \approx 2324.17 \]
+
+This is compared to his profit at his current capacity:
+
+\[ \Pi(70, 25) = (100-70)\times(70-2)+(50-2\times 25)\times(25-2)=2040 \]
+
+Therefore, the monopolist is willing to pay as much as $2324.17-2040=284.17$ for the increase in capacity.
+\end{enumerate}
+
+\end{solution}
 
 \section*{Oligopoly and Game Theory}
 
@@ -193,5 +227,40 @@ Production costs are (let's say for simplicity) 0.
 
 \item In the days before Yin came to town, Yang was the monopoly producer of roast ducks. The citizens' preferences were the same back then, so inverse demand was the same; what quantity did Yang choose then, and how did the emerging price compare to the equilibrium price that emerged in Part (4) from duopoly? Did Yang's profits go up or down?
 \end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item Given that Yin produces 100, the residual inverse demand is $p = 500 - q_R$. Given this, Yang will choose:
+
+\[ \Max_{q_R} \left\{ q_R (500 - q_R) \right\} \]
+
+This has optimum $q_R = 250$; the resulting price is $250$.
+
+Thus Yang makes $6,2500$ and Yin makes $2,5000$; Yang makes more.
+
+\item Now the residual inverse demand is $p = 350 - q_Y$. Yin will choose:
+
+\[ \Max_{q_Y} \left\{ q_Y (350 - q_Y) \right\} \]
+
+This has optimum $q_Y = 175$; the resulting price is $175$.
+
+Yang makes $4,3750$ and Yin makes $3,0625$; Yang makes more, but the difference between them has shrunk by 50\%.
+
+\item Now the residual inverse demand is $p = 425 - q_R$. Yang will choose:
+
+\[ \Max_{q_R} \left\{ q_R (425 - q_R) \right\} \]
+
+This has optimum $q_R = 212.5$; the resulting price is $212.5$.
+
+Yang makes $4,5156.25$ and Yin makes $3,7187.5$; Yang still makes more, but the difference between them has again shrunk by 50\%.
+
+\item This back-and-forth will continue forever, but we can see that the quantities appear to be stabilizing somewhat. 
+
+They will only fully stabilize when Yang's reaction to Yin's reaction to Yang's choice is unchanged.
+
+The proper tool for analyzing this problem is to consider each duopolist's \textbf{reaction function} to the other's quantity choice. 
+\end{enumerate}
+
+\end{solution}
 
 \end{document}

@@ -1,0 +1,278 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+\newcommand{\st}{\hbox{ s.t. }}
+
+% // For using \textyen to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\newenvironment{solution}{\color{red}}{\color{black}}
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Oligopoly \& Game Theory}
+
+\date{June 28, 2016}
+
+\maketitle
+
+\section*{Triopoly \& Firm Agglomeration}
+
+There are three firms producing Valyrian steel swords. Each firm has constant marginal costs of production of $c$. Each firm $i$ simultaneously chooses a quantity $q_i$. The market price, $p$ per sword is determined by $q_1, q_2, q_3$ using the following inverse demand curve:
+
+\[ p = \Max \{1 - q_1-q_2-q_3, 0\} \]
+
+\begin{enumerate}
+\item Fix the quantities chosen by firms 2 and 3 at $q_2$ and $q_3$ respectively. Compute firm 1's profit maximizing quantity choice as a function of $q_2$ and $q_3$. This is firm 1's reaction function.
+\item What are the equilibrium quantities chosen by each of the firms?
+\item Firms sometimes merge for efficiency reasons. Suppose Firms 1 and 2 were to merge into a single firm. The marginal costs of production of this merged firm will be a constant $0.9c$ per unit. What are the equilibrium quantity choices of both the merged firm and firm 3?
+\item Is firm 3 made worse off by the merger of firm 1 and 2?
+\item Are consumers made worse off by the merger of firms 1 and 2?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item Holding $q_1$ and $q_2$ constant, firm 1 solves
+
+\[ \Max_{q_1} q_1\times (\Max \{1 - q_1-q_2-q_3, 0\} -c) \]
+
+Equivalently, it solves 
+
+\[ \Max_{q1} q_1(1 - q_1-q_2-q_3-c) \]
+
+\[ \st 1 - q_1-q_2-q_3 \geq 0 \]
+
+Taking FOC, we get that $1-2q_1-q_2-q_3-c=0 \Rightarrow q_1=\frac{1-q_2-q_3-c}{2}$
+
+\item With a similar argument we can get that $q_2=\frac{1-q_1-q_3-c}{2}$ and $q_3=\frac{1-q_1-q_2-c}{2}$.
+
+Therefore, by symmetry, $q_1=q_2=q_3=\frac{1-c}{4}$
+
+\item Ignoring nonnegativity constraints (and checking them later on), the merged firm now solves
+
+\[ \Max_{qm} q_m(1 - q_m-q_3-0.9c) \]
+
+Taking FOC, we get $q_m=\frac{1-q_3-0.9c}{2}$
+
+Firm 3 solves 
+
+\[ \Max_{q3} q_3(1 - q_m-q_3-c) \]
+
+Taking FOC, we get $q_3=\frac{1-q_m-c}{2}$
+
+Solving for $q_3$ and $q_m$, we get
+
+\[ q_3=\frac{1-1.1c}{3}, \qquad q_m=\frac{2-1.6c}{6} \]
+
+\item We check firm 3's profit under both scenarios.
+
+Before firms 1 and 2 merged, $p=\frac{1+3c}{4}$, and total quantity $q^T=\frac{3(1-c)}{4}$ . Thus, 
+
+\[ \Pi_3=q_3 \times (p-c)=\frac{1-c}{4} \times \left(  \frac{1+3c}{4}-c \right)= \left( \frac{1-c}{4} \right)^2 \]
+
+In the new scheme, $q_3=\frac{1-1.1c}{3}$, total quantity $q^T=\frac{2-1.9c}{3}$ and $p^M=1-q^T=\frac{1+1.9c}{3}$.
+
+Therefore, profit for firm 3 is 
+
+\[ \Pi_3=\left( \frac{1+1.9c}{3} -c \right) \times \frac{1-1.1c}{3}=\left( \frac{1-1.1c}{3} \right)^2 \]
+
+As the figure below shows, firm can be either worse off or better off when firms 1 and 2 merge depending on the value of $c$. 
+
+\includegraphics[width=0.8\textwidth]{worksheet_0628_1_graph_1.png}
+
+\item We measure consumer well-being with consumer surplus
+
+Before the merging of firms, consumer surplus was 
+
+\[ CS=\frac{1}{2}(\frac{3-3c}{4})^2 \]
+
+When firms 1 and 2 merge,
+
+\[ CS=\frac{1}{2} (\frac{2-1.9c}{3})^2 \]
+
+As the figure below shows, consumers can \emph{also} be either better or worse off with firms merging, depending on the value of $c$.
+
+\includegraphics[width=0.6\textwidth]{worksheet_0628_1_graph_2.png}
+\end{enumerate}
+
+\end{solution} 
+
+\section*{Price Discrimination}
+
+Devlin-McGregor is the monopoly seller of Provasic to a market of 100 buyers. Buyers are of two types, heavy and light, and there are an equal number of each type. The inverse demand curves are $p_H(q) = 8 - 2q$ for heavy users and $p_L(q) = 2-q$ for light users. Devlin-McGregor produces Provasic at a constant marginal cost of \yuan1 per unit.
+
+\begin{enumerate}
+\item If Devlin-McGregor could perfectly discriminate between the two types of buyers and they were restricted to setting a per-unit price, what prices should they charge each type to maximize profit?
+\item Suppose the Government were to ban such price discrimination and require Devlin-McGregor to charge all customers the same per-unit price. What price should the firm set to maximize its profit?
+\item Does consumer surplus go up or down after the ban?
+\item  Suppose the Government allowed Devlin-McGregor to set a single two-part tariff. What would the profit-maximizing two-part tariff be?
+\item Suppose the two-part tariff identified in part (4) is in place. The Government is contemplating subsidizing buyers to the tune of \yuan2 per unit of Provasic purchased. Should Devlin-McGregor adjust its two part tariff to account for this and if so, how?
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item They should charge heavy users \yuan4.50 per unit and light users \yuan1.50 per unit.
+
+Justification:
+
+Targeting the heavy user:
+
+\[ \Max_{q_H} \ (8-2q_H-1)q_H \quad \Rightarrow \quad q_H=1.75 \quad p_H=4.5 \]
+
+Targeting the light user:
+
+\[ \Max_{q_L} \ (2-q_L-1)q_L \quad \Rightarrow \quad q_L=0.5 \quad p_L=1.5 \]
+
+\item  The uniform price should be \yuan4.50. 
+
+Justification:
+
+Let's add the profits from each segment, maximize that, and see where this leads us. So, we choose a price $p$ to maximize the following:
+
+\[ (p-1)(4 - 0.5p) + (p-1)(2-p) \]
+
+Differentiating and setting to zero:
+
+ \[4 - p + 0.5 + 2 - 2p + 1 = 0\,\, \Rightarrow 7.5 - 3p = 0\,\, \Rightarrow \,\, p = 2.5 \]
+
+What's wrong? At this price, the quantity demanded by light users is negative! The choke price of light users is \yuan2. At any price higher than this, only heavy users purchase the drug. How should one handle this?
+
+You have to make a choice. Do you want to serve both segments or only the heavy users? If you want to serve both segments, you cannot set a price above \yuan2. The analysis above says that the expression $(p-1)(4 - 0.5p) + (p-1)(2-p)$ is increasing for $p \leq 2.5$. How do we know this? Because it's a concave parabola (inverse U) that peaks at $p=2.5$. OK, but if you price at $p = 2$, the light users don't buy anyway. So you might as well forget about the light users and just sell to the heavy users at the profit-maximizing price you determined in part 1.
+
+Here is a more formal way to do the same thing:
+
+Inverse demand curves for each segment are:
+
+\[ q_H=\left\{\begin{aligned}
+& 4-0.5p\  & \text{if}\ p\leq 8\\
+& 0\ & \text{o.w.}
+\end{aligned}\right. \]
+
+\[ q_L=\left\{\begin{aligned}
+& 2-p\  & \text{if}\ p\leq 2\\
+& 0\ & \text{o.w.}
+\end{aligned}\right. \]
+
+So, for $p \leq 2$, you get demand from both segments and you can add their demand curves, and for $p > 2$ you just get the heavy users. Thus, the aggregate demand curve is:
+
+\[ Q=q_H+q_L=\left\{
+\begin{aligned}
+& 6-1.5p\  & \text{if}\ p\leq 2\\
+& 4-0.5p\  & \text{if}\ 2\leq p\leq 8\\
+& 0 & \text{o.w.}
+\end{aligned}\right. \]
+
+\begin{itemize}
+\item If Devlin-McGregor sets a price $p\leq 2$, consumers of both types will buy:
+
+\[ Max \left\{ (p-1)(6-1.5p) \right\}  \qquad \st  p\leq2 \]
+
+The profit function is monotonically increasing in $p$ for $p \leq 2$, so the optimal solution is $p=2$.
+
+\item If Devlin-McGregor sets a price $2\leq p\leq 8$, only the heavy users will buy:
+
+\[ \Max \left\{ (p-1)(4-0.5p) \right\} \qquad \st 2\leq p\leq8 \]
+
+The optimal solution is interior: $p=4.5$.
+\end{itemize}
+Comparing the maximum profit attained in the two regimes above, $p=4.5$ yields higher profit. 
+
+\item Down
+
+Justification:
+
+Consumer surplus goes down after the ban because the heavy user's surplus stays the same whereas the light user's surplus drops to 0.
+
+\item  Answer: The unit price is \yuan1 and the fixed charge is \yuan12.25.
+
+Justification:
+
+Devlin-McGregor's pricing scheme is a unit price and a fixed charge $(F,p)$. Consider two choices:
+
+\begin{itemize}
+\item If Devlin-McGregor wants to attract both types, $p\leq 2$ and $F$ must be equal to the surplus of the light users:
+
+\[ \begin{aligned}F=& \int_{0}^{2-p}(2-q)dq-p(2-p)
+= 0.5(2-p)^2
+\end{aligned} \]
+
+Devlin-McGregor solves the following problem:
+
+\[ \max_p \left\{ (p-1)(6-1.5p)+2 \times 0.5(2-p)^2 \right\} \qquad \st p\leq 2 \]
+
+The quadratic is increasing on [0,2], so the solution is $p^*=2,\ F^*=0, \Pi^*=3$. But we know this is not the answer because we already showed that $p=4.5$ and $F=0$ is better.
+
+\item If Devlin-McGregor wants to attract only the heavy user, $F$ satisfies:
+
+\[ \begin{aligned}F=& \int_{0}^{4-0.5p}(8-2q)dq-p(4-0.5p)
+= 0.25(8-p)^2
+\end{aligned} \]
+
+Devlin-McGregor solves the following problem:
+
+\[ \Max_p \left\{ (p-1)(4-0.5p)+0.25(8-p)^2 \right\} \]
+
+\[ \Rightarrow p^*=1,\ F^*=12.25, \Pi^*=12.25 \]
+
+Note that when there's only one type of consumer, the monopolist sets the unit price equal to the marginal cost, and captures the rest of the surplus with the fixed fee.
+\end{itemize}
+Not surprisingly, the latter choice yields the higher profit.
+
+\item Answer: It should adjust the two-part tariff. It can do so by raising the fixed fee or simply raising the unit price by \yuan2. Either increases profit, but only the first maximizes profit.
+
+Justification:
+
+It can clearly do better by keeping $p = 1$ but raising $F$. Why? The subsidy allows the buyer to purchase more units, thereby increasing the surplus that can be captured with a higher fixed fee.
+
+FYI: The optimal combination is a  unit price of \yuan1, and fixed charge of \yuan20.25.
+
+In the presence of the subsidy, demand is changed:
+\[ \begin{aligned}	
+p_H&=8+2-2q_H  \quad \Rightarrow \quad  q_H=5-0.5p_H \\
+p_L&=2+2-q_L \ \  \quad \Rightarrow \quad q_L=4-p_L
+\end{aligned} \]
+
+Similarly to the previous question, we consider two choices:
+
+\begin{itemize}
+\item If Devlin-McGregor wants to attract both types, $p\leq 4$, and $F$ satisfies
+
+\[ F=\int_0^{4-p}(4-q-p)dq=0.5(4-p)^2 \]
+
+Devlin-McGregor solves the following problem:
+
+\[ \Max \left\{ (p-1)(5-0.5p+4-p)+2*0.5(4-p)^2 \right\} \qquad \st p\leq 4 \]
+
+It has an interior solution $p^*=2.5,\ F^*=1.125,\ \Pi^*=10.125$
+
+\item If Devlin-McGregor wants to attract only the heavy user, it can extract all consumer surplus by setting $p^*=1$, the unit cost, and 
+
+\[ F^*=\int_0^{5-0.5p^*}(10-2q-p)dq=0.25(10-p)^2=20.25 \]
+
+It's immediate that $\Pi^*=20.25$
+\end{itemize}
+
+Comparing the two choices, the latter yields higher profit.
+
+{\bf Erratum:} As some clever students discovered, the above solution is not strictly correct. Notice that the goverment offers a subsidy of \yuan2 for a product with a constant marginal cost of \yuan1. So even though marginal benefit is zero after some finite quantity, it is still profitable for both consumers and the firm to continue trading Soma. Suppose, for example, that Devlin-McGregor charges \yuan1.99 per unit. Then the firm earns a \yuan0.99 profit on every unit it sells. But consumers, who collect the subsidy from the goverment, also stand to gain \yuan0.01 for every unit exchanged, even if the drug has no actual benefit. Because this arbitrage opportunity is limitless, Soma trading will go on indefinitely and both the firm and consumers will enjoy infinite surplus. Total surplus, however will be infinitely negative on account of the goverment's exorbitant expenditures. This question should have included an  upper bound on the quantity that can be bought using the subsidy. 
+\end{enumerate}
+\end{solution}
+
+\end{document}
