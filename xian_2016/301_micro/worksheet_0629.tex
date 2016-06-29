@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\DeclareMathOperator*{\Max}{Max}
+
+% // For using \textyen to produce the yuan symbol \\
+\DeclareTextCommandDefault{\yuan}{%
+  \vphantom{Y}{\ooalign{Y\cr \hidewidth \yuanbars \hidewidth \cr}}%
+}
+
+\newcommand{\yuanbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+% \\                                               //
+
+\begin{document}
+
+\title{Intermediate Micro In-Class Problems \\ \large Oligopoly \& Game Theory II}
+
+\date{June 29, 2016}
+
+\maketitle
+
+\section*{Profit Sharing Oligopoly}
+Two firms are competing in a market. Firm 1 and Firm 2 simultaneously announce quantities, $q_{1}$ and $q_{2}$. The price charged in the market is given by $p = 1- \frac{q_{1}}{2} - \frac{q_{2}}{4}$. Both Firm 1 and Firm 2 have 0 marginal cost of production.
+
+\begin{enumerate}
+\item What is Firm 1's reaction function?
+\item What is Firm 2's reaction function (note, that it is not the same as Firm 1's)?
+\item What is the equilibrium price and equilibrium quantities?
+\item Firm 1 and Firm 2 enter into a profit sharing agreement where each receives 25\% of the other firm's profits. Firm 1 and Firm 2 independently decide on $q_1$ and $q_2$.\footnote{One way this can happen is when competitors buy shares in each others' companies.} Given this arrangement, write down each of the two firms' profit functions.
+\item What are the equilibrium quantities and price? Are consumers better or worse off as compared with part (3)?
+\end{enumerate}
+
+\section*{Question 4 (8 points)}
+Firm 1 has cost function $C_1 (q) = 3 q + q^2$ where $q$ is the quantity of its output.
+
+Firm 2, a more efficient firm, has a cost function $C_2 (q) = q^2$.
+
+\begin{enumerate}
+\item Suppose that each firm can sell all of its output for $p$ per unit. What is the profit-maximizing quantity that Firm 1 will choose (as a function of $p$)? Note that no firm can be compelled to supply if it would lose money.
+\item Suppose that each firm can sell all of its output for $p$ per unit. What is the profit-maximizing quantity that Firm 2 will choose (as a function of $p$)? Note that no firm can be compelled to supply if it would lose money.
+\item For a given price $p$, what is the total supply for the industry as a whole?
+\item Suppose that the market demand is $D = 2-p$. Find the price which clears the market.  How many firms produce at the market clearing price?
+\item Now suppose that there is an increase in demand and after the increases, $D = 6.5 - p$. Find the new equilibrium price and quantity sold. Do both firms produce now?
+\item What profits do each firm make at the market-clearing price when demand is $D = 6.5 - p$?
+\item Suppose a third firm, Firm 3, with the same cost function as Firm 2  is considering entering the market. Only Firm 1 and Firm 2 have a license to operate in this market. Firm 1 is considering selling its license to Firm 3. Suppose Firm 1 can make a take-it-or-leave-it offer to Firm 3, at what price should it offer the license?
+\end{enumerate}
+
+\end{document}

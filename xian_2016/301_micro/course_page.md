@@ -24,6 +24,8 @@ Use the Wechat group for questions.
 
 * [In-Class Worksheet: June 28, 2016](worksheet_0628.pdf)
 
+* [In-Class Worksheet: June 29, 2016](worksheet_0629.pdf)
+
 ## Quizzes/Exams
 
 * [Quiz 1 (June 6)](quiz_01.pdf) [[solutions](quiz_01_sol.pdf)]
