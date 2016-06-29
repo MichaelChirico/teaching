@@ -22,7 +22,7 @@ Use the Wechat group for questions.
 
 * [In-Class Worksheet: June 27, 2016](worksheet_0627.pdf) [[solutions](worksheet_0627_sol.pdf)] [[animation of 2nd question solution](worksheet_0627_2_gif.gif)]
 
-* [In-Class Worksheet: June 28, 2016](worksheet_0628.pdf)
+* [In-Class Worksheet: June 28, 2016](worksheet_0628.pdf) [[solutions](worksheet_0628_sol.pdf)]
 
 * [In-Class Worksheet: June 29, 2016](worksheet_0629.pdf)
 
